@@ -2,14 +2,12 @@
   <div class="container">
     <!-- 菜单 -->
     <ul class="menu">
-      <li v-for="(item, index) in list" :key="item.key" @click="key = item.key">
+      <li v-for="(item, index) in list" :key="item.key" @click="key = item.component">
         {{ item.text }}
       </li>
     </ul>
     <div class="content">
-      <!-- 滚动的表格 -->
-      <Table v-if="key === 0"></Table>
-      <PdImage v-if="key === 1"></PdImage>
+      <component :is="key"></component>
     </div>
   </div>
 </template>
@@ -17,26 +15,32 @@
 <script>
 import Table from "./Table.vue";
 import PdImage from './Animation.vue'
+import Upload from "./Upload.vue";
 export default {
   name: "Home",
   components: {
     Table,
-    PdImage
+    PdImage,
+    Upload
   },
   data() {
     return {
-      key: -1,
+      key: 'Table',
     };
   },
   created() {
     this.list = [
       {
-        key: 0,
         text: "滚动的表格",
+        component: 'Table'
       },
       {
-        key: 1,
-        text: '上下飘动的图片'
+        text: '上下飘动的图片',
+        component: 'PdImage'
+      },
+      {
+        text: '附件上传：antdv',
+        component: 'Upload'
       },
     ];
   },

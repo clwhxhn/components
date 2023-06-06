@@ -1,2 +1,0 @@
-# components
-组件
