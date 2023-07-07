@@ -7,7 +7,10 @@
           <div v-for="(item, key) in columns" :key="key">{{ item.title }}</div>
         </div>
         <div class="table-tbody">
-          <Tabel-Play :tableData="tableData" tabletype="warn"></Tabel-Play>
+          <TabelPlay :tableData="tableData" tabletype="warn"></TabelPlay>
+        </div>
+        <div class="table-tbody">
+          <ListPlay :tableData="tableData" noPlayNum="3"></ListPlay>
         </div>
       </div>
     </div>
@@ -15,10 +18,12 @@
   
   <script>
   import TabelPlay from "../components/TablePlay/TabelPlay.vue";
+  import ListPlay from "../components/ListPlay/TabelPlay.vue"
   export default {
     name: "Home",
     components: {
       TabelPlay,
+      ListPlay
     },
     data() {
       return {
