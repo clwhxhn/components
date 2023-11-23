@@ -10,7 +10,10 @@
   "dependencies": {
     "ant-design-vue": "1.7.8",
     "core-js": "^3.8.3",
-    "vue": "^2.6.14"
+    "echarts": "^5.4.3",
+    "lodash": "^4.17.21",
+    "vue": "^2.6.14",
+    "vue-router": "^3.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -20,11 +23,14 @@
     "@vue/cli-service": "~5.0.0",
     "babel-eslint": "7.2.3",
     "compression-webpack-plugin": "^3.1.0",
+    "element-resize-detector": "^1.2.4",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "html-webpack-plugin": "^4.2.0",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
+    "moment": "^2.29.4",
+    "snowflake-id": "1.1.0",
     "vue-template-compiler": "^2.6.14"
   },
   "eslintConfig": {
