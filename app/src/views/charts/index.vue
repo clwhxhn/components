@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="chart-container">
     <div class="chart-box">
       <WaterMonitoringChart :xData="xData" :sData="seriesData" />
     </div>
@@ -7,7 +7,15 @@
       <BEcharts :option="barOption1"></BEcharts>
     </div>
     <div class="chart-box">
-     <BEcharts :option="rainOption"></BEcharts>
+      <BEcharts :option="rainOption"></BEcharts>
+    </div>
+
+    <div class="chart-box">
+      <BEcharts :option="option"></BEcharts>
+    </div>
+
+    <div class="chart-box">
+      <BEcharts :option="pieoption"></BEcharts>
     </div>
   </div>
 </template>
@@ -17,7 +25,7 @@ import * as echarts from "echarts";
 import WaterMonitoringChart from "./components/WaterMonitoringChart";
 import { getWarnEventOption } from "./barChart1";
 import BEcharts from "@/components/chart/BEcharts";
-import {rainChart} from './chart'
+import { rainChart, getRainfallOpt, getPieOpt } from "./chart";
 
 export default {
   components: {
@@ -29,13 +37,19 @@ export default {
       xData: [],
       seriesData: [],
       barOption1: {},
-      rainOption: rainChart
+      rainOption: rainChart,
+      option: {},
+      pieoption: {},
     };
   },
   created() {
     this.renderChart();
 
     this.barOption1 = getWarnEventOption();
+
+    this.option = getRainfallOpt();
+
+    this.renderPie();
   },
   methods: {
     renderChart() {
@@ -109,13 +123,37 @@ export default {
         },
       ];
     },
+    renderPie() {
+      const sData = [
+        {
+          name: "立即转移",
+          value: 1,
+        },
+        {
+          name: "准备转移",
+          value: 2,
+        },
+        {
+          name: "通知转移",
+          value: 3,
+        },
+      ];
+      const text = "预警村落";
+      const subtext = sData.reduce((acc, cur) => acc + cur.value, 0);
+      const color = ["#C7172F", "#DA8F28", "#CED72F", "#098FC9"];
+      this.pieoption = getPieOpt(text, subtext, sData, color);
+    },
   },
 };
 </script>
 
 <style lang="less" scoped>
+.chart-container {
+    display: flex;
+    flex-wrap: wrap;
+}
 .chart-box {
-  width: 428px;
+  width: 350px;
   height: 205px;
   background-color: rgba(0, 0, 0, 0.6);
 }
