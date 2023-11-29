@@ -1,0 +1,320 @@
+#app {
+  height: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.global-layout-wrapper main.ant-layout-content.layout-clear-margin {
+  height: calc(100vh - 64px) !important;
+  min-height: calc(100vh - 64px) !important;
+  max-height: calc(100vh - 64px) !important;
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/*列表上方操作按钮区域*/
+.ant-card-body .table-operator {
+  margin-bottom: 8px;
+}
+
+/** Button按钮间距 */
+.table-operator .ant-btn {
+  margin: 0 8px 8px 0;
+}
+
+.table-operator .ant-btn-group .ant-btn {
+  margin: 0;
+}
+
+.table-operator .ant-btn-group .ant-btn:last-child {
+  margin: 0 8px 8px 0;
+}
+
+/*列表td的padding设置 可以控制列表大小*/
+.ant-table-tbody .ant-table-row td {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/*列表页面弹出modal*/
+.ant-modal-cust-warp {
+  height: 100%;
+}
+
+/*弹出modal Y轴滚动条*/
+.ant-modal-cust-warp .ant-modal-body {
+  height: calc(100% - 110px) !important;
+  overflow-y: auto;
+}
+
+/*弹出modal 先有content后有body 故滚动条控制在body上*/
+.ant-modal-cust-warp .ant-modal-content {
+  height: 90% !important;
+  overflow-y: hidden;
+}
+
+/*列表中有图片的加这个样式 参考用户管理*/
+.anty-img-wrap {
+  height: 25px;
+  position: relative;
+}
+
+.anty-img-wrap > img {
+  max-height: 100%;
+}
+
+/*列表中范围查询样式*/
+.query-group-cust {
+  width: calc(50% - 10px);
+}
+
+.query-group-split-cust:before {
+  content: '~';
+  width: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
+/*erp风格子表外框padding设置*/
+.ant-card-wider-padding.cust-erp-sub-tab > .ant-card-body {
+  padding: 5px 12px;
+}
+
+/* 内嵌子表背景颜色 */
+.j-inner-table-wrapper
+/deep/
+.ant-table-expanded-row
+.ant-table-wrapper
+.ant-table-tbody
+.ant-table-row {
+  background-color: #ffffff;
+}
+
+/**隐藏样式-modal确定按钮 */
+.schinta-hidden {
+  display: none;
+}
+
+.rootComponentWrapper {
+  width: 100%;
+  height: calc(100vh - 84px);
+  padding: 20px;
+  /**分页栏上下本来就有空白区间，页面整体不需要在下面再加一个padding-bottom，加了后分页栏反倒显示不完整*/
+  padding-bottom: 0px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .tableDiv {
+    /**让tableDiv占据剩余高度*/
+    flex: 1;
+    /**设置为hidden，避免div的高度受table的影响而变化，保证高度为从flex=1获取的剩余高度
+    （如果div高度受table影响，则table高度计算会出现错误）*/
+    overflow: hidden;
+  }
+}
+
+.table-page-search-div {
+  float: right;
+  display: block;
+  margin-bottom: 24px;
+  white-space: nowrap;
+  //谷歌新版浏览器89版本less样式穿透（/deep/）失效  https://blog.csdn.net/YQxyqX555/article/details/114599581
+  //去除/deep/就可以实现效果（在全局使用的情况下不加/deep/,若是scoped，则需加/deep/）
+  .ant-btn {
+    margin-left: 8px;
+  }
+
+  .ant-btn:first-child {
+    margin-left: 0px;
+  }
+
+  //可直接将原有的/deep/直接删除，但为避免低版本删除后样式改变可另写一次无/deep/的样式。
+  /deep/ .ant-btn {
+    margin-left: 8px;
+  }
+
+  /deep/ .ant-btn:first-child {
+    margin-left: 0px;
+  }
+}
+
+.table-div {
+  /deep/ .ant-table {
+
+    .ant-table-thead > tr > th {
+      background: #ecf2ff;
+      border: 1px solid #e3e4e7;
+      padding-right: 8px !important;
+      padding-left: 8px !important;
+    }
+
+    .ant-table-row > td {
+      padding-right: 8px !important;
+      padding-left: 8px !important;
+    }
+
+    // 表格隔行换色
+    &-tbody {
+      tr:nth-child(2n + 1) {
+        background: #f9fafd;
+      }
+
+      tr:nth-child(2n) {
+        background: #ffffff;
+      }
+    }
+
+    .head-yellow {
+      background: #FFE2CE !important;
+    }
+
+    .head-white {
+      background: #ffffff !important
+    }
+
+    .head-grey {
+      background: #f9fafd !important
+    }
+
+    .head-weight-text {
+      font-weight: 600 !important;
+    }
+
+    .ant-divider {
+      background: #1677FF;
+    }
+  }
+}
+
+//DatePicker选择按钮光标开关改为手形
+.ant-calendar-picker-icon {
+  cursor: pointer;
+}
+
+//DatePicker宽度
+.ant-calendar-picker {
+  width: 100%;
+}
+
+//==========统一修改disabled的样式==========
+
+//input字体颜色、手形、可选
+.ant-input-disabled {
+  background-color: #f5f5f5 !important;
+  color: rgba(0, 0, 0) !important;
+  cursor: text !important;
+}
+
+//input-number字体颜色、手形、可选
+.ant-input-number-disabled {
+  color: rgba(0, 0, 0) !important;
+
+  .ant-input-number-input {
+    cursor: text !important;
+  }
+}
+
+//select字体颜色、手形
+.ant-select-disabled {
+  .ant-select-selection {
+    background-color: #f5f5f5 !important;
+    color: rgba(0, 0, 0) !important;
+    cursor: text !important;
+  }
+}
+
+//select的下拉箭头
+.ant-select-disabled {
+  .ant-select-arrow {
+    display: none !important;
+  }
+}
+
+//select文本可选
+.ant-select-disabled {
+  .ant-select-selection-selected-value {
+    color: rgba(0, 0, 0) !important;
+    cursor: text !important;
+    user-select: text !important;
+    -moz-user-select: text !important; /*火狐*/
+    -webkit-user-select: text !important; /*webkit浏览器*/
+    -ms-user-select: text !important; /*IE10*/
+    -khtml-user-select: text !important; /*早期浏览器*/
+  }
+}
+
+.disabled {
+  .ant-select-selection__rendered {
+    .ant-select-selection-selected-value {
+      width: 100% !important;
+      color: rgba(0, 0, 0) !important;
+      cursor: text !important;
+      user-select: text !important;
+      -moz-user-select: text !important; /*火狐*/
+      -webkit-user-select: text !important; /*webkit浏览器*/
+      -ms-user-select: text !important; /*IE10*/
+      -khtml-user-select: text !important; /*早期浏览器*/
+    }
+  }
+}
+
+//select文本间距
+//margin-left在ant-select-selection__rendered不在span上时，从右向左选择文本容易选空
+//TreeSelect的内容在 .ant-select-selection__rendered .ant-select-selection-selected-value
+//Select的内容在 .ant-select-selection__rendered .ant-select-selection-selected-value span
+//经试验如下放一个padding-left可保证左间距，又不会选空
+.ant-select-disabled {
+  .ant-select-selection__rendered {
+    margin-left: 0px !important;
+
+    .ant-select-selection__placeholder {
+      padding-left: 11px !important;
+    }
+
+    .ant-select-selection-selected-value {
+      padding-left: 11px !important;
+      //宽度默认按实际内容来，从右边选择时必须贴着右边的字才能选，与input的行为不一致
+      width: 100%;
+    }
+  }
+}
+
+//select mode=multiple
+//问题：a-select的文本不能选择，a-tree-select的可以
+//      经过阅读源码找到原因：
+//      源码中，给selection__choice__content的上层li添加了一个事件onMousedown=preventDefaultEvent，阻止了事件
+.ant-select-selection__choice:first-child {
+  margin-left: 4px;
+}
+
+.ant-select-selection__choice__content {
+  color: rgba(0, 0, 0) !important;
+  cursor: text !important;
+  user-select: text !important;
+  -moz-user-select: text !important; /*火狐*/
+  -webkit-user-select: text !important; /*webkit浏览器*/
+  -ms-user-select: text !important; /*IE10*/
+  -khtml-user-select: text !important; /*早期浏览器*/
+}
+
+//单选按钮
+.ant-radio-disabled + span {
+  color: rgba(0, 0, 0) !important;
+  cursor: text !important;
+  user-select: text !important;
+  -moz-user-select: text !important; /*火狐*/
+  -webkit-user-select: text !important; /*webkit浏览器*/
+  -ms-user-select: text !important; /*IE10*/
+  -khtml-user-select: text !important; /*早期浏览器*/
+}
+
+.ant-radio-disabled {
+  .ant-radio-input {
+    cursor: default !important;
+  }
+}
+
+//==========统一修改disabled的样式==========

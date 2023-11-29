@@ -23,6 +23,18 @@ const routes = [
         component: () =>
             import(/* webpackChunkName: "user" */ '@/views/charts/index')
     },
+    {
+        path: '/ui',
+        name: 'ui',
+        component: () =>
+            import(/* webpackChunkName: "ui" */ '@/views/ui/index')
+    },
+    {
+        path: '/ol',
+        name: 'ol',
+        component: () =>
+            import(/* webpackChunkName: "ol" */ '@/views/ol/Home')
+    },
 ]
 
 const router = new Router({

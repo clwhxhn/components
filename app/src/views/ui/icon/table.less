@@ -1,0 +1,38 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+  width: 100%;
+  color: #fff;
+
+  &-tr {
+    display: flex;
+    align-items: center;
+    height: 42px;
+    margin-bottom: 2px;
+    background: url('~@/assets/img/water-disasters-defense/table-bg.png') no-repeat center;
+    background-size: 100% 100%;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &-td {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 12px;
+    &.first {
+      width: 75px;
+    }
+
+    .addr {
+      display: inline-block;
+      width: 90px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
