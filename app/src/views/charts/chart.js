@@ -1,5 +1,5 @@
 
-import * as echarts  from 'echarts'
+import * as echarts from 'echarts'
 export const rainChart = {
     tooltip: {
         trigger: 'axis',
@@ -297,70 +297,158 @@ export function getRainfallOpt() {
  */
 export function getPieOpt(text, subtext, sData = [], color) {
     const option = {
-      color: color || ['#C7172F', '#DA8F28', '#098FC9'],
-      title: {
-        text: subtext,
-        subtext: text,
-        left: '28%',
-        top: '35%',
-        itemGap: 1,
-        textStyle: {
-          color: '#fff',
-          fontSize: 18,
-          fontWeight: 500,
+        color: color || ['#C7172F', '#DA8F28', '#098FC9'],
+        title: {
+            text: subtext,
+            subtext: text,
+            left: '28%',
+            top: '35%',
+            itemGap: 1,
+            textStyle: {
+                color: '#fff',
+                fontSize: 18,
+                fontWeight: 500,
+            },
+            subtextStyle: {
+                color: '#fff',
+                fontSize: 14,
+                lineHeight: 30,
+            },
+            x: 'center',
+            y: 'center',
+            textAlign: 'center',
         },
-        subtextStyle: {
-          color: '#fff',
-          fontSize: 14,
-          lineHeight: 30,
+        tooltip: {
+            trigger: 'item',
+            backgroundColor: 'rgba(0,0,0,0.3)',
+            borderWidth: 0,
+            textStyle: {
+                color: '#fff',
+                fontSize: 12,
+            },
+            valueFormatter: (value) => `${value}个`,
         },
-        x: 'center',
-        y: 'center',
-        textAlign: 'center',
-      },
-      tooltip: {
-        trigger: 'item',
-        backgroundColor: 'rgba(0,0,0,0.3)',
-        borderWidth: 0,
-        textStyle: {
-          color: '#fff',
-          fontSize: 12,
+        legend: {
+            left: '60%',
+            x: 'left',
+            y: 'center',
+            itemGap: 20,
+            icon: 'rect',
+            itemHeight: 10,
+            itemWidth: 10,
+            orient: 'vertical',
+            textStyle: {
+                color: '#fff',
+                padding: [0, 10, 30, 0],
+                fontSize: 12,
+            },
+            formatter: (name) => {
+                const [serie] = option.series;
+                const item = serie.data.find((lst) => lst.name === name);
+                return `${name}  ${item.value} 个`;
+            },
         },
-        valueFormatter: (value) => `${value}个`,
-      },
-      legend: {
-        left: '60%',
-        x: 'left',
-        y: 'center',
-        itemGap: 20,
-        icon: 'rect',
-        itemHeight: 10,
-        itemWidth: 10,
-        orient: 'vertical',
-        textStyle: {
-          color: '#fff',
-          padding: [0, 10, 30, 0],
-          fontSize: 12,
-        },
-        formatter: (name) => {
-          const [serie] = option.series;
-          const item = serie.data.find((lst) => lst.name === name);
-          return `${name}  ${item.value} 个`;
-        },
-      },
-      series: [
-        {
-          name: text,
-          type: 'pie',
-          radius: ['50%', '80%'],
-          center: ['30%', '50%'],
-          avoidLabelOverlap: false,
-          label: {
-            show: false,
-          },
-          data: sData,
-        },
-      ],
+        series: [
+            {
+                name: text,
+                type: 'pie',
+                radius: ['50%', '80%'],
+                center: ['30%', '50%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: false,
+                },
+                data: sData,
+            },
+        ],
     };
     return option;
-  }
+}
+
+export function getVillageRainOpt(xAxis, data) {
+    return {
+        grid: {
+            bottom: 35,
+            left: 30,
+            right: 15,
+            top: 25,
+        },
+        tooltip: {
+            backgroundColor: 'rgba(29,53,101,0.7)',
+            textStyle: {
+                color: '#fff',
+            },
+            formatter: function (params) {
+                var value = params.value;
+                return params.seriesName + ': ' + value + ' 个'; // 在值后面添加单位
+            },
+            padding: [5, 10],
+            extraCssText:
+                'border: 1px solid;border-image: linear-gradient(180deg, rgba(61, 162, 255, 1), rgba(52, 120, 152, 1)) 1 1;',
+        },
+        backgroundColor: 'transparent', // 设置echarts背景为透明
+        legend: {
+            show: false,
+            // data: ['实际检测的量'], // 图例数据
+            // bottom: 0, // 图例位置在底部
+            // textStyle: {
+            //   color: '#fff', // 图例文字颜色为白色
+            // },
+        },
+        xAxis: {
+            type: 'category',
+            data: ['11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
+            axisLabel: {
+                color: '#fff', // 设置x轴标签文字颜色为白色
+                fontSize: '12px',
+                interval: 0,
+            },
+            axisLine: {
+                show: false,
+                lineStyle: {
+                    color: 'rgba(255, 255, 255, 1)', // 设置x轴边框颜色为白色
+                },
+            },
+            axisTick: {
+                show: false, // 隐藏x轴刻度线
+            },
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                color: 'rgba(221, 248, 255, 1)', // 设置y轴标签文字颜色为白色
+            },
+            axisLine: {
+                lineStyle: {
+                    color: 'rgba(62, 188, 238, 0.8)', // 设置y轴边框颜色为白色
+                },
+            },
+            splitLine: {
+                lineStyle: {
+                    color: 'rgba(62, 188, 238, 0.5)', // 设置y轴分割线颜色为半透明白色
+                    width: 0.8,
+                },
+            },
+        },
+        series: [
+            {
+                name: '',
+                type: 'bar',
+                data: [11, 8, 10, 7, 5, 19],
+                barWidth: '25%', // 设置柱子宽度
+                itemStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        { offset: 0, color: 'rgba(0, 255, 212, 1)' }, // 设置柱子颜色渐变的起始颜色
+                        { offset: 1, color: 'rgba(0, 255, 212, 0.50)' }, // 设置柱子颜色渐变的结束颜色
+                    ]),
+                    borderColor: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        { offset: 0, color: 'rgba(255, 255, 255, 1)' }, // 设置边框颜色渐变的起始颜色
+                        { offset: 1, color: 'rgba(0, 128, 255, 0)' }, // 设置边框颜色渐变的结束颜色
+                    ]),
+                    borderWidth: 2, // 设置边框宽度
+                },
+            },
+        ],
+    }
+
+}

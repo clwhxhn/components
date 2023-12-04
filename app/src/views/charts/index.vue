@@ -17,6 +17,11 @@
     <div class="chart-box">
       <BEcharts :option="pieoption"></BEcharts>
     </div>
+
+    
+    <div class="chart-box">
+      <BEcharts :option="barOption2"></BEcharts>
+    </div>
   </div>
 </template>
 
@@ -25,7 +30,7 @@ import * as echarts from "echarts";
 import WaterMonitoringChart from "./components/WaterMonitoringChart";
 import { getWarnEventOption } from "./barChart1";
 import BEcharts from "@/components/chart/BEcharts";
-import { rainChart, getRainfallOpt, getPieOpt } from "./chart";
+import { rainChart, getRainfallOpt, getPieOpt, getVillageRainOpt } from "./chart";
 
 export default {
   components: {
@@ -40,13 +45,14 @@ export default {
       rainOption: rainChart,
       option: {},
       pieoption: {},
+      barOption2: {}
     };
   },
   created() {
     this.renderChart();
 
     this.barOption1 = getWarnEventOption();
-
+    this.barOption2 = getVillageRainOpt()
     this.option = getRainfallOpt();
 
     this.renderPie();
