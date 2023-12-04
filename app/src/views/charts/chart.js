@@ -158,7 +158,7 @@ export function getRainfallOpt() {
                 textStyle: {
                     color: 'rgba(234,241,255,0.74)',
                 },
-                formatter: function (value) {
+                formatter: function (value) { 
                     return (
                         ' ' + `${value}`.substring(5, 7) + '-' + `${value}`.substring(8, 10) + '\n' + `${value}`.substring(10, 16)
                     );
