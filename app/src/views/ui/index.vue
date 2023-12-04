@@ -1,14 +1,17 @@
 <template>
   <div class="container">
     <div class="item-box"><MountainWarningList /></div>
+    <div class="item-box"><BasicInfo /></div>
   </div>
 </template>
 
 <script>
 import MountainWarningList from "./modules/MountainWarningList";
+import BasicInfo from './modules/BasicInfo'
 export default {
   components: {
     MountainWarningList,
+    BasicInfo
   },
 };
 </script>
