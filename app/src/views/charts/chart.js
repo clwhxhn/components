@@ -158,7 +158,7 @@ export function getRainfallOpt() {
                 textStyle: {
                     color: 'rgba(234,241,255,0.74)',
                 },
-                formatter: function (value) { 
+                formatter: function (value) {
                     return (
                         ' ' + `${value}`.substring(5, 7) + '-' + `${value}`.substring(8, 10) + '\n' + `${value}`.substring(10, 16)
                     );
@@ -451,4 +451,180 @@ export function getVillageRainOpt(xAxis, data) {
         ],
     }
 
+}
+
+export function lineChart() {
+    return {
+        tooltip: {
+            trigger: 'axis',
+        },
+        grid: {
+            top: '10%',
+            right: '10%',
+            bottom: '10%',
+            containLabel: true,
+        },
+        xAxis: {
+            type: 'category',
+            // boundaryGap: false,
+            // axisLine: {
+            //   show: false,
+            // },
+            // axisTick: {
+            //   show: false,
+            // },
+            axisLabel: {
+                show: true,
+                textStyle: {
+                    color: '#fff',
+                },
+            },
+            data: [1, 2],
+        },
+        yAxis: {
+            type: 'value',
+            axisLine: {
+                show: false,
+            },
+            axisTick: {
+                show: false,
+            },
+            axisLabel: {
+                show: false,
+            },
+            splitLine: {
+                show: false,
+            },
+            interval: 1,
+            min: 9,
+            max: 15,
+        },
+        graphic: [
+            {
+                type: 'image',
+                left: 'center',
+                top: 'bottom',
+                style: {
+                    width: 388,
+                    height: 200,
+                    image: require('@/assets/img/water-disasters-defense/sw-bg.svg'),
+                },
+                z: 3,
+            },
+        ],
+        series: [
+            {
+                name: '水位(m)',
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
+                lineStyle: {
+                    opacity: 0,
+                },
+                areaStyle: {
+                    // color: '#77B5E9',
+                    color: 'transparent',
+                },
+                data: [11.5, 11.5],
+                z: 2,
+            },
+            {
+                name: '校核洪水位',
+                type: 'line',
+                markLine: {
+                    symbol: ['none', 'none'],
+                    lineStyle: {
+                        width: 1,
+                        color: '#6D000E',
+                    },
+                    data: [
+                        {
+                            yAxis: 14.5,
+                            label: {
+                                show: true,
+                                color: '#fff',
+                                position: 'insideStartTop',
+                                formatter: function () {
+                                    return '校核洪水位';
+                                },
+                            },
+                        },
+                    ],
+                },
+            },
+            {
+                name: '设计洪水位',
+                type: 'line',
+                markLine: {
+                    symbol: ['none', 'none'],
+                    lineStyle: {
+                        width: 1,
+                        color: '#D8001B',
+                    },
+                    data: [
+                        {
+                            yAxis: 14.2,
+                            label: {
+                                show: true,
+                                color: '#fff',
+                                position: 'insideMiddle',
+                                formatter: function () {
+                                    return '设计洪水位';
+                                },
+                            },
+                        },
+                    ],
+                },
+            },
+            {
+                name: '防洪限制水位',
+                type: 'line',
+                markLine: {
+                    symbol: ['none', 'none'],
+                    lineStyle: {
+                        width: 1,
+                        color: '#FFCF4E',
+                    },
+                    data: [
+                        {
+                            yAxis: 13.5,
+                            label: {
+                                show: true,
+                                color: '#fff',
+                                position: 'insideMiddleBottom',
+                                formatter: function () {
+                                    return '防洪限制水位';
+                                },
+                            },
+                        },
+                    ],
+                },
+            },
+            {
+                name: '死水位',
+                type: 'line',
+                markLine: {
+                    symbol: ['none', 'none'],
+                    lineStyle: {
+                        width: 1,
+                        color: '#FFCF4E',
+                    },
+                    data: [
+                        {
+                            name: '死水位',
+                            yAxis: 10.5,
+                            label: {
+                                show: true,
+                                color: '#fff',
+                                position: 'insideMiddleTop',
+                                formatter: function () {
+                                    return '死水位';
+                                },
+                            },
+                        },
+                    ],
+                },
+            },
+        ],
+    };
 }

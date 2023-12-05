@@ -17,6 +17,11 @@
     <div class="chart-box">
       <BEcharts :option="barOption2"></BEcharts>
     </div>
+
+    <div class="chart-box">
+      <BEcharts :option="lineChart"></BEcharts>
+    </div>
+
     <div>
       <span style="color: red">x轴坐标文字换行处理</span>
       <div class="chart-box">
@@ -36,6 +41,7 @@ import {
   getRainfallOpt,
   getPieOpt,
   getVillageRainOpt,
+  lineChart
 } from "./chart";
 
 export default {
@@ -52,6 +58,7 @@ export default {
       option: {},
       pieoption: {},
       barOption2: {},
+      lineChart: {}
     };
   },
   created() {
@@ -60,6 +67,7 @@ export default {
     this.barOption1 = getWarnEventOption();
     this.barOption2 = getVillageRainOpt();
     this.option = getRainfallOpt();
+    this.lineChart = lineChart()
 
     this.renderPie();
   },
