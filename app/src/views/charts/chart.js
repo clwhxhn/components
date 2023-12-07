@@ -628,3 +628,225 @@ export function lineChart() {
         ],
     };
 }
+
+export function getXiangxing () {
+    const barWidth = 96;
+    // 当前雨量 
+    const targetVal = 80 // 当前降雨量
+    // 准备转移
+    const prepare = 120
+    // 立即转移
+    const immediately = 140
+
+    const maxHeight = 200// 柱子最大高度（基准）
+
+    return  {
+        backgroundColor: 'transparent',
+        tooltip: {
+          trigger: 'item',
+        },
+        grid: {
+          bottom: '10%',
+          top: '29%',
+          left: '-4%',
+        },
+        xAxis: {
+          data: [],
+          axisTick: {
+            show: false,
+          },
+          axisLine: {
+            show: false,
+          },
+        },
+        yAxis: {
+          show: false,
+          max: maxHeight,
+          //   name: '降雨量',
+          //   axisLine: {
+          //     show: true,
+          //     lineStyle: {
+          //       color: '#80D4FF',
+          //     },
+          //   },
+          position: 'right', // 将 Y 轴移到右侧
+          splitLine: {
+            show: false,
+          },
+          axisLabel: {
+            color: '#7A8A99',
+          },
+          axisTick: {
+            show: false,
+          },
+        },
+        graphic: [
+          {
+            type: 'image',
+            left: '11%',
+            top: 'bottom',
+            style: {
+              width: 164,
+              height: 200,
+              image: require('@/assets/img/water-disasters-defense/img-yuanzhu-bg2.png'),
+            },
+            z: 3,
+          },
+        ],
+        series: [
+          {
+            //圆柱底部的立体圆,  修改后位置
+            name: '圆柱底部的立体圆',
+            type: 'pictorialBar',
+            symbolSize: [barWidth, 40], //图形的大小，[宽，高]
+            symbolOffset: [0, 0], //图形相对于原本位置的偏移，[0, '-50%'] 就是把图形向上移动了自身尺寸的一半的位置
+            z: 12,
+            tooltip: {
+              show: false,
+            },
+            data: [
+              {
+                name: '',
+                value: 10,
+                itemStyle: {
+                  normal: {
+                    color: 'rgba(86,177,213, 1)',
+                  },
+                },
+              },
+            ],
+          },
+          {
+            name: '实际降雨量-面',
+            type: 'pictorialBar',
+            symbolSize: [barWidth, 40],
+            symbolOffset: [0, '-80%'],
+            z: 100,
+            tooltip: {
+              formatter: '当前降雨量为 ' + targetVal + 'mm',
+            },
+            data: [
+              {
+                name: '',
+                value: targetVal,
+                symbolPosition: 'end',
+                itemStyle: {
+                  normal: {
+                    color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                      {
+                        //修改前
+                        offset: 0,
+                        color: 'rgba(0, 166, 255, 0.26)',
+                      },
+                      {
+                        offset: 1,
+                        color: 'rgba(0, 255, 213, 0.50)',
+                      },
+                    ]),
+                  },
+                },
+              },
+            ],
+            markLine: {
+              symbol: 'none',
+              tooltip: {
+                formatter: '准备转移： ' + prepare + 'mm',
+              },
+              label: {
+                position: 'end',
+                distance: [-2, 0],
+                formatter: '{b}',
+                color: 'yellow',
+              },
+              data: [
+                {
+                  name: prepare,
+                  yAxis: prepare,
+                  lineStyle: {
+                    color: 'yellow',
+                    width: 1,
+                    type: 'solid',
+                  },
+                },
+              ],
+            },
+          },
+          // 内部整个柱子
+          {
+            name: '内部整个柱子',
+            type: 'bar',
+            barWidth: barWidth,
+            tooltip: {
+              show: false,
+            },
+            z: 10,
+            stack: 'a',
+            itemStyle: {
+              // 单独设置下面两个角的圆角
+              barBorderRadius: [0, 0, 25, 25],
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                {
+                  offset: 1,
+                  color: 'rgba(0,255,100,0.5)',
+                },
+                {
+                  offset: 1,
+                  color: 'rgba(0,255,100,0.5)',
+                },
+              ]),
+            },
+            data: [
+              {
+                name: '',
+                value: maxHeight,
+                itemStyle: {
+                  normal: {
+                    color: {
+                      x: 0,
+                      y: 1,
+                      x2: 0,
+                      y2: 0,
+                      type: 'linear',
+                      global: false,
+                      colorStops: [
+                        {
+                          offset: 0,
+                          color: 'rgba(0, 132, 101, 0.10)',
+                        },
+                        {
+                          offset: 1,
+                          color: 'rgba(128, 255, 249, 0.60)',
+                        },
+                      ],
+                    },
+                  },
+                },
+              },
+            ],
+            markLine: {
+              symbol: 'none',
+              tooltip: {
+                formatter: '立即转移： ' + immediately + 'mm',
+              },
+              label: {
+                position: 'end',
+                distance: [-2, 0],
+                formatter: '{b}',
+                color: '#F42626',
+              },
+              data: [
+                {
+                  name: immediately,
+                  yAxis: immediately,
+                  lineStyle: {
+                    color: '#F42626',
+                    width: 1,
+                    type: 'solid',
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      }
+}

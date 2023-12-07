@@ -22,6 +22,10 @@
       <BEcharts :option="lineChart"></BEcharts>
     </div>
 
+    <div class="chart-box2">
+      <BEcharts :option="xiangxing" style="height: 100%; width: 100%"></BEcharts>
+    </div>
+
     <div>
       <span style="color: red">x轴坐标文字换行处理</span>
       <div class="chart-box">
@@ -41,7 +45,8 @@ import {
   getRainfallOpt,
   getPieOpt,
   getVillageRainOpt,
-  lineChart
+  lineChart,
+  getXiangxing,
 } from "./chart";
 
 export default {
@@ -58,7 +63,8 @@ export default {
       option: {},
       pieoption: {},
       barOption2: {},
-      lineChart: {}
+      lineChart: {},
+      xiangxing: {},
     };
   },
   created() {
@@ -67,8 +73,8 @@ export default {
     this.barOption1 = getWarnEventOption();
     this.barOption2 = getVillageRainOpt();
     this.option = getRainfallOpt();
-    this.lineChart = lineChart()
-
+    this.lineChart = lineChart();
+    this.xiangxing = getXiangxing();
     this.renderPie();
   },
   methods: {
@@ -175,6 +181,12 @@ export default {
 .chart-box {
   width: 350px;
   height: 205px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.chart-box2 {
+  width: 230px;
+  height: 250px;
   background-color: rgba(0, 0, 0, 0.6);
 }
 </style>

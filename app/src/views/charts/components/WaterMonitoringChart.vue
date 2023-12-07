@@ -35,7 +35,7 @@ const OPTION = {
       data: [],
       axisLine: {
         lineStyle: {
-          color: 'rgba(62, 188, 238, 0.2)', // 修改 X 轴线颜色
+          color: 'rgba(62, 188, 238, 0.20)', // 修改 X 轴线颜色
         },
       },
       axisLabel: {
