@@ -227,6 +227,7 @@ export default {
         ["2023-12-17", 0.71],
       ];
       result["累计"] = [1, 1.5, 1.5, 9.78, 25.19, 33.13, 33.84];
+
       const markpoint = {
         监测: [
           {
@@ -247,32 +248,33 @@ export default {
             symbol: "image://" + rainXiaoyu,
             symbolOffset: ["0", "-20%"],
           },
+        ],
+        预报: [
           {
             xAxis: 3,
             yAxis: 8.379999999999999,
-            symbol: "image://" + rainXiaoyu,
-            symbolOffset: ["0", "-20%"],
+            symbol: "image://" + rainXiaoyu2,
+             symbolOffset: ["0", "-20%"],
           },
           {
             xAxis: 4,
             yAxis: 15.51,
-            symbol: "image://" + rainXiaoyu,
-            symbolOffset: ["0", "-20%"],
+            symbol: "image://" + rainXiaoyu2,
+             symbolOffset: ["0", "-20%"],
           },
           {
             xAxis: 5,
             yAxis: 8.040000000000001,
-            symbol: "image://" + rainXiaoyu,
-            symbolOffset: ["0", "-20%"],
+             symbol: "image://" + rainXiaoyu2,
+              symbolOffset: ["0", "-20%"],
           },
           {
             xAxis: 6,
             yAxis: 0.8099999999999999,
-            symbol: "image://" + rainXiaoyu,
+            symbol: "image://" + rainXiaoyu2,
             symbolOffset: ["0", "-20%"],
           },
         ],
-        预报: [],
       };
       this.optionIcon = getRainfallOptIcon(xAxis, result, markpoint);
     },
