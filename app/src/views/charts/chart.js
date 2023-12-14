@@ -629,7 +629,7 @@ export function lineChart() {
     };
 }
 
-export function getXiangxing () {
+export function getXiangxing() {
     const barWidth = 96;
     // 当前雨量 
     const targetVal = 80 // 当前降雨量
@@ -640,213 +640,433 @@ export function getXiangxing () {
 
     const maxHeight = 200// 柱子最大高度（基准）
 
-    return  {
+    return {
         backgroundColor: 'transparent',
         tooltip: {
-          trigger: 'item',
+            trigger: 'item',
         },
         grid: {
-          bottom: '10%',
-          top: '29%',
-          left: '-4%',
+            bottom: '10%',
+            top: '29%',
+            left: '-4%',
         },
         xAxis: {
-          data: [],
-          axisTick: {
-            show: false,
-          },
-          axisLine: {
-            show: false,
-          },
+            data: [],
+            axisTick: {
+                show: false,
+            },
+            axisLine: {
+                show: false,
+            },
         },
         yAxis: {
-          show: false,
-          max: maxHeight,
-          //   name: '降雨量',
-          //   axisLine: {
-          //     show: true,
-          //     lineStyle: {
-          //       color: '#80D4FF',
-          //     },
-          //   },
-          position: 'right', // 将 Y 轴移到右侧
-          splitLine: {
             show: false,
-          },
-          axisLabel: {
-            color: '#7A8A99',
-          },
-          axisTick: {
-            show: false,
-          },
+            max: maxHeight,
+            //   name: '降雨量',
+            //   axisLine: {
+            //     show: true,
+            //     lineStyle: {
+            //       color: '#80D4FF',
+            //     },
+            //   },
+            position: 'right', // 将 Y 轴移到右侧
+            splitLine: {
+                show: false,
+            },
+            axisLabel: {
+                color: '#7A8A99',
+            },
+            axisTick: {
+                show: false,
+            },
         },
         graphic: [
-          {
-            type: 'image',
-            left: '11%',
-            top: 'bottom',
-            style: {
-              width: 164,
-              height: 200,
-              image: require('@/assets/img/water-disasters-defense/img-yuanzhu-bg2.png'),
+            {
+                type: 'image',
+                left: '11%',
+                top: 'bottom',
+                style: {
+                    width: 164,
+                    height: 200,
+                    image: require('@/assets/img/water-disasters-defense/img-yuanzhu-bg2.png'),
+                },
+                z: 3,
             },
-            z: 3,
-          },
         ],
         series: [
-          {
-            //圆柱底部的立体圆,  修改后位置
-            name: '圆柱底部的立体圆',
-            type: 'pictorialBar',
-            symbolSize: [barWidth, 40], //图形的大小，[宽，高]
-            symbolOffset: [0, 0], //图形相对于原本位置的偏移，[0, '-50%'] 就是把图形向上移动了自身尺寸的一半的位置
-            z: 12,
-            tooltip: {
-              show: false,
-            },
-            data: [
-              {
-                name: '',
-                value: 10,
-                itemStyle: {
-                  normal: {
-                    color: 'rgba(86,177,213, 1)',
-                  },
+            {
+                //圆柱底部的立体圆,  修改后位置
+                name: '圆柱底部的立体圆',
+                type: 'pictorialBar',
+                symbolSize: [barWidth, 40], //图形的大小，[宽，高]
+                symbolOffset: [0, 0], //图形相对于原本位置的偏移，[0, '-50%'] 就是把图形向上移动了自身尺寸的一半的位置
+                z: 12,
+                tooltip: {
+                    show: false,
                 },
-              },
-            ],
-          },
-          {
-            name: '实际降雨量-面',
-            type: 'pictorialBar',
-            symbolSize: [barWidth, 40],
-            symbolOffset: [0, '-80%'],
-            z: 100,
-            tooltip: {
-              formatter: '当前降雨量为 ' + targetVal + 'mm',
+                data: [
+                    {
+                        name: '',
+                        value: 10,
+                        itemStyle: {
+                            normal: {
+                                color: 'rgba(86,177,213, 1)',
+                            },
+                        },
+                    },
+                ],
             },
-            data: [
-              {
-                name: '',
-                value: targetVal,
-                symbolPosition: 'end',
+            {
+                name: '实际降雨量-面',
+                type: 'pictorialBar',
+                symbolSize: [barWidth, 40],
+                symbolOffset: [0, '-80%'],
+                z: 100,
+                tooltip: {
+                    formatter: '当前降雨量为 ' + targetVal + 'mm',
+                },
+                data: [
+                    {
+                        name: '',
+                        value: targetVal,
+                        symbolPosition: 'end',
+                        itemStyle: {
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                                    {
+                                        //修改前
+                                        offset: 0,
+                                        color: 'rgba(0, 166, 255, 0.26)',
+                                    },
+                                    {
+                                        offset: 1,
+                                        color: 'rgba(0, 255, 213, 0.50)',
+                                    },
+                                ]),
+                            },
+                        },
+                    },
+                ],
+                markLine: {
+                    symbol: 'none',
+                    tooltip: {
+                        formatter: '准备转移： ' + prepare + 'mm',
+                    },
+                    label: {
+                        position: 'end',
+                        distance: [-2, 0],
+                        formatter: '{b}',
+                        color: 'yellow',
+                    },
+                    data: [
+                        {
+                            name: prepare,
+                            yAxis: prepare,
+                            lineStyle: {
+                                color: 'yellow',
+                                width: 1,
+                                type: 'solid',
+                            },
+                        },
+                    ],
+                },
+            },
+            // 内部整个柱子
+            {
+                name: '内部整个柱子',
+                type: 'bar',
+                barWidth: barWidth,
+                tooltip: {
+                    show: false,
+                },
+                z: 10,
+                stack: 'a',
                 itemStyle: {
-                  normal: {
-                    color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                      {
-                        //修改前
-                        offset: 0,
-                        color: 'rgba(0, 166, 255, 0.26)',
-                      },
-                      {
-                        offset: 1,
-                        color: 'rgba(0, 255, 213, 0.50)',
-                      },
+                    // 单独设置下面两个角的圆角
+                    barBorderRadius: [0, 0, 25, 25],
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        {
+                            offset: 1,
+                            color: 'rgba(0,255,100,0.5)',
+                        },
+                        {
+                            offset: 1,
+                            color: 'rgba(0,255,100,0.5)',
+                        },
                     ]),
-                  },
                 },
-              },
-            ],
-            markLine: {
-              symbol: 'none',
-              tooltip: {
-                formatter: '准备转移： ' + prepare + 'mm',
-              },
-              label: {
-                position: 'end',
-                distance: [-2, 0],
-                formatter: '{b}',
-                color: 'yellow',
-              },
-              data: [
-                {
-                  name: prepare,
-                  yAxis: prepare,
-                  lineStyle: {
-                    color: 'yellow',
-                    width: 1,
-                    type: 'solid',
-                  },
+                data: [
+                    {
+                        name: '',
+                        value: maxHeight,
+                        itemStyle: {
+                            normal: {
+                                color: {
+                                    x: 0,
+                                    y: 1,
+                                    x2: 0,
+                                    y2: 0,
+                                    type: 'linear',
+                                    global: false,
+                                    colorStops: [
+                                        {
+                                            offset: 0,
+                                            color: 'rgba(0, 132, 101, 0.10)',
+                                        },
+                                        {
+                                            offset: 1,
+                                            color: 'rgba(128, 255, 249, 0.60)',
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                    },
+                ],
+                markLine: {
+                    symbol: 'none',
+                    tooltip: {
+                        formatter: '立即转移： ' + immediately + 'mm',
+                    },
+                    label: {
+                        position: 'end',
+                        distance: [-2, 0],
+                        formatter: '{b}',
+                        color: '#F42626',
+                    },
+                    data: [
+                        {
+                            name: immediately,
+                            yAxis: immediately,
+                            lineStyle: {
+                                color: '#F42626',
+                                width: 1,
+                                type: 'solid',
+                            },
+                        },
+                    ],
                 },
-              ],
+            },
+        ],
+    }
+}
+
+export function getRainfallOptIcon(xAxis, data, markPoint) {
+    const option = {
+      legend: {
+        show: true,
+        itemWidth: 14,
+        itemHeight: 7,
+        data: ['监测', '预报', '累计'],
+        top: 20,
+        textStyle: {
+          color: '#EAF1FF',
+          fontWeight: 400,
+        },
+      },
+      tooltip: {
+        trigger: 'axis',
+        backgroundColor: 'rgba(0,0,0,0.3)',
+        borderWidth: 0,
+        textStyle: {
+          color: '#fff',
+          fontSize: 12,
+        },
+      },
+      grid: {
+        left: '10%',
+        right: '10%',
+        top: '35%',
+        bottom: '10%',
+      },
+      xAxis: {
+        type: 'category',
+        data: xAxis,
+        axisLine: {
+          show: true,
+          lineStyle: {
+            color: 'rgba(186,231,255,0.4)',
+            width: 1,
+            type: 'solid',
+          },
+        },
+        axisTick: {
+          show: true,
+          alignWithLabel: true,
+        },
+        axisLabel: {
+          show: true,
+          textStyle: {
+            color: 'rgba(234,241,255,0.74)',
+          },
+          formatter: function (value) {
+            return (
+              ' ' + `${value}`.substring(5, 7) + '-' + `${value}`.substring(8, 10) + '\n' + `${value}`.substring(10, 16)
+            );
+          },
+        },
+      },
+      yAxis: [
+        {
+          name: '雨量：mm',
+          nameTextStyle: {
+            color: 'rgba(234,241,255,0.74)',
+          },
+          type: 'value',
+          splitLine: {
+            show: true,
+            lineStyle: {
+              type: 'dashed',
+              color: 'rgba(230,247,255,0.2)',
             },
           },
-          // 内部整个柱子
-          {
-            name: '内部整个柱子',
-            type: 'bar',
-            barWidth: barWidth,
-            tooltip: {
-              show: false,
+          axisLabel: {
+            show: true,
+            textStyle: {
+              color: 'rgba(234,241,255,0.74)',
             },
-            z: 10,
-            stack: 'a',
-            itemStyle: {
-              // 单独设置下面两个角的圆角
-              barBorderRadius: [0, 0, 25, 25],
+          },
+        },
+        {
+          name: '累计：mm',
+          nameTextStyle: {
+            color: 'rgba(234,241,255,0.74)',
+          },
+          type: 'value',
+          splitLine: {
+            show: false,
+            lineStyle: {
+              type: 'solid',
+              color: 'rgba(230,247,255,0.2)',
+            },
+          },
+          axisLabel: {
+            show: true,
+            textStyle: {
+              color: 'rgba(234,241,255,0.74)',
+            },
+          },
+        },
+      ],
+      series: [
+        {
+          name: '监测',
+          type: 'bar',
+          barWidth: 15,
+          // data: [
+          //   ['2023-11-18', '0.2'],
+          //   ['2023-11-19', '0.5'],
+          //   ['2023-11-20', '0.2'],
+          //   ['2023-11-21', '0.1'],
+          // ],
+          data: data['监测'],
+          tooltip: {
+            valueFormatter: (value) => value + ' mm',
+          },
+          itemStyle: {
+            normal: {
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                 {
-                  offset: 1,
-                  color: 'rgba(0,255,100,0.5)',
+                  offset: 0,
+                  color: 'rgba(11, 191, 255, 1)',
+                  opacity: 1,
                 },
                 {
                   offset: 1,
-                  color: 'rgba(0,255,100,0.5)',
+                  color: 'rgba(60, 213, 255, 0)',
+                  opacity: 1,
                 },
               ]),
-            },
-            data: [
-              {
-                name: '',
-                value: maxHeight,
-                itemStyle: {
-                  normal: {
-                    color: {
-                      x: 0,
-                      y: 1,
-                      x2: 0,
-                      y2: 0,
-                      type: 'linear',
-                      global: false,
-                      colorStops: [
-                        {
-                          offset: 0,
-                          color: 'rgba(0, 132, 101, 0.10)',
-                        },
-                        {
-                          offset: 1,
-                          color: 'rgba(128, 255, 249, 0.60)',
-                        },
-                      ],
-                    },
-                  },
-                },
-              },
-            ],
-            markLine: {
-              symbol: 'none',
-              tooltip: {
-                formatter: '立即转移： ' + immediately + 'mm',
-              },
-              label: {
-                position: 'end',
-                distance: [-2, 0],
-                formatter: '{b}',
-                color: '#F42626',
-              },
-              data: [
-                {
-                  name: immediately,
-                  yAxis: immediately,
-                  lineStyle: {
-                    color: '#F42626',
-                    width: 1,
-                    type: 'solid',
-                  },
-                },
-              ],
+              borderColor: '#1D9BC7', // 设置柱状图边框颜色
+              borderWidth: 1, // 设置柱状图边框宽度
             },
           },
-        ],
-      }
-}
+          label: {
+            show: true,
+            position: 'top', // 在柱子的顶部显示标签
+            offset: [0, -10], // 调整标签的位置，[x, y]，这里向上偏移10个像素
+            color: '#DDF8FF', // 文字颜色
+            fontSize: 12, // 字体大小
+            formatter: (v) => {
+              return v.value[1] || 0;
+            }, // 显示数据值
+          },
+          markPoint: {
+            data: markPoint['监测'],
+            symbolSize: [20, 20],
+            label: {
+              show: false,
+            },
+          }
+        },
+        {
+          name: '预报',
+          type: 'bar',
+          barGap: '-100%',
+          barWidth: 15,
+          // data: [
+          //   ['2023-11-21', '0.4'],
+          //   ['2023-11-22', '0.7'],
+          //   ['2023-11-23', '0.9'],
+          //   ['2023-11-24', '0.8'],
+          // ],
+          data: data['预报'],
+          tooltip: {
+            valueFormatter: (value) => value + ' mm',
+          },
+          itemStyle: {
+            normal: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                {
+                  offset: 0,
+                  color: 'rgba(0, 255, 204, 1)',
+                  opacity: 1,
+                },
+                {
+                  offset: 1,
+                  color: 'rgba(60, 255, 179, 0)',
+                  opacity: 1,
+                },
+              ]),
+              borderColor: '#1DC7A5', // 设置柱状图边框颜色
+              borderWidth: 1, // 设置柱状图边框宽度
+            },
+          },
+          label: {
+            show: true,
+            position: 'top', // 在柱子的顶部显示标签
+            color: '#DDF8FF', // 文字颜色
+            fontSize: 12, // 字体大小
+            offset: [0, -10], // 调整标签的位置，[x, y]，这里向上偏移10个像素
+            formatter: (v) => {
+              console.log('v: ', v);
+              return v.value[1] || 0;
+            }, // 显示数据值
+          },
+          markPoint: {
+            data: markPoint['预报'],
+            symbolSize: [20, 20],
+            label: {
+              show: true,
+            },
+          }
+        },
+        {
+          name: '累计',
+          type: 'line',
+          yAxisIndex: 1,
+          data: data['累计'],
+          tooltip: {
+            valueFormatter: (value) => value + ' mm',
+          },
+          itemStyle: {
+            normal: {
+              color: '#FFB83A',
+            },
+          },
+        },
+      ],
+    };
+    return option;
+  }
+  

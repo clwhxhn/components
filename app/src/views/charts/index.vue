@@ -22,14 +22,36 @@
       <BEcharts :option="lineChart"></BEcharts>
     </div>
 
+    <div style="background: rgba(0, 0, 0.4)">
+      <PieChart></PieChart>
+    </div>
+
     <div class="chart-box2">
-      <BEcharts :option="xiangxing" style="height: 100%; width: 100%"></BEcharts>
+      <BEcharts
+        :option="xiangxing"
+        style="height: 100%; width: 100%"
+      ></BEcharts>
+    </div>
+
+    <div class="chart-box3">
+      <XlChart></XlChart>
+    </div>
+
+    <div class="chart-box3">
+      <PieChart3D></PieChart3D>
     </div>
 
     <div>
       <span style="color: red">x轴坐标文字换行处理</span>
       <div class="chart-box">
         <BEcharts :option="option"></BEcharts>
+      </div>
+    </div>
+
+    <div>
+      <span style="color: red">x轴坐标文字换行处理</span>
+      <div class="chart-box">
+        <BEcharts :option="optionIcon"></BEcharts>
       </div>
     </div>
   </div>
@@ -40,6 +62,9 @@ import * as echarts from "echarts";
 import WaterMonitoringChart from "./components/WaterMonitoringChart";
 import { getWarnEventOption } from "./barChart1";
 import BEcharts from "@/components/chart/BEcharts";
+import PieChart from "@/components/chart/PieChart";
+import XlChart from "./components/XlChart";
+import PieChart3D from "./components/PieChart3D";
 import {
   rainChart,
   getRainfallOpt,
@@ -47,12 +72,19 @@ import {
   getVillageRainOpt,
   lineChart,
   getXiangxing,
+  getRainfallOptIcon,
 } from "./chart";
+
+const rainXiaoyu = require("@/assets/img/water-disasters-defense/rain-xiaoyu.png"); // 监测-小雨
+const rainXiaoyu2 = require("@/assets/img/water-disasters-defense/rain-xiaoyu2.png"); // 预报-小雨
 
 export default {
   components: {
     WaterMonitoringChart,
     BEcharts,
+    PieChart,
+    XlChart,
+    PieChart3D,
   },
   data() {
     return {
@@ -65,6 +97,7 @@ export default {
       barOption2: {},
       lineChart: {},
       xiangxing: {},
+      optionIcon: {},
     };
   },
   created() {
@@ -76,6 +109,8 @@ export default {
     this.lineChart = lineChart();
     this.xiangxing = getXiangxing();
     this.renderPie();
+
+    this.renderBar();
   },
   methods: {
     renderChart() {
@@ -169,6 +204,78 @@ export default {
       const color = ["#C7172F", "#DA8F28", "#CED72F", "#098FC9"];
       this.pieoption = getPieOpt(text, subtext, sData, color);
     },
+    renderBar() {
+      const xAxis = [
+        "2023-12-11",
+        "2023-12-12",
+        "2023-12-13",
+        "2023-12-14",
+        "2023-12-15",
+        "2023-12-16",
+        "2023-12-17",
+      ];
+      const result = {};
+      result["监测"] = [
+        ["2023-12-11", 1],
+        ["2023-12-12", 0.5],
+        ["2023-12-13", 0],
+      ];
+      result["预报"] = [
+        ["2023-12-14", 8.28],
+        ["2023-12-15", 15.41],
+        ["2023-12-16", 7.94],
+        ["2023-12-17", 0.71],
+      ];
+      result["累计"] = [1, 1.5, 1.5, 9.78, 25.19, 33.13, 33.84];
+      const markpoint = {
+        监测: [
+          {
+            xAxis: 0,
+            yAxis: 1,
+            symbol: "image://" + rainXiaoyu,
+            symbolOffset: ["0", "-20%"],
+          },
+          {
+            xAxis: 1,
+            yAxis: 0.5,
+            symbol: "image://" + rainXiaoyu,
+            symbolOffset: ["0", "-20%"],
+          },
+          {
+            xAxis: 2,
+            yAxis: 0,
+            symbol: "image://" + rainXiaoyu,
+            symbolOffset: ["0", "-20%"],
+          },
+          {
+            xAxis: 3,
+            yAxis: 8.379999999999999,
+            symbol: "image://" + rainXiaoyu,
+            symbolOffset: ["0", "-20%"],
+          },
+          {
+            xAxis: 4,
+            yAxis: 15.51,
+            symbol: "image://" + rainXiaoyu,
+            symbolOffset: ["0", "-20%"],
+          },
+          {
+            xAxis: 5,
+            yAxis: 8.040000000000001,
+            symbol: "image://" + rainXiaoyu,
+            symbolOffset: ["0", "-20%"],
+          },
+          {
+            xAxis: 6,
+            yAxis: 0.8099999999999999,
+            symbol: "image://" + rainXiaoyu,
+            symbolOffset: ["0", "-20%"],
+          },
+        ],
+        预报: [],
+      };
+      this.optionIcon = getRainfallOptIcon(xAxis, result, markpoint);
+    },
   },
 };
 </script>
@@ -187,6 +294,11 @@ export default {
 .chart-box2 {
   width: 230px;
   height: 250px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.chart-box3 {
+  width: 460px;
   background-color: rgba(0, 0, 0, 0.6);
 }
 </style>
