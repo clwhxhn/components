@@ -1,5 +1,6 @@
 
 import * as echarts from 'echarts'
+import echartsSplit from '@/utils/echartsSplit';
 export const rainChart = {
     tooltip: {
         trigger: 'axis',
@@ -1067,6 +1068,255 @@ export function getRainfallOptIcon(xAxis, data, markPoint) {
         },
       ],
     };
+    return option;
+  }
+  
+
+  export function getWaterRainOpt(xAxis, data) {
+    // yAxis0
+    const data1 = Math.max(...data['入库流量']) > Math.max(...data['出库流量']) ? data['入库流量'] : data['出库流量'];
+    const y0Item = echartsSplit(data1, 4, true);
+    // yAxis1
+    let data2 = Math.max(...data['坝上水位']) > Math.max(...data['设计水位']) ? data['坝上水位'] : data['设计水位'];
+    data2 = Math.max([...data2]) > Math.max(...data['汛限水位']) ? data2 : data['汛限水位'];
+    const y1Item = echartsSplit(data2, 4, true);
+    const option = {
+      color: ['#08E6ED', '#23FF38', '#FF9C23', '#F4C635', '#FF3B3B'],
+      tooltip: {
+        trigger: 'axis',
+        backgroundColor: 'rgba(0,0,0,0.3)',
+        borderWidth: 0,
+        textStyle: {
+          color: '#fff',
+          fontSize: 12,
+        },
+      },
+      legend: {
+        show: true,
+        data: ['坝上水位', '设计水位', '汛限水位', '入库流量', '出库流量'],
+        bottom: '0px',
+        itemWidth: 6, // 设置图标宽度
+        itemHeight: 3, // 设置图标高度
+        textStyle: {
+          color: '#EAF1FF',
+          fontWeight: 400,
+          fontSize: 12, // 设置字体大小
+        },
+      },
+      grid: {
+        left: '3%',
+        right: '3%',
+        top: '25%',
+        bottom: '20%',
+        containLabel: true,
+      },
+      xAxis: [
+        {
+          type: 'category',
+          axisTick: {
+            show: false,
+          },
+          axisLine: {
+            lineStyle: {
+              color: 'rgba(186,231,255,0.4)',
+              width: 1,
+              type: 'solid',
+            },
+          },
+          axisLabel: {
+            color: 'rgba(234,241,255,0.74)',
+            formatter: function (value) {
+              return `${value}`.substring(10, 16);
+            },
+          },
+          data: xAxis,
+          axisPointer: {
+            type: 'shadow',
+          },
+        },
+      ],
+      yAxis: [
+        {
+          type: 'value',
+          name: '流量(m³/s)',
+          nameTextStyle: {
+            color: 'rgba(234,241,255,0.74)',
+            align: 'center',
+          },
+          axisLabel: {
+            color: 'rgba(234,241,255,0.74)',
+            formatter: '{value}',
+          },
+          axisTick: {
+            show: false,
+          },
+          splitLine: {
+            show: false,
+            lineStyle: {
+              type: 'solid',
+              color: 'rgba(230,247,255,0.2)',
+            },
+          },
+          ...y0Item,
+        },
+        {
+          type: 'value',
+          name: '水位(m)',
+          nameTextStyle: {
+            color: 'rgba(234,241,255,0.74)',
+            align: 'center',
+          },
+          axisLabel: {
+            color: 'rgba(234,241,255,0.74)',
+            formatter: '{value}',
+          },
+          axisTick: {
+            show: false,
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              type: 'dashed',
+              color: 'rgba(230,247,255,0.2)',
+            },
+          },
+          ...y1Item,
+        },
+      ],
+      series: [
+        {
+          name: '坝上水位',
+          type: 'line',
+          symbol: 'none',
+          smooth: false,
+          yAxisIndex: 1,
+          tooltip: {
+            valueFormatter: (value) => value + ' m',
+          },
+          lineStyle: {
+            width: 1,
+          },
+          areaStyle: {
+            normal: {
+              color: {
+                x: 0,
+                y: 0,
+                y2: 1,
+                globalCoord: false,
+                x2: 0,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: 'rgba(10,107,215,1)',
+                  },
+                  {
+                    offset: 1,
+                    color: 'rgba(65,76,217,0)',
+                  },
+                ],
+                type: 'linear',
+              },
+            },
+          },
+          data: data['坝上水位'],
+        },
+        {
+          name: '设计水位',
+          type: 'line',
+          tooltip: {
+            valueFormatter: (value) => value + ' m',
+          },
+          lineStyle: {
+            width: 1,
+            type: 'dotted', // 设置线条的样式为虚线
+          },
+          symbol: 'none',
+          smooth: false,
+          // markLine: {
+          //   symbol: ['none', 'none'],
+          //   label: {
+          //     normal: {
+          //       show: false,
+          //     },
+          //   },
+          //   lineStyle: {
+          //     width: 1,
+          //     color: '#f59a23',
+          //   },
+          //   data: [
+          //     {
+          //       yAxis: 200,
+          //       isVisible: true,
+          //     },
+          //   ],
+          // },
+          yAxisIndex: 1,
+          data: data['设计水位'],
+        },
+        {
+          name: '汛限水位',
+          type: 'line',
+          tooltip: {
+            valueFormatter: (value) => value + ' m',
+          },
+          symbol: 'none',
+          smooth: false,
+          yAxisIndex: 1,
+          lineStyle: {
+            width: 1,
+            type: 'dotted', // 设置线条的样式为虚线
+          },
+          // markLine: {
+          //   symbol: ['none', 'none'],
+          //   label: {
+          //     normal: {
+          //       show: false,
+          //     },
+          //   },
+          //   lineStyle: {
+          //     width: 1,
+          //     // color: '#ff0000',
+          //   },
+          //   data: [
+          //     {
+          //       yAxis: 220,
+          //       isVisible: true,
+          //     },
+          //   ],
+          // },
+          data: data['汛限水位'],
+        },
+        {
+          name: '入库流量',
+          type: 'line',
+          symbol: 'none',
+          smooth: false,
+          yAxisIndex: 0,
+          tooltip: {
+            valueFormatter: (value) => value + ' m³/s',
+          },
+          lineStyle: {
+            width: 1,
+          },
+          data: data['入库流量'],
+        },
+        {
+          name: '出库流量',
+          type: 'line',
+          symbol: 'none',
+          smooth: false,
+          yAxisIndex: 0,
+          tooltip: {
+            valueFormatter: (value) => value + ' m³/s',
+          },
+          lineStyle: {
+            width: 1,
+          },
+          data: data['出库流量'],
+        },
+      ],
+    };
+  
     return option;
   }
   

@@ -41,6 +41,10 @@
       <PieChart3D></PieChart3D>
     </div>
 
+    <div class="chart-box3">
+      <YsplitChart></YsplitChart>
+    </div>
+
     <div>
       <span style="color: red">x轴坐标文字换行处理</span>
       <div class="chart-box">
@@ -65,6 +69,7 @@ import BEcharts from "@/components/chart/BEcharts";
 import PieChart from "@/components/chart/PieChart";
 import XlChart from "./components/XlChart";
 import PieChart3D from "./components/PieChart3D";
+import YsplitChart  from "./components/YsplitChart";
 import {
   rainChart,
   getRainfallOpt,
@@ -85,6 +90,7 @@ export default {
     PieChart,
     XlChart,
     PieChart3D,
+    YsplitChart
   },
   data() {
     return {
@@ -254,19 +260,19 @@ export default {
             xAxis: 3,
             yAxis: 8.379999999999999,
             symbol: "image://" + rainXiaoyu2,
-             symbolOffset: ["0", "-20%"],
+            symbolOffset: ["0", "-20%"],
           },
           {
             xAxis: 4,
             yAxis: 15.51,
             symbol: "image://" + rainXiaoyu2,
-             symbolOffset: ["0", "-20%"],
+            symbolOffset: ["0", "-20%"],
           },
           {
             xAxis: 5,
             yAxis: 8.040000000000001,
-             symbol: "image://" + rainXiaoyu2,
-              symbolOffset: ["0", "-20%"],
+            symbol: "image://" + rainXiaoyu2,
+            symbolOffset: ["0", "-20%"],
           },
           {
             xAxis: 6,
