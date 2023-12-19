@@ -45,6 +45,10 @@
       <YsplitChart></YsplitChart>
     </div>
 
+    <div class="chart-box2">
+      <CylinderCom></CylinderCom>
+    </div>
+
     <div>
       <span style="color: red">x轴坐标文字换行处理</span>
       <div class="chart-box">
@@ -69,7 +73,8 @@ import BEcharts from "@/components/chart/BEcharts";
 import PieChart from "@/components/chart/PieChart";
 import XlChart from "./components/XlChart";
 import PieChart3D from "./components/PieChart3D";
-import YsplitChart  from "./components/YsplitChart";
+import YsplitChart from "./components/YsplitChart";
+import CylinderCom from './components/CylinderCom'
 import {
   rainChart,
   getRainfallOpt,
@@ -90,7 +95,8 @@ export default {
     PieChart,
     XlChart,
     PieChart3D,
-    YsplitChart
+    YsplitChart,
+    CylinderCom
   },
   data() {
     return {
