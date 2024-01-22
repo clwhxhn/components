@@ -49,6 +49,18 @@
       <CylinderCom></CylinderCom>
     </div>
 
+    <div class="chart-line">
+      <BEcharts
+        :option="getOptions()"
+        style="height: 50px; width: 370px"
+      ></BEcharts>
+    </div>
+
+    <!-- 雷达图 -->
+    <div class="chart-box2">
+      <BEcharts :option="radarChartOption"></BEcharts>
+    </div>
+
     <div>
       <span style="color: red">x轴坐标文字换行处理</span>
       <div class="chart-box">
@@ -74,7 +86,7 @@ import PieChart from "@/components/chart/PieChart";
 import XlChart from "./components/XlChart";
 import PieChart3D from "./components/PieChart3D";
 import YsplitChart from "./components/YsplitChart";
-import CylinderCom from './components/CylinderCom'
+import CylinderCom from "./components/CylinderCom";
 import {
   rainChart,
   getRainfallOpt,
@@ -83,6 +95,8 @@ import {
   lineChart,
   getXiangxing,
   getRainfallOptIcon,
+  getVMOption,
+  getKhgkOption,
 } from "./chart";
 
 const rainXiaoyu = require("@/assets/img/water-disasters-defense/rain-xiaoyu.png"); // 监测-小雨
@@ -96,7 +110,7 @@ export default {
     XlChart,
     PieChart3D,
     YsplitChart,
-    CylinderCom
+    CylinderCom,
   },
   data() {
     return {
@@ -110,6 +124,7 @@ export default {
       lineChart: {},
       xiangxing: {},
       optionIcon: {},
+      radarChartOption: {},
     };
   },
   created() {
@@ -120,6 +135,7 @@ export default {
     this.option = getRainfallOpt();
     this.lineChart = lineChart();
     this.xiangxing = getXiangxing();
+    this.upDataCheckradarOption()
     this.renderPie();
 
     this.renderBar();
@@ -290,6 +306,99 @@ export default {
       };
       this.optionIcon = getRainfallOptIcon(xAxis, result, markpoint);
     },
+    getOptions() {
+      const obj = {
+        country: null,
+        staffStart: 511.27,
+        watershedArea: null,
+        riverName: null,
+        distancePrepareTransferLevel: null,
+        riverwayGradient: null,
+        id: "V060",
+        prepareTransferLevel: 512.97,
+        state: "1",
+        lastZ: 514,
+        personInCharge: "王绍文",
+        izConstruction: "拟建",
+        longitude: 108.050616,
+        area: "后山镇",
+        inquiryAgainTime: null,
+        devLat: 30.835285,
+        defenseName: "沐河村1组",
+        warningType: 0,
+        immediatelyTransferLevel: 513.47,
+        historyList: null,
+        riverSystemName: null,
+        waterfloodGradient: null,
+        sixHourImmediately: 86,
+        inquiryFlow: null,
+        population: 45,
+        areaCode: "500101146000",
+        stcd: "S089",
+        phone: "17784072035",
+        threeHourPrepare: 51,
+        disasterWaterStage: null,
+        gridCode: null,
+        oneHourPrepare: 39,
+        compareLastZ: -2.5,
+        izTrumpet: "是",
+        monType: "3",
+        inquiryPoint: null,
+        latitude: 30.835203,
+        disasterAgainTime: null,
+        izEcological: "否",
+        constructionRemark: null,
+        riskType: "临河隐患",
+        updateBy: null,
+        informTransferLevel: 512.47,
+        stnm: "后山镇-沐河村1组",
+        villageSection: null,
+        floodControlCapacity: 4,
+        devLong: 108.050361,
+        sixHourPrepare: 80,
+        village: null,
+        specialCrowd: 8,
+        joinRiverName: null,
+        riskRank: "I",
+        length: 3,
+        updateTime: null,
+        households: 10,
+        threeHourImmediately: 64,
+        distanceImmediatelyTransferLevel: null,
+        createBy: "admin",
+        exampleYear: null,
+        distanceInformTransferLevel: null,
+        createTime: "2023-11-21 19:05:25",
+        disasterFlow: null,
+        lastTm: "2024-01-22 09:00:00",
+        tm: "2024-01-22 10:00:00",
+        z: 511.5,
+        oneHourImmediately: 48,
+      };
+      const option = getVMOption(obj);
+      console.log("option: ", option);
+      return option;
+    },
+    /**
+     * 雷达图
+     */
+    upDataCheckradarOption() {
+      const names = [
+        "工作情况",
+        "专项行动开展情况",
+        "巡河完成率",
+        "任务处置率",
+        "水质改善率",
+      ];
+      let list = [];
+      names.forEach((item) => {
+        list.push({
+          name: item,
+          value: Math.floor(Math.random() * 100),
+        });
+      });
+      this.radarChartOption = getKhgkOption(list);
+    },
   },
 };
 </script>
@@ -307,6 +416,12 @@ export default {
 
 .chart-box2 {
   width: 230px;
+  height: 250px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.chart-line {
+  width: 400px;
   height: 250px;
   background-color: rgba(0, 0, 0, 0.6);
 }
