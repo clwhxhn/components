@@ -137,11 +137,11 @@ export function getRainfallOpt() {
             left: '15%',
             right: '15%',
             top: '25%',
-            bottom: '10%',
+            bottom: '14%',
         },
         xAxis: {
             type: 'category',
-            data: ['2023-11-18', '2023-11-19', '2023-11-20', '2023-11-21', '2023-11-22', '2023-11-23', '2023-11-24'],
+            data: ['2023-11-18 09:00', '2023-11-19', '2023-11-20', '2023-11-21', '2023-11-22', '2023-11-23', '2023-11-24'],
             axisLine: {
                 show: true,
                 lineStyle: {
@@ -1640,4 +1640,159 @@ export function getKhgkOption(dataList) {
       ],
     };
     return option;
-  }
+}
+  
+export const barDiejia = {
+    grid: {
+        left: 25,
+        right: 10,
+        bottom: 10,
+        top: 30,
+        containLabel: true,
+    },
+    legend: {
+        show: false,
+        top: 0,
+        right: 10,
+        itemWidth: 10,
+        itemHeight: 10,
+        textStyle: {
+            fontSize: 14,
+            color: '#DDF8FF',
+        },
+    },
+    color: ['#31EABE'],
+    tooltip: {
+        trigger: 'axis',
+        backgroundColor: 'rgba(0,0,0,0.3)',
+        borderWidth: 0,
+        textStyle: {
+            color: '#fff',
+            fontSize: 12,
+        },
+        valueFormatter: (value) => `${value}mm`,
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        name: '',
+        axisLine: {
+            show: true,
+            lineStyle: {
+                color: 'rgba(62, 188, 238, 0.2)',
+            },
+        },
+        axisLabel: {
+            show: true,
+            textStyle: {
+                color: '#DDF8FF',
+            },
+            fontSize: 12,
+        },
+        axisTick: {
+            //   alignWithLabel: true,
+            inside: true, // 小竖线显示在刻度线内部
+            lineStyle: {
+                color: '#3EBCEE', // 小竖线的颜色
+            },
+        },
+        data: [1, 2, 3, 4, 5],
+    },
+    yAxis: {
+        name: '雨量(mm)',
+        type: 'value',
+        nameTextStyle: {
+            color: '#AFCCFF',
+        },
+        axisLine: {
+            show: true,
+            lineStyle: {
+                color: 'rgba(62, 188, 238, 0.2)',
+            },
+        },
+        splitLine: {
+            show: true,
+            lineStyle: {
+                width: 1,
+                color: 'rgba(62, 188, 238, 0.2)',
+            },
+        },
+        axisLabel: {
+            show: true,
+            textStyle: {
+                color: '#AFCCFF',
+            },
+            fontSize: 11,
+            interval: 'auto',
+            formatter: '{value}',
+        },
+    },
+    series: [
+        {
+            name: '',
+            type: 'bar',
+            data: [2, 4, 6, 8, 10],
+            stack: '1',
+            itemStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [
+                        {
+                            offset: 0,
+                            color: 'rgba(11, 191, 255, 1)',
+                        },
+                        {
+                            offset: 1,
+                            color: 'rgba(60, 213, 255, 0)',
+                        },
+                    ],
+                    global: false,
+                },
+                borderColor: '#1D9BC7',
+                borderWidth: 1,
+            },
+            barWidth: 15,
+        },
+        {
+            name: '',
+            type: 'bar',
+            stack: '1',
+            data: [2, 4, 6, 8, 10],
+            label: {
+                show: true, // 显示标签
+                position: 'top', // 文字显示在柱子的顶部
+                distance: 10, // 文字距离柱子顶部的距离
+                color: '#fff', // 文字颜色
+                fontSize: 12, // 文字大小
+                formatter: '{c}mm', // 文字格式，{c} 表示当前值
+            },
+            itemStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [
+                        {
+                            offset: 0,
+                            color: 'rgba(0, 255, 204, 1)',
+                        },
+                        {
+                            offset: 1,
+                            color: 'rgba(0, 255, 204, 0)',
+                        },
+                    ],
+                    global: false,
+                },
+                borderColor: '#1DC7A5',
+                borderWidth: 1,
+            },
+            barWidth: 15,
+        },
+    ],
+};

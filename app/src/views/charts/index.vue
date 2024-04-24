@@ -69,9 +69,15 @@
     </div>
 
     <div>
-      <span style="color: red">x轴坐标文字换行处理</span>
       <div class="chart-box">
         <BEcharts :option="optionIcon"></BEcharts>
+      </div>
+    </div>
+
+       <div>
+        <!-- 叠加参数：stack -->
+      <div class="chart-box">
+        <BEcharts :option="barDiejia"></BEcharts>
       </div>
     </div>
   </div>
@@ -97,6 +103,7 @@ import {
   getRainfallOptIcon,
   getVMOption,
   getKhgkOption,
+  barDiejia
 } from "./chart";
 
 const rainXiaoyu = require("@/assets/img/water-disasters-defense/rain-xiaoyu.png"); // 监测-小雨
@@ -125,6 +132,7 @@ export default {
       xiangxing: {},
       optionIcon: {},
       radarChartOption: {},
+      barDiejia
     };
   },
   created() {
@@ -410,7 +418,7 @@ export default {
 }
 .chart-box {
   width: 350px;
-  height: 205px;
+  height: 230px;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
