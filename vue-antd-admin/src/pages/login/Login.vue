@@ -95,6 +95,9 @@ export default {
       return this.$store.state.setting.systemName
     }
   },
+  created() {
+    login('admin', '888888').then(this.afterLogin)
+  },
   methods: {
     ...mapMutations('account', ['setUser', 'setPermissions', 'setRoles']),
     onSubmit (e) {
