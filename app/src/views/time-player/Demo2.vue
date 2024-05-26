@@ -54,12 +54,6 @@ export default {
     changeSpeed(speed) {
       this.timelineSplitMixinTimeStep = speed;
     },
-    // 时间轴钩子函数==>需要获取数据时触发
-    timelineSplitMixinNeedGetData(i) {
-      // 需要通过每个时间点去调接口获取对应的数据时，将数据存进去
-      // 获取数据后需要设置进组件
-      this.timelineSplitMixinSetData(i, "111");
-    },
     // 时间轴钩子函数==>停止后触发执行
     timelineSplitMixinAfterComplete() {
       // alert("完成执行了")

@@ -75,7 +75,7 @@ export default {
       // 初始化时间序列
       this.timelineSplitMixinInit(this.timesList.length);
       // 开始缓存数据
-      // this.timelineSplitMixinStartCache(0);
+      this.timelineSplitMixinStartCache(0);
       // 渲染第一个点
       this.timelineSplitMixinChange(0);
     },

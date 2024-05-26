@@ -1,3 +1,4 @@
+// 已经封装好了，这里面的逻辑不要改
 export default {
     data(){
       return {
