@@ -35,6 +35,12 @@ const routes = [
         component: () =>
             import(/* webpackChunkName: "ol" */ '@/views/ol/Home')
     },
+    {
+        path: '/time-line',
+        name: 'TimeLine',
+        component: () =>
+            import(/* webpackChunkName: "ol" */ '@/views/time-player/Home')
+    },
 ]
 
 const router = new Router({
