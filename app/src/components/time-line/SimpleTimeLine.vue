@@ -98,19 +98,12 @@ export default {
     },
     // 改变播放速度,并重新从当前位置播放
     doubleSpeedChange(val) {
-      // this.doubleSpeed = val
-      // if (this.autoPlayTimer) clearInterval(this.autoPlayTimer)
-      // if (this.autoPlayTimerFlag) {
-      //   this.autoPlay()
-      // }
-
       this.doubleSpeed = val;
       this.$emit("changeSpeed", this.doubleSpeed);
     },
     // 移除定时器
     removeAutoPlay() {
       this.autoPlayTimerFlag = false;
-      // clearInterval(this.autoPlayTimer)
       this.$emit("clickStop", this.sliderValue);
     },
     // 打开自动预演定时器
@@ -124,14 +117,6 @@ export default {
         this.sliderValue = 0;
       }
       this.$emit("clickPlay", this.sliderValue);
-      // this.autoPlayTimer = setInterval(() => {
-      //   this.sliderValue += 1
-      //   // eslint-disable-next-line eqeqeq
-      //   if (this.sliderValue == this.sliderList.length) {
-      //     this.sliderValue = 0
-      //   }
-      //   this.sliderChange()
-      // }, this.doubleSpeed)
     },
     // 格式化tip文字
     tipFormatter(val) {
