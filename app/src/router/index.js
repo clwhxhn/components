@@ -36,11 +36,17 @@ const routes = [
             import(/* webpackChunkName: "ol" */ '@/views/ol/Home')
     },
     {
+        path: '/antd',
+        name: 'antd',
+        component: () =>
+            import(/* webpackChunkName: "ol" */ '@/views/antd/Home')
+    },
+    {
         path: '/time-line',
         name: 'TimeLine',
         component: () =>
             import(/* webpackChunkName: "ol" */ '@/views/time-player/Home')
-    },
+    }
 ]
 
 const router = new Router({

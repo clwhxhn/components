@@ -1326,246 +1326,246 @@ const markTongzhi = require('@/assets/img/water-disasters-defense/mark-tongzhi.p
 const markZhunbei = require('@/assets/img/water-disasters-defense/mark-zhunbei.png');
 const markLiji = require('@/assets/img/water-disasters-defense/mark-liji.png');
 export function getVMOption(record) {
-  const blueData = (record.informTransferLevel - record.staffStart).toFixed(2);
-  // 橙色色块
-  const orangeData = record.immediatelyTransferLevel - record.prepareTransferLevel;
+    const blueData = (record.informTransferLevel - record.staffStart).toFixed(2);
+    // 橙色色块
+    const orangeData = record.immediatelyTransferLevel - record.prepareTransferLevel;
 
-  // 黄色色块
-  const yellowData = record.prepareTransferLevel - record.informTransferLevel;
+    // 黄色色块
+    const yellowData = record.prepareTransferLevel - record.informTransferLevel;
 
-  // 红色色块
-  const normalLength = record.length ? record.length : 5;
-  const redData = Number(normalLength) - orangeData - yellowData - blueData;
+    // 红色色块
+    const normalLength = record.length ? record.length : 5;
+    const redData = Number(normalLength) - orangeData - yellowData - blueData;
 
-  // 实时水位线
-  let currentLevel = 0;
-  if (record.z) {
-    currentLevel = record.z - record.staffStart;
-  }
-  // 水尺色块
-  const shuichi = record.length - currentLevel;
+    // 实时水位线
+    let currentLevel = 0;
+    if (record.z) {
+        currentLevel = record.z - record.staffStart;
+    }
+    // 水尺色块
+    const shuichi = record.length - currentLevel;
 
-  const option = {
-    grid: {
-      left: '0',
-      right: 15,
-      bottom: 0,
-      top: -10,
-      containLabel: true,
-    },
-    legend: {
-      show: false,
-    },
-    tooltip: {
-      trigger: 'axis',
-      // position: ['50%', '50%'],
-      confine: true,
-      textStyle: {
-        align: 'left',
-      },
-      formatter: (params) => {
-        let str = `监测水位<br/>`;
-        params.forEach((item) => {
-          if (item.seriesName !== '水尺总长(m)') {
-            let isNum = typeof item.value === 'number';
-            let valueText = isNum ? `${item.value}` : ``;
-            if (item.seriesName === '监测水位(m)') {
-              valueText = record.z || '-';
-            }
-            if (item.seriesName === '距通知转移水位(m)') {
-              valueText = record.z ? (record.z - record.informTransferLevel).toFixed(2) : '-';
-            }
-            if (item.seriesName === '距准备转移水位(m)') {
-              valueText = record.z ? (record.z - record.prepareTransferLevel).toFixed(2) : '-';
-            }
-            if (item.seriesName === '距立即转移水位(m)') {
-              valueText = record.z ? (record.z - record.immediatelyTransferLevel).toFixed(2) : '-';
-            }
-            str += `${item.marker} ${item.seriesName}：${valueText}<br/>`;
-          }
-        });
-        return str;
-      },
-    },
-    xAxis: {
-      name: '',
-      type: 'value',
-      axisLine: {
-        show: false,
-      },
-      splitLine: {
-        show: false,
-      },
-      axisLabel: {
-        show: false,
-      },
-    },
-    yAxis: {
-      type: 'category',
-      name: '',
-      axisLine: {
-        show: false,
-      },
-      splitLine: {
-        show: false,
-      },
-      axisLabel: {
-        show: false,
-      },
-    },
-    graphic: [
-      {
-        type: 'image',
-        left: '0',
-        bottom: '20',
-        style: {
-          width: 370,
-          height: 20,
-          image: require('@/assets/img/water-disasters-defense/bar-bg.png'),
+    const option = {
+        grid: {
+            left: '0',
+            right: 15,
+            bottom: 0,
+            top: -10,
+            containLabel: true,
         },
-        z: 3,
-      },
-    ],
-    series: [
-      // 背景
-      {
-        name: '水尺总长(m)',
-        type: 'bar',
-        barWidth: 8,
-        barGap: '-100%',
-        label: {
-          show: false,
+        legend: {
+            show: false,
         },
-        emphasis: {
-          focus: 'series',
-        },
-        itemStyle: {
-          color: 'rgba(255,254,254,0.2)',
-        },
-        z: 1,
-        data: [6],
-        markPoint: {
-          // symbol: `image://${mark}`,
-          // symbolSize: [5, 30], //设置标记点的大小
-          data: [
-            {
-              symbol: `image://${mark}`,
-              symbolSize: [5, 30], //设置标记点的大小
-              coord: [currentLevel, 0],
-              symbolOffset: [0, 5],
+        tooltip: {
+            trigger: 'axis',
+            // position: ['50%', '50%'],
+            confine: true,
+            textStyle: {
+                align: 'left',
             },
-            {
-              symbol: `image://${markTongzhi}`,
-              symbolSize: [20, 31], // 通知转移
-              coord: [record.informTransferLevel - record.staffStart, 0],
-              symbolOffset: [0, 5],
+            formatter: (params) => {
+                let str = `监测水位<br/>`;
+                params.forEach((item) => {
+                    if (item.seriesName !== '水尺总长(m)') {
+                        let isNum = typeof item.value === 'number';
+                        let valueText = isNum ? `${item.value}` : ``;
+                        if (item.seriesName === '监测水位(m)') {
+                            valueText = record.z || '-';
+                        }
+                        if (item.seriesName === '距通知转移水位(m)') {
+                            valueText = record.z ? (record.z - record.informTransferLevel).toFixed(2) : '-';
+                        }
+                        if (item.seriesName === '距准备转移水位(m)') {
+                            valueText = record.z ? (record.z - record.prepareTransferLevel).toFixed(2) : '-';
+                        }
+                        if (item.seriesName === '距立即转移水位(m)') {
+                            valueText = record.z ? (record.z - record.immediatelyTransferLevel).toFixed(2) : '-';
+                        }
+                        str += `${item.marker} ${item.seriesName}：${valueText}<br/>`;
+                    }
+                });
+                return str;
             },
-            {
-              symbol: `image://${markZhunbei}`,
-              symbolSize: [20, 31], // 准备转移
-              coord: [record.prepareTransferLevel - record.staffStart, 0],
-              symbolOffset: [0, 5],
+        },
+        xAxis: {
+            name: '',
+            type: 'value',
+            axisLine: {
+                show: false,
             },
-            {
-              symbol: `image://${markLiji}`,
-              symbolSize: [20, 31], // 立即转移
-              coord: [record.immediatelyTransferLevel - record.staffStart, 0],
-              symbolOffset: [0, 5],
+            splitLine: {
+                show: false,
             },
-          ],
+            axisLabel: {
+                show: false,
+            },
         },
-      },
-      {
-        name: '监测水位(m)',
-        type: 'bar',
-        barWidth: 8,
-        stack: 'total',
-        label: {
-          show: false,
+        yAxis: {
+            type: 'category',
+            name: '',
+            axisLine: {
+                show: false,
+            },
+            splitLine: {
+                show: false,
+            },
+            axisLabel: {
+                show: false,
+            },
         },
-        emphasis: {
-          focus: 'series',
-        },
-        // itemStyle:{
-        //   color: '#1677FF' // 蓝色色块
-        // },
-        itemStyle: {
-          normal: {
-            color: {
-              x: 1,
-              y: 0,
-              x2: 0,
-              y2: 0,
-              colorStops: [
-                {
-                  offset: 0,
-                  color: 'rgba(0, 255, 255, 1)', // 0% 处的颜色
+        graphic: [
+            {
+                type: 'image',
+                left: '0',
+                bottom: '20',
+                style: {
+                    width: 370,
+                    height: 20,
+                    image: require('@/assets/img/water-disasters-defense/bar-bg.png'),
                 },
-                {
-                  offset: 1,
-                  color: 'rgba(0, 255, 255, 0.2)', // 100% 处的颜色
-                },
-              ],
+                z: 3,
             },
-          },
-        },
-        data: [currentLevel],
-        z: 2,
-      },
-      // {
-      //   name: '距通知转移水位(m)',
-      //   type: 'bar',
-      //   barWidth: 20,
-      //   stack: 'total',
-      //   label: {
-      //     show: false,
-      //   },
-      //   emphasis: {
-      //     focus: 'series',
-      //   },
-      //   data: [yellowData],
-      //   itemStyle: {
-      //     color: '#e7e211', // 黄色色块
-      //   },
-      //   z: 2,
-      // },
-      // {
-      //   name: '距准备转移水位(m)',
-      //   type: 'bar',
-      //   barWidth: 20,
-      //   stack: 'total',
-      //   label: {
-      //     show: false,
-      //   },
-      //   emphasis: {
-      //     focus: 'series',
-      //   },
-      //   itemStyle: {
-      //     color: '#faad14', // 橙色色块
-      //   },
-      //   data: [orangeData],
-      //   z: 2,
-      // },
-      // {
-      //   name: '距立即转移水位(m)',
-      //   type: 'bar',
-      //   barWidth: 20,
-      //   stack: 'total',
-      //   label: {
-      //     show: false,
-      //   },
-      //   emphasis: {
-      //     focus: 'series',
-      //   },
-      //   itemStyle: {
-      //     color: '#FF2828', // 红色色块
-      //   },
-      //   data: [redData],
-      //   z: 2,
-      // },
-    ],
-  };
-  return option;
+        ],
+        series: [
+            // 背景
+            {
+                name: '水尺总长(m)',
+                type: 'bar',
+                barWidth: 8,
+                barGap: '-100%',
+                label: {
+                    show: false,
+                },
+                emphasis: {
+                    focus: 'series',
+                },
+                itemStyle: {
+                    color: 'rgba(255,254,254,0.2)',
+                },
+                z: 1,
+                data: [6],
+                markPoint: {
+                    // symbol: `image://${mark}`,
+                    // symbolSize: [5, 30], //设置标记点的大小
+                    data: [
+                        {
+                            symbol: `image://${mark}`,
+                            symbolSize: [5, 30], //设置标记点的大小
+                            coord: [currentLevel, 0],
+                            symbolOffset: [0, 5],
+                        },
+                        {
+                            symbol: `image://${markTongzhi}`,
+                            symbolSize: [20, 31], // 通知转移
+                            coord: [record.informTransferLevel - record.staffStart, 0],
+                            symbolOffset: [0, 5],
+                        },
+                        {
+                            symbol: `image://${markZhunbei}`,
+                            symbolSize: [20, 31], // 准备转移
+                            coord: [record.prepareTransferLevel - record.staffStart, 0],
+                            symbolOffset: [0, 5],
+                        },
+                        {
+                            symbol: `image://${markLiji}`,
+                            symbolSize: [20, 31], // 立即转移
+                            coord: [record.immediatelyTransferLevel - record.staffStart, 0],
+                            symbolOffset: [0, 5],
+                        },
+                    ],
+                },
+            },
+            {
+                name: '监测水位(m)',
+                type: 'bar',
+                barWidth: 8,
+                stack: 'total',
+                label: {
+                    show: false,
+                },
+                emphasis: {
+                    focus: 'series',
+                },
+                // itemStyle:{
+                //   color: '#1677FF' // 蓝色色块
+                // },
+                itemStyle: {
+                    normal: {
+                        color: {
+                            x: 1,
+                            y: 0,
+                            x2: 0,
+                            y2: 0,
+                            colorStops: [
+                                {
+                                    offset: 0,
+                                    color: 'rgba(0, 255, 255, 1)', // 0% 处的颜色
+                                },
+                                {
+                                    offset: 1,
+                                    color: 'rgba(0, 255, 255, 0.2)', // 100% 处的颜色
+                                },
+                            ],
+                        },
+                    },
+                },
+                data: [currentLevel],
+                z: 2,
+            },
+            // {
+            //   name: '距通知转移水位(m)',
+            //   type: 'bar',
+            //   barWidth: 20,
+            //   stack: 'total',
+            //   label: {
+            //     show: false,
+            //   },
+            //   emphasis: {
+            //     focus: 'series',
+            //   },
+            //   data: [yellowData],
+            //   itemStyle: {
+            //     color: '#e7e211', // 黄色色块
+            //   },
+            //   z: 2,
+            // },
+            // {
+            //   name: '距准备转移水位(m)',
+            //   type: 'bar',
+            //   barWidth: 20,
+            //   stack: 'total',
+            //   label: {
+            //     show: false,
+            //   },
+            //   emphasis: {
+            //     focus: 'series',
+            //   },
+            //   itemStyle: {
+            //     color: '#faad14', // 橙色色块
+            //   },
+            //   data: [orangeData],
+            //   z: 2,
+            // },
+            // {
+            //   name: '距立即转移水位(m)',
+            //   type: 'bar',
+            //   barWidth: 20,
+            //   stack: 'total',
+            //   label: {
+            //     show: false,
+            //   },
+            //   emphasis: {
+            //     focus: 'series',
+            //   },
+            //   itemStyle: {
+            //     color: '#FF2828', // 红色色块
+            //   },
+            //   data: [redData],
+            //   z: 2,
+            // },
+        ],
+    };
+    return option;
 }
 
 
@@ -1579,69 +1579,69 @@ export function getKhgkOption(dataList) {
     let indicatorArr = [];
     let dataArr = [];
     dataList.forEach((item) => {
-      indicatorArr.push({
-        name: item.name,
-        max: 100,
-      });
-      dataArr.push(item.value);
+        indicatorArr.push({
+            name: item.name,
+            max: 100,
+        });
+        dataArr.push(item.value);
     });
     let option = {
-      legend: {
-        show: false,
-      },
-      color: ['#FFE354', '#FFE434', '#56A3F1', '#FF917C'],
-      tooltip: {
-        trigger: 'item',
-        confine: true,
-        textStyle: {
-          align: 'left',
+        legend: {
+            show: false,
         },
-        formatter: (params) => {
-          let str = ``;
-          params.value.forEach((val, i) => {
-            let isNum = typeof val === 'number';
-            let valueText = isNum ? `${val} ${unit}` : ``;
-            str += `${indicatorArr[i].name} ：${valueText}<br/>`;
-          });
-          return str;
-        },
-      },
-      radar: {
-        radius: '60%',
-        axisName: {
-          fontSize: 11,
-          color: 'DDF8FF',
-        },
-        splitLine: {
-          show: true,
-          lineStyle: {
-            width: 1,
-            color: 'rgba(62, 188, 238, 0.2)',
-          },
-        },
-        axisLabel: {
-          show: false,
-        },
-        // shape: 'circle',
-        indicator: indicatorArr,
-      },
-      series: [
-        {
-          type: 'radar',
-          data: [
-            {
-              value: dataArr,
-              areaStyle: {
-                color: '#FF8800',
-              },
+        color: ['#FFE354', '#FFE434', '#56A3F1', '#FF917C'],
+        tooltip: {
+            trigger: 'item',
+            confine: true,
+            textStyle: {
+                align: 'left',
             },
-          ],
+            formatter: (params) => {
+                let str = ``;
+                params.value.forEach((val, i) => {
+                    let isNum = typeof val === 'number';
+                    let valueText = isNum ? `${val} ${unit}` : ``;
+                    str += `${indicatorArr[i].name} ：${valueText}<br/>`;
+                });
+                return str;
+            },
         },
-      ],
+        radar: {
+            radius: '60%',
+            axisName: {
+                fontSize: 11,
+                color: 'DDF8FF',
+            },
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    width: 1,
+                    color: 'rgba(62, 188, 238, 0.2)',
+                },
+            },
+            axisLabel: {
+                show: false,
+            },
+            // shape: 'circle',
+            indicator: indicatorArr,
+        },
+        series: [
+            {
+                type: 'radar',
+                data: [
+                    {
+                        value: dataArr,
+                        areaStyle: {
+                            color: '#FF8800',
+                        },
+                    },
+                ],
+            },
+        ],
     };
     return option;
 }
-  
+
 export const barDiejia = {
     grid: {
         left: 25,
@@ -1796,3 +1796,406 @@ export const barDiejia = {
         },
     ],
 };
+
+
+const wending = require('@/assets/img/wendingdabiao.png');
+const jiben = require('@/assets/img/jibendabiao.png');
+import { echartFontSize } from '@/utils/flexible'
+export const lineChart2 = {
+    color: ['#DEE5FF', '#4ECAFF', '#E67D2A', '#DABB96', '#FFEA80'],
+    tooltip: {
+        trigger: 'axis',
+        backgroundColor: 'rgba(0,0,0,0.3)',
+        borderWidth: 0,
+        textStyle: {
+            color: '#fff',
+            fontSize: echartFontSize(12),
+        },
+    },
+    legend: {
+        show: true,
+        data: ['浩江湖', '廖叶湖', '上琼湖', '下琼湖', '石矶湖'],
+        bottom: echartFontSize(6),
+        itemWidth: echartFontSize(16), // 设置图标宽度
+        itemHeight: echartFontSize(2), // 设置图标高度
+        textStyle: {
+            color: '#A0C2F2',
+            fontWeight: 400,
+            fontSize: echartFontSize(12), // 设置字体大小
+        },
+    },
+    grid: {
+        left: '3%',
+        right: '3%',
+        top: '18%',
+        bottom: '15%',
+        containLabel: true,
+    },
+    xAxis: [
+        {
+            type: 'category',
+            axisTick: {
+                show: false,
+            },
+            axisLine: {
+                lineStyle: {
+                    color: 'rgba(186,231,255,0.4)',
+                    width: echartFontSize(1),
+                    type: 'solid',
+                },
+            },
+            axisLabel: {
+                color: '#FFFFFF',
+                fontSize: echartFontSize(12), // 设置字体大小
+            },
+            data: ['01', '02', '03', '04'],
+        },
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            name: '达标率(%)',
+            nameTextStyle: {
+                color: 'rgba(234,241,255,0.74)',
+                align: 'center',
+            },
+            axisLabel: {
+                color: 'rgba(234,241,255,0.74)',
+                formatter: '{value}',
+            },
+            axisTick: {
+                show: false,
+            },
+            splitLine: {
+                //   show: false,
+                lineStyle: {
+                    type: 'solid',
+                    color: 'rgba(118, 172, 253, 0.3)',
+                },
+            },
+        },
+    ],
+    series: [
+        {
+            name: '浩江湖',
+            type: 'line',
+            symbol: 'none',
+            tooltip: {
+                valueFormatter: value => value + ' m',
+            },
+            lineStyle: {
+                width: echartFontSize(2),
+                color: '#DEE5FF', // 设置线条颜色
+            },
+            data: [10, 10, 10, 10],
+            markLine: {
+                symbol: ['none', 'none'],
+                symbol: ['none', 'image://' + wending], // 设置图片路径
+                symbolSize: [echartFontSize(56), echartFontSize(20)], // 设置图片大小
+                symbolRotate: 0, // 将图片旋转回正确的方向
+                symbolOffset: [-echartFontSize(20), -echartFontSize(10)], // 设置图片相对于markLine的偏移量
+                label: {
+                    normal: {
+                        show: false,
+                    },
+                },
+                lineStyle: {
+                    width: echartFontSize(2),
+                    color: '#7CE0C3',
+                },
+                data: [
+                    {
+                        yAxis: 35,
+                        isVisible: true,
+                    },
+                ],
+            },
+        },
+        {
+            name: '上琼湖',
+            type: 'line',
+            tooltip: {
+                valueFormatter: value => value + ' m',
+            },
+            lineStyle: {
+                width: echartFontSize(2),
+                color: '#4ECAFF', // 设置线条颜色
+            },
+            symbol: 'none',
+            data: [50, 50, 50, 50],
+            markLine: {
+                symbol: ['none', 'none'],
+                symbol: ['none', 'image://' + jiben], // 设置图片路径
+                symbolOffset: [-echartFontSize(20), -echartFontSize(10)], // 设置图片相对于markLine的偏移量
+                symbolPosition: 'start', // 设置图片定位方式为起点位置
+                symbolRotate: 0, // 将图片旋转回正确的方向
+                symbolSize: [echartFontSize(56), echartFontSize(20)], // 设置图片大小
+                label: {
+                    normal: {
+                        show: false,
+                    },
+                },
+                lineStyle: {
+                    width: echartFontSize(2),
+                    color: '#A3A3FF',
+                },
+                data: [
+                    {
+                        yAxis: 15,
+                        isVisible: true,
+                    },
+                ],
+            },
+        },
+        {
+            name: '下琼湖',
+            type: 'line',
+            tooltip: {
+                valueFormatter: value => value + ' m',
+            },
+            lineStyle: {
+                width: echartFontSize(2),
+                color: '#E67D2A',
+            },
+            symbol: 'none',
+            data: [40, 40, 40, 40],
+        },
+        {
+            name: '石矶湖',
+            type: 'line',
+            tooltip: {
+                valueFormatter: value => value + ' m',
+            },
+            lineStyle: {
+                width: echartFontSize(2),
+            },
+            symbol: 'none',
+            // smooth: false,
+            data: [30, 30, 30, 30],
+            emphasis: false, // 移除鼠标悬停时的高亮效果
+        },
+    ],
+};
+
+export function bar3D() {
+    const lakes = [
+        {
+            name: '浩江湖',
+        },
+        {
+            name: '廖叶湖',
+        },
+        {
+            name: '上琼湖',
+        },
+        {
+            name: '下琼湖',
+        },
+        {
+            name: '石矶湖',
+        },
+    ];
+    const seriesData = [
+        // 上年同期
+        {
+            z: 2,
+            name: '上年同期',
+            type: 'pictorialBar',
+            symbolPosition: 'end',
+            data: [41, 42, 52, 50, 61],
+            symbol: 'diamond',
+            symbolOffset: ['-75%', '-60%'], //盖子的位置
+            symbolSize: [echartFontSize(15), echartFontSize(7)], //盖子的大小
+            itemStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    x2: 1,
+                    y: 0,
+                    y2: 0,
+                    colorStops: [
+                        { offset: 0, color: 'rgba(74, 151, 226, 1)' },
+                        { offset: 1, color: 'rgba(72, 255, 255, 1)' },
+                    ],
+                }, //盖子的颜色
+            },
+            tooltip: {
+                show: false,
+            },
+        },
+
+        {
+            z: 1,
+            type: 'bar',
+            name: '上年同期',
+            barWidth: echartFontSize(15),
+            barGap: '50%',
+            data: [41, 42, 52, 50, 61],
+            label: {
+                show: true, // 显示标签
+                position: 'top', // 文字显示在柱子的顶部
+                distance: echartFontSize(6), // 文字距离柱子顶部的距离
+                color: '#fff', // 文字颜色
+                fontSize: echartFontSize(12), // 文字大小
+                formatter: '{c}%', // 文字格式，{c} 表示当前值
+            },
+            itemStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    x2: 1,
+                    y: 0,
+                    y2: 0,
+                    colorStops: [
+                        { offset: 0, color: 'rgba(80, 165, 249, 1)' },
+                        { offset: 0.5, color: 'rgba(72, 255, 255, 1)' },
+                        { offset: 0.5, color: 'RGBA(72, 168, 226, 1)' },
+                        { offset: 1, color: 'RGBA(62, 200, 218, 1)' },
+                    ],
+                },
+            },
+        },
+        // 当期
+        {
+            z: 2,
+            name: '当期',
+            type: 'pictorialBar',
+            symbolPosition: 'end',
+            data: [31, 32, 42, 42, 51],
+            symbol: 'diamond',
+            symbolOffset: ['75%', '-60%'],
+            symbolSize: [echartFontSize(15), echartFontSize(7)], //盖子的大小
+            itemStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    x2: 1,
+                    y: 0,
+                    y2: 0,
+                    colorStops: [
+                        { offset: 0, color: 'rgba(170, 225, 132, 1)' },
+                        { offset: 1, color: 'rgba(25, 185, 127, 1)' },
+                    ],
+                },
+            },
+            tooltip: {
+                show: false,
+            },
+        },
+        {
+            z: 1,
+            type: 'bar',
+            name: '当期',
+            barWidth: echartFontSize(15),
+            data: [31, 32, 42, 42, 51],
+            label: {
+                show: true, // 显示标签
+                position: 'top', // 文字显示在柱子的顶部
+                distance: echartFontSize(6), // 文字距离柱子顶部的距离
+                color: '#fff', // 文字颜色
+                fontSize: echartFontSize(12), // 文字大小
+                formatter: '{c}%', // 文字格式，{c} 表示当前值
+            },
+            itemStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    x2: 1,
+                    y: 0,
+                    y2: 0,
+                    colorStops: [
+                        { offset: 0, color: 'rgba(25, 185, 127, 1)' },
+                        { offset: 0.5, color: 'RGBA(98, 205, 130, 1)' },
+                        { offset: 0.5, color: 'RGBA(70, 169, 119, 1)' },
+                        { offset: 1, color: 'RGBA(120, 183, 120, 1)' },
+                    ],
+                },
+            },
+        },
+    ];
+    const option = {
+        color: ['#DEE5FF', '#4ECAFF', '#E67D2A', '#DABB96', '#FFEA80'],
+        tooltip: {
+            trigger: 'axis',
+            backgroundColor: 'rgba(0,0,0,0.3)',
+            borderWidth: 0,
+            textStyle: {
+                color: '#fff',
+                fontSize: echartFontSize(12),
+            },
+        },
+        legend: {
+            show: true,
+            data: [
+                { name: '上年同期', icon: 'image://' + wending },
+                {
+                    name: '当期',
+                    icon: 'image://' + wending,
+                },
+            ],
+            bottom: echartFontSize(0),
+            itemWidth: echartFontSize(9), // 设置图标宽度
+            itemHeight: echartFontSize(10), // 设置图标高度
+            textStyle: {
+                color: '#A0C2F2',
+                fontWeight: 400,
+                fontSize: echartFontSize(12), // 设置字体大小
+            },
+        },
+        grid: {
+            left: '3%',
+            right: '3%',
+            top: '25%',
+            bottom: '12%',
+            containLabel: true,
+        },
+        xAxis: [
+            {
+                type: 'category',
+                axisTick: {
+                    show: false,
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: 'rgba(186,231,255,0.4)',
+                        width: echartFontSize(1),
+                        type: 'solid',
+                    },
+                },
+                axisLabel: {
+                    color: '#FFFFFF',
+                    fontSize: echartFontSize(12), // 设置字体大小
+                },
+                data: lakes.map(i => i.name),
+            },
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                name: '达标率(%)',
+                max: 100,
+                nameTextStyle: {
+                    color: 'rgba(234,241,255,0.74)',
+                    align: 'center',
+                },
+                axisLabel: {
+                    color: 'rgba(234,241,255,0.74)',
+                    formatter: '{value}',
+                },
+                axisTick: {
+                    show: false,
+                },
+                splitLine: {
+                    //   show: false,
+                    lineStyle: {
+                        type: 'solid',
+                        color: 'rgba(118, 172, 253, 0.3)',
+                    },
+                },
+            },
+        ],
+        series: seriesData,
+    };
+
+    return option
+}

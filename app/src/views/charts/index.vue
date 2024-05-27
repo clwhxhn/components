@@ -22,6 +22,10 @@
       <BEcharts :option="lineChart"></BEcharts>
     </div>
 
+    <div class="chart-box">
+      <BEcharts :option="lineChart2"></BEcharts>
+    </div>
+
     <div style="background: rgba(0, 0, 0.4)">
       <PieChart></PieChart>
     </div>
@@ -74,10 +78,17 @@
       </div>
     </div>
 
-       <div>
-        <!-- 叠加参数：stack -->
+    <div>
+      <!-- 叠加参数：stack -->
       <div class="chart-box">
         <BEcharts :option="barDiejia"></BEcharts>
+      </div>
+    </div>
+
+        <div>
+      <!-- 3Dbar -->
+      <div class="chart-box">
+        <BEcharts :option="bar3D()"></BEcharts>
       </div>
     </div>
   </div>
@@ -103,7 +114,9 @@ import {
   getRainfallOptIcon,
   getVMOption,
   getKhgkOption,
-  barDiejia
+  barDiejia,
+  lineChart2,
+  bar3D
 } from "./chart";
 
 const rainXiaoyu = require("@/assets/img/water-disasters-defense/rain-xiaoyu.png"); // 监测-小雨
@@ -132,7 +145,8 @@ export default {
       xiangxing: {},
       optionIcon: {},
       radarChartOption: {},
-      barDiejia
+      barDiejia,
+      lineChart2: lineChart2,
     };
   },
   created() {
@@ -143,12 +157,13 @@ export default {
     this.option = getRainfallOpt();
     this.lineChart = lineChart();
     this.xiangxing = getXiangxing();
-    this.upDataCheckradarOption()
+    this.upDataCheckradarOption();
     this.renderPie();
 
     this.renderBar();
   },
   methods: {
+    bar3D,
     renderChart() {
       this.xData = ["11-1", "11-2", "11-3"];
       this.seriesData = [
