@@ -40,19 +40,19 @@
   </div>
 </template>
 <script>
-import dayjs from 'dayjs'
+import dayjs from "dayjs";
 export default {
   props: {
     // 时间刻度
     timeList: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     // 是否重新加载
     reload: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
@@ -66,108 +66,116 @@ export default {
       // 是否自动播放
       autoPlayTimerFlag: false,
       // 自动预演的时间轴
-      autoPlayTimer: {}
-    }
+      autoPlayTimer: {},
+    };
   },
   watch: {
     // 时间刻度变化
     timeList: {
       handler(val) {
-        this.removeAutoPlay()
-        this.initSlider(val)
+        this.removeAutoPlay();
+        this.initSlider(val);
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
   mounted() {
-    this.removeAutoPlay()
+    this.removeAutoPlay();
   },
   beforeDestroy() {
-    this.removeAutoPlay()
+    this.removeAutoPlay();
   },
   methods: {
     // 滚动条值变化后
     sliderChange() {
-      let val = this.sliderList[this.sliderValue]
-      if (val)
+      let val = this.sliderList[this.sliderValue];
+      if (val) {
         this.$emit(
-          'timeChange',
+          "timeChange",
           this.sliderList[this.sliderValue],
           this.sliderValue
-        )
+        );
+      }
+
+      if (this.sliderValue === this.sliderList.length) {
+        this.removeAutoPlay();
+      }
     },
     // 改变播放速度,并重新从当前位置播放
     doubleSpeedChange(val) {
-      this.doubleSpeed = val
-      if (this.autoPlayTimer) clearInterval(this.autoPlayTimer)
+      this.doubleSpeed = val;
+      if (this.autoPlayTimer) clearInterval(this.autoPlayTimer);
       if (this.autoPlayTimerFlag) {
-        this.autoPlay()
+        this.autoPlay();
       }
     },
     // 移除定时器
     removeAutoPlay() {
-      this.autoPlayTimerFlag = false
-      clearInterval(this.autoPlayTimer)
+      this.autoPlayTimerFlag = false;
+      clearInterval(this.autoPlayTimer);
     },
     // 打开自动预演定时器
     autoPlay() {
       if (!this.timeList.length) {
-        this.$message.warning('暂无时间轴数据')
-        return
+        this.$message.warning("暂无时间轴数据");
+        return;
       }
-      this.autoPlayTimerFlag = true
+      this.autoPlayTimerFlag = true;
+      if (this.sliderValue === this.timeList.length) {
+        this.sliderValue = 0;
+      }
       this.autoPlayTimer = setInterval(() => {
-        this.sliderValue += 1
+        this.sliderValue += 1;
         // eslint-disable-next-line eqeqeq
         if (this.sliderValue == this.sliderList.length) {
-          this.sliderValue = 0
+          this.sliderValue = 0;
         }
-        this.sliderChange()
-      }, this.doubleSpeed)
+        this.sliderChange();
+      }, this.doubleSpeed);
     },
     // 格式化tip文字
     tipFormatter(val) {
-      return this.sliderList[val]
+      return this.sliderList[val];
     },
     // 初始化时间轴的刻度
     initSlider(res) {
       // 时间数组为空，重置时间轴
       if (!res.length) {
-        this.sliderMax = 100 // 设置滚动条的最大值
-        this.sliderValue = 0 // 重置滚动条的值
-        this.sliderList = []
-        this.marks = {}
-        return
+        this.sliderMax = 100; // 设置滚动条的最大值
+        this.sliderValue = 0; // 重置滚动条的值
+        this.sliderList = [];
+        this.marks = {};
+        return;
       }
-      const times = res.map(item =>
-        dayjs(item.tm).format('YYYY-MM-DD HH:mm:ss')
-      ) // 将时间戳转换为 YYYY-MM-DD HH:mm:ss 的格式
-      this.sliderMax = times.length - 1 // 设置滚动条的最大值
-      this.sliderList = times // 将时间轴的时间列表赋值给 this.sliderList
+      const times = res.map((item) =>
+        dayjs(item.tm).format("YYYY-MM-DD HH:mm:ss")
+      ); // 将时间戳转换为 YYYY-MM-DD HH:mm:ss 的格式
+      this.sliderMax = times.length - 1; // 设置滚动条的最大值
+      this.sliderList = times; // 将时间轴的时间列表赋值给 this.sliderList
       // 将 this.sliderMax 除以 7 取整数部分的操作,这里必须是是6+1
-      let step = Math.floor(this.sliderMax / 7)
+      let step = Math.floor(this.sliderMax / 7);
       // i < 6 代表刻度的个数, 开始-结束中间6个点
       for (let i = 0; i < 6; i++) {
-        this.marks[(i + 1) * step] = times[(i + 1) * step]
+        this.marks[(i + 1) * step] = times[(i + 1) * step];
       } // 将刻度的文字描述设置为对应的时间
-      this.marks[0] = '开始' // 将第一个刻度的文字描述设置为开始
-      const modifiedObject = {}
+      this.marks[0] = "开始"; // 将第一个刻度的文字描述设置为开始
+      const modifiedObject = {};
       // eslint-disable-next-line no-restricted-syntax
       for (const key in this.marks) {
         // eslint-disable-next-line eqeqeq
         if (key != 0) {
-          modifiedObject[key] = dayjs(this.marks[key]).format('MM-DD HH')
+          modifiedObject[key] = dayjs(this.marks[key]).format("MM-DD HH");
         } else {
-          modifiedObject[key] = this.marks[key]
+          modifiedObject[key] = this.marks[key];
         }
       }
 
-      this.marks = modifiedObject
-      this.marks[this.sliderMax] = '结束' // 将最后一个刻度的文字描述设置为结束
-      this.sliderValue = 0 // 重置滚动条的值
-    }
-  }
-}
+      this.marks = modifiedObject;
+      this.marks[this.sliderMax] = "结束"; // 将最后一个刻度的文字描述设置为结束
+      this.sliderValue = 0; // 重置滚动条的值
+    },
+  },
+};
 </script>
 
 <style lang="less" scoped>

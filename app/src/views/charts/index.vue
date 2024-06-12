@@ -85,11 +85,15 @@
       </div>
     </div>
 
-        <div>
+    <div>
       <!-- 3Dbar -->
       <div class="chart-box">
         <BEcharts :option="bar3D()"></BEcharts>
       </div>
+    </div>
+
+    <div class="chart-box3">
+      <PieChart1></PieChart1>
     </div>
   </div>
 </template>
@@ -104,6 +108,8 @@ import XlChart from "./components/XlChart";
 import PieChart3D from "./components/PieChart3D";
 import YsplitChart from "./components/YsplitChart";
 import CylinderCom from "./components/CylinderCom";
+import PieChart1 from './components/PieChart1'
+
 import {
   rainChart,
   getRainfallOpt,
@@ -116,7 +122,7 @@ import {
   getKhgkOption,
   barDiejia,
   lineChart2,
-  bar3D
+  bar3D,
 } from "./chart";
 
 const rainXiaoyu = require("@/assets/img/water-disasters-defense/rain-xiaoyu.png"); // 监测-小雨
@@ -131,6 +137,7 @@ export default {
     PieChart3D,
     YsplitChart,
     CylinderCom,
+    PieChart1
   },
   data() {
     return {

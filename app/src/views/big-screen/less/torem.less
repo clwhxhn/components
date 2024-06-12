@@ -1,0 +1,7 @@
+.px2rem(@attr, @px) {
+  @{attr}: @px / 16 * 1rem;
+}
+
+.height-calc(@px) {
+  height: calc(100% - (@px / 16 * 1rem));
+}

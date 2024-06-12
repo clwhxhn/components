@@ -46,6 +46,18 @@ const routes = [
         name: 'TimeLine',
         component: () =>
             import(/* webpackChunkName: "ol" */ '@/views/time-player/Home')
+    },
+    {
+        path: '/animate',
+        name: 'Animate',
+        component: () =>
+            import(/* webpackChunkName: "ol" */ '@/views/animate/Home')
+    },
+    {
+        path: '/led',
+        name: 'Led',
+        component: () =>
+            import(/* webpackChunkName: "ol" */ '@/views/big-screen/Home')
     }
 ]
 
