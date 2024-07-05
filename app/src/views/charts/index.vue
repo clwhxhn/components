@@ -95,6 +95,12 @@
     <div class="chart-box3">
       <PieChart1></PieChart1>
     </div>
+
+    <!-- 地图 -->
+    <div class="map">
+      9090
+      <chart-map></chart-map>
+    </div>
   </div>
 </template>
 
@@ -108,7 +114,8 @@ import XlChart from "./components/XlChart";
 import PieChart3D from "./components/PieChart3D";
 import YsplitChart from "./components/YsplitChart";
 import CylinderCom from "./components/CylinderCom";
-import PieChart1 from './components/PieChart1'
+import PieChart1 from "./components/PieChart1";
+import ChartMap from "./components/ChartMap";
 
 import {
   rainChart,
@@ -137,7 +144,8 @@ export default {
     PieChart3D,
     YsplitChart,
     CylinderCom,
-    PieChart1
+    PieChart1,
+    ChartMap,
   },
   data() {
     return {
@@ -162,6 +170,7 @@ export default {
     this.barOption1 = getWarnEventOption();
     this.barOption2 = getVillageRainOpt();
     this.option = getRainfallOpt();
+    console.log(" this.option: ", this.option);
     this.lineChart = lineChart();
     this.xiangxing = getXiangxing();
     this.upDataCheckradarOption();
@@ -457,6 +466,11 @@ export default {
 }
 
 .chart-box3 {
+  width: 460px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.map {
   width: 460px;
   background-color: rgba(0, 0, 0, 0.6);
 }
