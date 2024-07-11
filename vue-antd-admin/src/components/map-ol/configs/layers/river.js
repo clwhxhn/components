@@ -43,7 +43,7 @@ export const config = {
   layerHandle: new Promise((resolve, reject) => {
     axios
       .get(
-        `${process.env.VUE_APP_NGINX_RESOURCE_URL}/layers/common/river.geojson`
+        `/data/river.geojson`
       )
       .then(response => {
         const vectorSource = new VectorSource()

@@ -96,7 +96,8 @@ export default {
   },
   async mounted() {
     this.baseLayers = getImageryLayers();
-    // this.defaultLayers = await getLayerConfigs();
+    this.defaultLayers = await getLayerConfigs();
+    console.log(' this.defaultLayers: ',  this.defaultLayers);
     this.$nextTick(() => {
       this.initMap();
     });
@@ -127,7 +128,7 @@ export default {
         }),
       });
       window.map = this.map;
-      //   this.initDefaultLayers()
+      this.initDefaultLayers();
       //   const { tipLayer, highlightLayer } = mouseIns
       //   this.map.addLayer(tipLayer) // 添加名称标识图层
       //   this.map.addLayer(highlightLayer) // 添加高亮图层
@@ -144,6 +145,63 @@ export default {
           ...newViews,
           duration: 1000,
         });
+    },
+    initDefaultLayers() {
+      const promises = this.defaultLayers.map((layer) => layer.layerHandle);
+      Promise.all(promises)
+        .then((layers) => {
+          console.log("layers: ", layers);
+          layers.forEach((layer) => {
+            layer.setVisible(true);
+            this.map.addLayer(layer);
+          });
+          this.BaseLayerSelect(this.defaultBaseLayer);
+        })
+        .catch((error) => {
+          console.error("Error loading layers:", error);
+        });
+    },
+    /**
+     * @description: 设置图层样式
+     * @param {*layerName} string 底图名称
+     * @param {*key} string 要设置样式的图层名称
+     */
+    setLayerStyle(layerName, key) {
+      // 找到layerName图层
+      const xzqhLayer = this.map
+        .getLayers()
+        .getArray()
+        .find((ol) => ol.get("layerName") === key);
+
+      // 找到对应configs中的layer配置找到对应的style
+      const style = this.defaultLayers.find((item) => item.layerName === key)
+        .styles[`${layerName}Style`];
+      // 设置style
+      if (xzqhLayer) xzqhLayer.setStyle(style);
+    },
+    // 底图切换
+    BaseLayerSelect(layerName) {
+      this.$emit("baseLayerSelect", layerName);
+      this.setLayerStyle(
+        layerName,
+        this.isXzqhHasMdx ? "xzqhmdxout" : "xzqhout"
+      ); // 重置行政区划蒙版样式
+      this.baseLayers.forEach((item) => {
+        const flag = item.get("layerName") === layerName;
+        item.setVisible(flag);
+        if (flag) this.setLayerStyle(layerName, "xzqh");
+      });
+      this.mapReset();
+      // 隐藏图层
+      if (this.hideLayers.length > 0) {
+        this.hideLayers.forEach((item) => {
+          const layer = this.map
+            .getLayers()
+            .getArray()
+            .find((ol) => ol.get("layerName") === item);
+          layer.setVisible(false);
+        });
+      }
     },
   },
 };

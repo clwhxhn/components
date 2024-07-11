@@ -32,9 +32,9 @@ const satelliteImagery = {
 
 const vectorImagery = {
   layerName: "vectorImagery",
-  //   url:"http://t0.tianditu.gov.cn/vec_c/wmts?tk=924398118dffa8d76d5321f9dae623b5&layer=vec&STYLE=default&TILEMATRIXSET=c&SERVICE=WMTS&REQUEST=GetTile&Version=1.0.0&FORMAT=tiles&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}",
+    url:"http://t0.tianditu.gov.cn/vec_c/wmts?tk=924398118dffa8d76d5321f9dae623b5&layer=vec&STYLE=default&TILEMATRIXSET=c&SERVICE=WMTS&REQUEST=GetTile&Version=1.0.0&FORMAT=tiles&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}",
     // url: "http://10.6.181.245:19002/geoserver/osm/gwc/service/wmts?layer=osm:osm&style=&tilematrixset=EPSG:900913&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image/png8&TileMatrix=EPSG:900913:{z}&TileCol={x}&TileRow={y}",
-    url: 'https://t0.tianditu.gov.cn/vec_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=vec&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=5f5fa58b5efa1d8470ecc079ca1b7c81',
+    // url: 'https://t0.tianditu.gov.cn/vec_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=vec&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=5f5fa58b5efa1d8470ecc079ca1b7c81',
   params: {
     LAYERS: "aqzhsl_slgc:wdd_region",
     STYLES: "aqzhsl_slgc:wdd_district_web",

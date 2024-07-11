@@ -5,22 +5,6 @@ import { Fill, Stroke, Style, Text } from 'ol/style'
 import { GeoJSON } from 'ol/format'
 
 const vectorImageryStyle = feature => {
-  // return new Style({
-  //   stroke: new Stroke({
-  //     color: 'rgba(77, 166, 255, 1)', // 设置边界颜色
-  //     width: 1 // 设置边界宽度
-  //   }),
-  //   fill: new Fill({
-  //     color: 'rgba(41, 133, 247, 0)' // 设置面颜色
-  //   }),
-  //   text: new Text({
-  //     text: feature.get('O_Name'),
-  //     font: 'bold 12px sans-serif',
-  //     fill: new Fill({
-  //       color: 'rgba(255, 255, 255)'
-  //     })
-  //   })
-  // })
   return new Style({
     stroke: new Stroke({
       color: '#FFEB81', // 设置边界颜色
@@ -57,9 +41,8 @@ export const config = {
   type: 'Vector',
   styles: {},
   layerHandle: new Promise((resolve, reject) => {
-    axios
-      .get(
-        `${process.env.VUE_APP_NGINX_RESOURCE_URL}/layers/common/basin_shape.json`
+    axios.get(
+        `/data/basin_shape.json`
       )
       .then(response => {
         const vectorSource = new VectorSource()
