@@ -42,7 +42,7 @@ export const config = {
   styles: {},
   layerHandle: new Promise((resolve, reject) => {
     axios.get(
-        `/data/basin_shape.json`
+        `/data/basin_shape.geojson`
       )
       .then(response => {
         const vectorSource = new VectorSource()

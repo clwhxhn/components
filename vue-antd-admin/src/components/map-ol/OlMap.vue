@@ -148,11 +148,12 @@ export default {
     },
     initDefaultLayers() {
       const promises = this.defaultLayers.map((layer) => layer.layerHandle);
+      console.log('promises: ', promises);
       Promise.all(promises)
         .then((layers) => {
           console.log("layers: ", layers);
           layers.forEach((layer) => {
-            layer.setVisible(true);
+            // layer.setVisible(true);
             this.map.addLayer(layer);
           });
           this.BaseLayerSelect(this.defaultBaseLayer);
@@ -176,7 +177,7 @@ export default {
       // 找到对应configs中的layer配置找到对应的style
       const style = this.defaultLayers.find((item) => item.layerName === key)
         .styles[`${layerName}Style`];
-      // 设置style
+    //   设置style
       if (xzqhLayer) xzqhLayer.setStyle(style);
     },
     // 底图切换
