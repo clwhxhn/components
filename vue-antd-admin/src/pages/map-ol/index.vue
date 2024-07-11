@@ -15,6 +15,6 @@
 
 <style lang="less" scoped>
 .map-wrap {
-    height: 70vh;
+ height: calc(100vh - 90px);
 }
 </style>
