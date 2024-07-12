@@ -7,7 +7,14 @@
       :hide-layers="['xzqhmdxout', 'river-basin']"
       :position="rightComponentWidth + 15"
       @mapInitSuccess="mapInitSuccess"
-    ></OlMap>
+    >
+      <RainHoverPopup slot="hover-popup" :properties="properties" />
+      <RainClickPopup
+        slot="click-popup"
+        :properties="clickProperties"
+        @close="popupClose"
+      />
+    </OlMap>
   </div>
 </template>
 
@@ -19,10 +26,14 @@ import { GeoJSON } from "ol/format";
 import OlMap from "@/components/map-ol/OlMap";
 import { MapMixin } from "./mixins/map-mixin";
 import { rainConfig, rainWarnConfig } from "./config/rain-layer";
+import RainClickPopup from './components/RainClickPopup.vue'
+import RainHoverPopup from './components/RainHoverPopup.vue'
 
 export default {
   components: {
     OlMap,
+    RainClickPopup,
+    RainHoverPopup
   },
   mixins: [MapMixin],
   data() {
@@ -62,7 +73,8 @@ export default {
       if (source) {
         source.clear();
       }
-      const data = layer === 'warningLayer' ? this.warnDataSource : this.dataSource;
+      const data =
+        layer === "warningLayer" ? this.warnDataSource : this.dataSource;
       const config = rainConfig;
       const features = data.map((item) => {
         let feature = new Feature({

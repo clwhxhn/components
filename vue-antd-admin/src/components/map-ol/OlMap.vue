@@ -24,6 +24,16 @@
     <slot v-if="pinnedPopupSlot" name="pinned-popup"></slot>
     <!-- 图层控制插槽 -->
     <slot v-if="layerSlot && btnConfig.layerSwitch" name="layer"></slot>
+    <div id="hover-popup" class="ol-map-popup">
+      <div id="popup-content">
+        <slot name="hover-popup"></slot>
+      </div>
+    </div>
+    <div id="click-popup" class="ol-map-popup">
+      <div id="popup-content2">
+        <slot name="click-popup"></slot>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -128,7 +138,6 @@ export default {
   async mounted() {
     this.baseLayers = getImageryLayers();
     this.defaultLayers = await getLayerConfigs();
-    console.log(" this.defaultLayers: ", this.defaultLayers);
     this.$nextTick(() => {
       this.initMap();
     });

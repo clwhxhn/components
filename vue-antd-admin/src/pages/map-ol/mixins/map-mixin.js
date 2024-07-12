@@ -113,6 +113,7 @@ export const MapMixin = {
         const feature = map.forEachFeatureAtPixel(pixel, function (feature) {
           return feature
         })
+
         // 业务图层: 鼠标移到站点显示小手
         if (feature && feature.get('layerFlag')) {
           map.getTargetElement().style.cursor = 'pointer'
