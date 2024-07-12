@@ -16,8 +16,7 @@
 </template>
 
 <script>
-const path = '/ss-basin-flood-prevention/img/map/'
-const pathNew = '/ss-basin-flood-prevention/img/map/satelliteImagery/'
+const pathNew = '/img/map/satelliteImagery/'
 
 export default {
   name: 'LeftMapBtns',

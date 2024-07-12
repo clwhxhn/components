@@ -10,6 +10,20 @@
       :location="mapBtnsLocation"
       @layerSelect="BaseLayerSelect"
     />
+    <!-- 左侧控制按钮 -->
+    <LeftMapBtns
+      :right-px="rightPanelWidth"
+      :location="mapBtnsLocation"
+      :hide-key-str="hideBtns"
+      :style="{ right: position + 'px' }"
+      @change="leftBtnClick"
+    />
+    <!-- 图例插槽 -->
+    <slot v-if="legendSlot" name="legend"></slot>
+    <!-- 固定浮窗插槽 -->
+    <slot v-if="pinnedPopupSlot" name="pinned-popup"></slot>
+    <!-- 图层控制插槽 -->
+    <slot v-if="layerSlot && btnConfig.layerSwitch" name="layer"></slot>
   </div>
 </template>
 
@@ -26,12 +40,17 @@ import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM.js";
 
 import BaseMapSelect from "./components/BaseMapSelect.vue";
+import LeftMapBtns from "./components/LeftMapBtns.vue";
 import { getImageryLayers } from "./configs/base-imagery";
 import { getLayerConfigs } from "./configs";
 import mouseIns from "./configs/mouse-in-layers";
 
 export default {
   name: "OlMap",
+  components: {
+    BaseMapSelect,
+    LeftMapBtns,
+  },
   props: {
     pinnedPopupSlot: {
       type: Boolean,
@@ -86,18 +105,16 @@ export default {
       default: 0,
     },
   },
-  components: {
-    BaseMapSelect,
-  },
+
   data() {
     return {
       map: null,
       baseLayers: [], // 基础图层
       defaultLayers: [], // 默认显示图层
       btnConfig: {
-        magerySwitch: true, // 底图显隐
-        layerSwitch: true, // 图层显隐
-        legend: true, // 图例
+        magerySwitch: false, // 底图显隐
+        layerSwitch: false, // 图层显隐
+        legend: false, // 图例
       },
       hoverPopup: null, // 鼠标移入popup
       clickPopup: null, // 点击popup
@@ -287,6 +304,28 @@ export default {
       //   设置style
       if (xzqhLayer) xzqhLayer.setStyle(style);
       console.log("style: ", style);
+    },
+    leftBtnClick(val) {
+      Object.keys(this.btnConfig).forEach((key) => {
+        if (key === val) {
+          this.btnConfig[key] = !this.btnConfig[key];
+        } else {
+          this.btnConfig[key] = false;
+        }
+      });
+      if (val === "zoomReset") {
+        // 清空点击popup
+        this.clickPopup.setPosition(undefined);
+        this.mapReset();
+      }
+      if (val === "zoomOut") {
+        let view = this.map.getView();
+        view.setZoom(view.getZoom() - 0.5);
+      }
+      if (val === "zoomIn") {
+        let view = this.map.getView();
+        view.setZoom(view.getZoom() + 0.5);
+      }
     },
   },
 };
