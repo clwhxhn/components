@@ -17,7 +17,7 @@ export const MapMixin = {
       properties: {}, // 鼠标移入站点属性
       clickProperties: {}, // 鼠标点击站点属性
       defaultLayer: null, // 默认图层
-      warnLayer: null, // 预警图层
+      warningLayer: null, // 预警图层
       timer: null, // 预警动画定时器
       isHighlightPolygonLayer: false, // 洪水预报-人工交互预报：是否有需要高亮的面图层
       warnDataSource: [], // 预警数据源
@@ -46,7 +46,7 @@ export const MapMixin = {
     // this.initBusEvents()
   },
   beforeDestroy() {
-    this.$bus.$off('sideMenuExpanded')
+    // this.$bus.$off('sideMenuExpanded')
     if (this.timer) cancelAnimationFrame(this.timer)
   },
   methods: {
@@ -197,8 +197,8 @@ export const MapMixin = {
           radius = 1
         }
         let resolution = map.getView().getResolution()
-        if (that.warnLayer) {
-          let features = that.warnLayer.getSource().getFeatures()
+        if (that.warningLayer) {
+          let features = that.warningLayer.getSource().getFeatures()
           features.forEach(item => {
             item.setStyle(that.animationStyle(item, resolution, radius))
           })
