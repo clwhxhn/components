@@ -147,10 +147,10 @@ export default {
       this.map.addLayer(tipLayer); // 添加名称标识图层
       this.map.addLayer(highlightLayer); // 添加高亮图层
       this.mapPointerMove(); // 监听鼠标移动事件
-      //   this.setHoverOverlay() // 设置鼠标移入popup
-      //   this.setClickOverlay() // 设置鼠标点击popup
-      //   this.setMapZoom() // 监听地图缩放事件
-      //   this.$emit('mapInitSuccess') // map实例化完成
+      this.setHoverOverlay(); // 设置鼠标移入popup
+      this.setClickOverlay(); // 设置鼠标点击popup
+      this.setMapZoom(); // 监听地图缩放事件
+      this.$emit("mapInitSuccess"); // map实例化完成
     },
     mapReset(views) {
       const newViews = views || this.mapViews;
@@ -205,6 +205,47 @@ export default {
         } else {
           map.getTargetElement().style.cursor = "auto";
         }
+      });
+    },
+    setHoverOverlay() {
+      const container = document.getElementById("hover-popup");
+      this.hoverPopup = new Overlay({
+        element: container,
+        autoPan: true,
+        positioning: "center-left",
+        offset: [15, 0],
+        stopEvent: true,
+        autoPanAnimation: { duration: 250 },
+      });
+      this.hoverPopup.setPosition(undefined);
+      this.map.addOverlay(this.hoverPopup);
+    },
+    setClickOverlay() {
+      const container = document.getElementById("click-popup");
+      this.clickPopup = new Overlay({
+        element: container,
+        autoPan: true,
+        positioning: "center-right",
+        offset: [-15, 0],
+        stopEvent: true,
+        autoPanAnimation: { duration: 250 },
+      });
+      this.clickPopup.setPosition(undefined);
+      this.map.addOverlay(this.clickPopup);
+    },
+    flyTo(stLong, stLat, zoom = 14) {
+      const view = this.map.getView();
+      view.animate({
+        center: [stLong, stLat],
+        duration: 2000,
+        zoom: zoom,
+      });
+    },
+    // 监听地图缩放事件
+    setMapZoom() {
+      const { map } = this;
+      map.getView().on("change:resolution", (evt) => {
+        this.$emit("zoomChange", evt.target.values_);
       });
     },
     // 底图切换
