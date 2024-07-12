@@ -25,21 +25,28 @@ import { Fill, Style, Circle, Stroke } from "ol/style";
 import { GeoJSON } from "ol/format";
 import OlMap from "@/components/map-ol/OlMap";
 import { MapMixin } from "./mixins/map-mixin";
-import { rainConfig, rainWarnConfig } from "./config/rain-layer";
-import RainClickPopup from './components/RainClickPopup.vue'
-import RainHoverPopup from './components/RainHoverPopup.vue'
+import {
+  rainConfig,
+  rainWarnConfig,
+  isosurfaceConfig,
+} from "./config/rain-layer";
+import RainClickPopup from "./components/RainClickPopup.vue";
+import RainHoverPopup from "./components/RainHoverPopup.vue";
+import axios from "axios";
+import SurfaceJson from "./config/surfaceMockData.json";
+console.log("SurfaceJson: ", SurfaceJson);
 
 export default {
   components: {
     OlMap,
     RainClickPopup,
-    RainHoverPopup
+    RainHoverPopup,
   },
   mixins: [MapMixin],
   data() {
     return {
       isosurfaceLayer: null, // 等值面图层
-      isosurface: false, // 是否显示等值面
+      isosurface: true, // 是否显示等值面
       rightComponentWidth: 450,
       state: "show",
     };
@@ -52,6 +59,13 @@ export default {
       this.createLayer("rain", "rainLayer", rainConfig); // 创建雨情基础图层-mixin
       // 创建预警点位layer
       this.createLayer("warning", "warningLayer", rainWarnConfig); // 创建预警基础图层-mixin
+      //   面雨量图层
+      this.createIsosurfaceLayer(
+        "isosurface",
+        "isosurfaceLayer",
+        isosurfaceConfig,
+        SurfaceJson
+      );
     },
     getData() {
       this.dataSource = [
@@ -109,6 +123,38 @@ export default {
         }),
       });
       return [newStyle, ...style];
+    },
+    /**
+     * @description:  创建等值面图层
+     * @param {*layerName} string 图层配置js文件，layerName名称
+     * @param {*layer} string 具体图层名称
+     * @param {*} config 图层配置
+     * @param {*} resultJson 等值面数据
+     */
+    async createIsosurfaceLayer(layerName, layer, config, resultJson) {
+      const {
+        mapDom: { map },
+      } = this;
+      const flag = map
+        .getLayers()
+        .getArray()
+        .some((ol) => ol.get("layerName") === layerName);
+      if (flag) {
+        this.randerJson(layer, config, resultJson);
+        return;
+      }
+      const newLayer = await config.layerHandle;
+      this[layer] = newLayer;
+      map.addLayer(this[layer]);
+      this.randerJson(layer, config, resultJson);
+    },
+    randerJson(layer, config, resultJson) {
+      const source = this[layer].getSource();
+      source.clear();
+      const features = new GeoJSON().readFeatures(resultJson);
+      source.addFeatures(features);
+      this[layer].setStyle(config.styles[`isosurfaceStyle1`]); // 设置等值面样式
+      this[layer].setVisible(this.isosurface); // 设置等值面显隐
     },
   },
 };
