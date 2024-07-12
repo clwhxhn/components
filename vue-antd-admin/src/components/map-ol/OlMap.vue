@@ -1,6 +1,15 @@
 <template>
   <div class="map-layout">
     <div id="mainMap" class="ol-map"></div>
+    <!-- 底图切换 -->
+    <BaseMapSelect
+      :right-px="rightPanelWidth"
+      v-show="btnConfig.magerySwitch"
+      :default-type="defaultBaseLayer"
+      :style="{ right: position + 35 + 'px' }"
+      :location="mapBtnsLocation"
+      @layerSelect="BaseLayerSelect"
+    />
   </div>
 </template>
 
@@ -16,6 +25,7 @@ import Fill from "ol/style/Fill";
 import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM.js";
 
+import BaseMapSelect from "./components/BaseMapSelect.vue";
 import { getImageryLayers } from "./configs/base-imagery";
 import { getLayerConfigs } from "./configs";
 
@@ -75,14 +85,17 @@ export default {
       default: 0,
     },
   },
+  components: {
+    BaseMapSelect,
+  },
   data() {
     return {
       map: null,
       baseLayers: [], // 基础图层
       defaultLayers: [], // 默认显示图层
       btnConfig: {
-        magerySwitch: false, // 底图显隐
-        layerSwitch: false, // 图层显隐
+        magerySwitch: true, // 底图显隐
+        layerSwitch: true, // 图层显隐
         legend: true, // 图例
       },
       hoverPopup: null, // 鼠标移入popup
@@ -97,7 +110,7 @@ export default {
   async mounted() {
     this.baseLayers = getImageryLayers();
     this.defaultLayers = await getLayerConfigs();
-    console.log(' this.defaultLayers: ',  this.defaultLayers);
+    console.log(" this.defaultLayers: ", this.defaultLayers);
     this.$nextTick(() => {
       this.initMap();
     });
@@ -148,7 +161,7 @@ export default {
     },
     initDefaultLayers() {
       const promises = this.defaultLayers.map((layer) => layer.layerHandle);
-      console.log('promises: ', promises);
+      console.log("promises: ", promises);
       Promise.all(promises)
         .then((layers) => {
           console.log("layers: ", layers);
@@ -162,31 +175,10 @@ export default {
           console.error("Error loading layers:", error);
         });
     },
-    /**
-     * @description: 设置图层样式
-     * @param {*layerName} string 底图名称
-     * @param {*key} string 要设置样式的图层名称
-     */
-    setLayerStyle(layerName, key) {
-      // 找到layerName图层
-      const xzqhLayer = this.map
-        .getLayers()
-        .getArray()
-        .find((ol) => ol.get("layerName") === key);
-
-      // 找到对应configs中的layer配置找到对应的style
-      const style = this.defaultLayers.find((item) => item.layerName === key)
-        .styles[`${layerName}Style`];
-    //   设置style
-      if (xzqhLayer) xzqhLayer.setStyle(style);
-    },
     // 底图切换
     BaseLayerSelect(layerName) {
       this.$emit("baseLayerSelect", layerName);
-      this.setLayerStyle(
-        layerName,
-        this.isXzqhHasMdx ? "xzqhmdxout" : "xzqhout"
-      ); // 重置行政区划蒙版样式
+      this.setLayerStyle(layerName, "xzqhout"); // 重置行政区划蒙版样式
       this.baseLayers.forEach((item) => {
         const flag = item.get("layerName") === layerName;
         item.setVisible(flag);
@@ -203,6 +195,25 @@ export default {
           layer.setVisible(false);
         });
       }
+    },
+    /**
+     * @description: 设置图层样式
+     * @param {*layerName} string 底图名称
+     * @param {*key} string 要设置样式的图层名称
+     */
+    setLayerStyle(layerName, key) {
+      // 找到layerName图层
+      const xzqhLayer = this.map
+        .getLayers()
+        .getArray()
+        .find((ol) => ol.get("layerName") === key);
+
+      // 找到对应configs中的layer配置找到对应的style
+      const style = this.defaultLayers.find((item) => item.layerName === key)
+        .styles[`${layerName}Style`];
+      //   设置style
+      if (xzqhLayer) xzqhLayer.setStyle(style);
+      console.log('style: ', style);
     },
   },
 };
