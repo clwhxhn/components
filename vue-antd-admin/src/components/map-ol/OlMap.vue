@@ -28,6 +28,7 @@ import OSM from "ol/source/OSM.js";
 import BaseMapSelect from "./components/BaseMapSelect.vue";
 import { getImageryLayers } from "./configs/base-imagery";
 import { getLayerConfigs } from "./configs";
+import mouseIns from "./configs/mouse-in-layers";
 
 export default {
   name: "OlMap",
@@ -142,10 +143,10 @@ export default {
       });
       window.map = this.map;
       this.initDefaultLayers();
-      //   const { tipLayer, highlightLayer } = mouseIns
-      //   this.map.addLayer(tipLayer) // 添加名称标识图层
-      //   this.map.addLayer(highlightLayer) // 添加高亮图层
-      //   this.mapPointerMove() // 监听鼠标移动事件
+      const { tipLayer, highlightLayer } = mouseIns;
+      this.map.addLayer(tipLayer); // 添加名称标识图层
+      this.map.addLayer(highlightLayer); // 添加高亮图层
+      this.mapPointerMove(); // 监听鼠标移动事件
       //   this.setHoverOverlay() // 设置鼠标移入popup
       //   this.setClickOverlay() // 设置鼠标点击popup
       //   this.setMapZoom() // 监听地图缩放事件
@@ -174,6 +175,37 @@ export default {
         .catch((error) => {
           console.error("Error loading layers:", error);
         });
+    },
+    mapPointerMove() {
+      const { map } = this;
+      map.on("pointermove", (evt) => {
+        const pixel = map.getEventPixel(evt.originalEvent);
+        const feature = map.forEachFeatureAtPixel(pixel, (feature) => {
+          return feature;
+        });
+        const { tipSource, highlightSource } = mouseIns;
+        const coordinate = map.getCoordinateFromPixel(pixel);
+        tipSource.clear();
+        highlightSource.clear();
+        if (feature) {
+          // 鼠标移入,显示有name的feature，例如：行政区划、河流、流域等
+          if (feature.get("name")) {
+            map.getTargetElement().style.cursor = "pointer";
+            tipSource.addFeature(
+              new Feature({
+                geometry: new Point(coordinate),
+                name: feature.get("name"),
+              })
+            );
+          }
+          // 鼠标移入,显示有highlight的feature，例如：河流、流域
+          if (feature.get("highlight")) {
+            highlightSource.addFeature(feature);
+          }
+        } else {
+          map.getTargetElement().style.cursor = "auto";
+        }
+      });
     },
     // 底图切换
     BaseLayerSelect(layerName) {
@@ -213,7 +245,7 @@ export default {
         .styles[`${layerName}Style`];
       //   设置style
       if (xzqhLayer) xzqhLayer.setStyle(style);
-      console.log('style: ', style);
+      console.log("style: ", style);
     },
   },
 };
