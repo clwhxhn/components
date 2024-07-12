@@ -112,8 +112,8 @@ export default {
           projection: "EPSG:4326",
           maxZoom: 18,
           minZoom: 5,
-          // enableRotation: false,
-          // animate: false,
+          // enableRotation: false, //控制地图视图是否允许旋转
+          // animate: false, // 控制视图操作是否带有动画效果
           pixelRatio: window.devicePixelRatio, // 使用设备像素比
           // extent: [
           //   96.93069229487698, 20.104814507140834, 137.82743636345742,

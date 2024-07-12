@@ -29,14 +29,14 @@ const satelliteImageryStyle = () => {
   //   });
   return [
     // 底层阴影效果
-    new Style({
-      stroke: new Stroke({
-        color: "#000000", // 阴影颜色
-        width: 10, // 阴影宽度
-        lineCap: "butt", // 线帽样式
-        lineJoin: "round", // 线条连接样式
-      }),
-    }),
+    // new Style({
+    //   stroke: new Stroke({
+    //     color: "#000000", // 阴影颜色
+    //     width: 10, // 阴影宽度
+    //     lineCap: "butt", // 线帽样式
+    //     lineJoin: "round", // 线条连接样式
+    //   }),
+    // }),
     // 顶层实际边界
     new Style({
       stroke: new Stroke({
