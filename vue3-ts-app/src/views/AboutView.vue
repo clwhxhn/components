@@ -1,17 +1,20 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
+
+    {{ b }}
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { ref, computed } from 'vue'
 
-const proxy = reactive({})
+const a = ref(99)
 
-const raw = {}
-proxy.nested = raw
-console.log(proxy.nested === raw) // false
+const b = computed(() => {
+  return a.value > 90 ? 9 : 0
+})
+console.log(b.value)
 </script>
 
 <style>

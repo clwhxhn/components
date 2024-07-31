@@ -1,9 +1,12 @@
-<script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
+<template>{{ msg }}<Child class="aaa" v-model.capitalize="msg"></Child></template>
 
-<template>
-  <main>
-    <TheWelcome />
-  </main>
-</template>
+<script setup lang="ts">
+import Child from '@/components/Child.vue'
+import { ref, inject } from 'vue'
+const msg = ref()
+
+const a = 'xsxs'
+console.log('a: ', a)
+
+inject('message', 'hellow')
+</script>
