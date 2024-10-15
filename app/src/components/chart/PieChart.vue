@@ -89,6 +89,7 @@ export default {
         );
       });
       this.option = {
+
         tooltip: {
           trigger: 'item',
           backgroundColor: 'rgba(0,0,0,0.3)',
@@ -143,6 +144,8 @@ export default {
           },
         ],
       };
+      console.log('this.opt11111111111ion: ', this.option);
+
     },
   },
 };

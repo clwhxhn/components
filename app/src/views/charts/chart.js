@@ -2199,3 +2199,137 @@ export function bar3D() {
 
     return option
 }
+
+
+export function barInterse() {
+    const option =  {
+        legend: {
+          show: false,
+        },
+        tooltip: {
+          show: true,
+          trigger: 'axis',
+          axisPointer: {
+            type: 'shadow',
+          },
+        },
+        grid: {
+          left: '8%',
+          right: '10%',
+          top: '25%',
+          bottom:'20%',
+        },
+        xAxis: {
+          type: 'category',
+          data: ['2023-11-18', '2023-11-19', '2023-11-20', '2023-11-21', '2023-11-22', '2023-11-23', '2023-11-24'],
+          axisLine: {
+            show: true,
+            lineStyle: {
+              color: '#E8EEFA',
+              width: 1,
+              type: 'solid',
+            },
+          },
+          axisTick: {
+            show: true,
+            alignWithLabel: true,
+          },
+          axisLabel: {
+            show: true,
+            textStyle: {
+              color: '#3D454D',
+            },
+          },
+        },
+        yAxis: {
+          name: '实时监测雨量(mm)',
+          align: 'center', // 设置 y 轴名称文本左对齐
+          nameLocation: 'start',     // 将 Y 轴的名称放置在上方
+          inverse: true,
+          nameTextStyle: {
+            color: '#7A8A99',
+            padding: [0, 0, 0, 60] // 如果需要调整名称和轴线之间的距离
+          },
+          type: 'value',
+          splitLine: {
+            show: true,
+            lineStyle: {
+              type: 'solid',
+              color: '#E8EEFA',
+            },
+          },
+          axisLabel: {
+            show: true,
+            textStyle: {
+              color: '#7A8A99',
+              fontSize: 12,
+            },
+          },
+ 
+        },
+        series: [
+          {
+            name: '监测降雨',
+            type: 'bar',
+            data: [
+              ['2023-11-18', 1],
+              ['2023-11-19', 1],
+              ['2023-11-20', 1],
+              ['2023-11-21', 4]
+            ],
+            tooltip: {
+              valueFormatter: (value) => value + ' mm',
+            },
+            itemStyle: {
+              normal: {
+                barBorderRadius: [0, 0, 4, 4],
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  {
+                    offset: 0,
+                    color: '#4CBCFC',
+                  },
+                  {
+                    offset: 1,
+                    color: '#418BFA',
+                  },
+                ]),
+              },
+            },
+      
+          },
+          {
+            name: '预报降雨',
+            type: 'bar',
+            data: [
+              ['2023-11-22', 1],
+              ['2023-11-23', 1],
+              ['2023-11-24', 1],
+              ['2023-11-25', 1]
+            ],
+      
+            tooltip: {
+              valueFormatter: (value) => value + ' mm',
+            },
+            itemStyle: {
+            
+              normal: {
+                barBorderRadius: [0, 0, 4, 4],
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  {
+                    offset: 0,
+                    color: '#93C2BC',
+                  },
+                  {
+                    offset: 1,
+                    color: '#00B4B9',
+                  },
+                ]),
+              },
+            },
+      
+          },
+        ]
+      
+      }
+      return option
+}
