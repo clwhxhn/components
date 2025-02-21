@@ -344,7 +344,7 @@ export function getPieOpt(text, subtext, sData = [], color) {
                 fontSize: 12,
             },
             formatter: (name) => {
-                const [serie] = option.series;
+                const [serie] = option.series;  
                 const item = serie.data.find((lst) => lst.name === name);
                 return `${name}  ${item.value} 个`;
             },

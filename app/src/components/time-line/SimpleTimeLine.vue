@@ -113,7 +113,7 @@ export default {
         return;
       }
       this.autoPlayTimerFlag = true;
-      if (this.sliderValue === this.timeList.length) {
+      if (this.sliderValue === this.timeList.length - 1) {
         this.sliderValue = 0;
       }
       this.$emit("clickPlay", this.sliderValue);
