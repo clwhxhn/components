@@ -104,6 +104,11 @@
         <div class="chart-box">
             <PieChartDemo1 />
         </div>
+
+                <div class="chart-box" style="width: 600px; background-color: #fff;">
+              <BEcharts :option="getLineChart()"></BEcharts>
+        </div>
+
     </div>
 </template>
 
@@ -120,6 +125,7 @@ import CylinderCom from "./components/CylinderCom";
 import PieChart1 from "./components/PieChart1";
 import ChartMap from "./components/ChartMap";
 import PieChartDemo1 from "@/components/chart/PieChartDemo1.vue";
+import {lineChartOpt} from './chart.js'
 
 import {
     rainChart,
@@ -352,6 +358,7 @@ export default {
                 ],
             };
             this.optionIcon = getRainfallOptIcon(xAxis, result, markpoint);
+            console.log("this.optionIcon: ", this.optionIcon);
         },
         getOptions() {
             const obj = {
@@ -423,7 +430,7 @@ export default {
                 oneHourImmediately: 48,
             };
             const option = getVMOption(obj);
-            console.log("option: ", option);
+            console.log("option222a: ", option);
             return option;
         },
         /**
@@ -449,6 +456,9 @@ export default {
 
         getbarInterse() {
             return barInterse()
+        },
+        getLineChart() {
+            return lineChartOpt
         }
     },
 };

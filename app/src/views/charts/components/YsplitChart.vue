@@ -182,6 +182,7 @@ export default {
         "75.82",
       ];
       this.option = getWaterRainOpt(xAxis, data);
+      console.log(this.option, 'opopo');
     },
   },
 };
