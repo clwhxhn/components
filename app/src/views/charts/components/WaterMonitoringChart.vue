@@ -125,7 +125,7 @@ export default {
           series: val,
         },
       );
-      console.log(this.options);
+      console.log(this.options, 'options909');
     },
   },
 };

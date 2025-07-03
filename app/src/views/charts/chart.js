@@ -2638,3 +2638,62 @@ export const lineChartOpt = {
     },
   ],
 };
+
+
+export const lineOpt1 = {
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        show: false
+    },
+    grid: {
+        left: '3%',
+        right: '7%',
+        bottom: '3%',
+        top: '4%',
+        containLabel: true
+    },
+    xAxis: {
+        position: 'top',  // 将x轴标签放到顶部
+        type: 'value',
+        axisLabel: {
+            color: '#CCDDFF',
+            fontSize: 12
+        },
+        splitLine: {
+            lineStyle: {
+                color: 'rgba(196, 202, 215, 0.24)'
+            }
+        },
+
+    },
+    yAxis: {
+        type: 'category',
+        data: ['砂石料', '编制物料', '照明设备', '配电箱', '抢修机具', '运输设备', '机械设备', '救生衣'],
+        axisLabel: {
+            color: '#CCDDFF',
+            fontSize: 14
+        },
+        axisTick: {
+            show: false
+        }
+    },
+    series: [
+        {
+            type: 'bar',
+            barWidth: '30%',
+            data: [1, 2, 3, 4, 5, 6, 7, 8],
+            itemStyle: {
+                borderColor: '#5FD4FE',
+                color: 'rgba(95, 212, 254, 0.40)'
+            },
+            tooltip: {
+                valueFormatter: (value) => value + '件',
+            },
+        },
+    ]
+}

@@ -105,8 +105,12 @@
             <PieChartDemo1 />
         </div>
 
-                <div class="chart-box" style="width: 600px; background-color: #fff;">
-              <BEcharts :option="getLineChart()"></BEcharts>
+        <div class="chart-box" style="width: 600px; background-color: #fff;">
+            <BEcharts :option="getLineChart()"></BEcharts>
+        </div>
+
+        <div class="chart-box">
+            <BEcharts :option="lineOpt1"></BEcharts>
         </div>
 
     </div>
@@ -125,7 +129,7 @@ import CylinderCom from "./components/CylinderCom";
 import PieChart1 from "./components/PieChart1";
 import ChartMap from "./components/ChartMap";
 import PieChartDemo1 from "@/components/chart/PieChartDemo1.vue";
-import {lineChartOpt} from './chart.js'
+import { lineChartOpt } from './chart.js'
 
 import {
     rainChart,
@@ -140,7 +144,8 @@ import {
     barDiejia,
     lineChart2,
     bar3D,
-    barInterse
+    barInterse,
+    lineOpt1
 } from "./chart";
 
 const rainXiaoyu = require("@/assets/img/water-disasters-defense/rain-xiaoyu.png"); // 监测-小雨
@@ -157,7 +162,8 @@ export default {
         CylinderCom,
         PieChart1,
         ChartMap,
-        PieChartDemo1
+        PieChartDemo1,
+
     },
     data() {
         return {
@@ -174,7 +180,7 @@ export default {
             radarChartOption: {},
             barDiejia,
             lineChart2: lineChart2,
-  
+            lineOpt1
         };
     },
     created() {
@@ -190,7 +196,7 @@ export default {
 
         this.renderBar();
 
- 
+
     },
     methods: {
         bar3D,
