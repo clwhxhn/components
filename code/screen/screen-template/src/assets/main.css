@@ -1,0 +1,78 @@
+@import './base.css';
+@import './common.less';
+@import '/node_modules/modern-normalize/modern-normalize.css';
+
+/**
+The base layer is for things like reset rules or default styles applied to plain HTML elements.
+ */
+/*@tailwind base;*/
+
+/**
+The components layer is for class-based styles that you want to be able to override with utilities.
+ */
+@tailwind components;
+
+/**
+The utilities layer is for small, single-purpose classes that should always take precedence over any other styles.
+ */
+@tailwind utilities;
+
+@font-face {
+  font-family: FZLanTYJW;
+  src: url('./font/FZLanTYJW.TTF');
+}
+
+@font-face {
+  font-family: YouSheBiaoTiHei;
+  src: url('./font/youSheBiaoTiHei.ttf');
+}
+
+@font-face {
+  font-family: D-DIN;
+  src: url('./font/D-DIN-Bold.otf');
+}
+
+@font-face {
+  font-family: AlibabaPuHuiTi;
+  src: url('./font/Alibaba-PuHuiTi-Regular.ttf');
+}
+
+.font-d-din {
+  font-family: D-DIN;
+}
+
+#app {
+  /*width: 100vw;
+  height: 100vh;*/
+  /* background: linear-gradient(
+    180deg,
+    rgba(12, 29, 61, 0) 0%,
+    rgba(12, 28, 61, 0) 56%,
+    rgba(12, 29, 61, 0.5) 100%
+  );
+  background-color: rgba(12, 29, 61, 0.5);
+  opacity: 0.9; */
+  pointer-events: none;
+}
+
+a,
+.green {
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 4px;
+  height: 10px;
+  background: linear-gradient(
+    325deg,
+    rgba(85, 253, 248, 0.3) 0%,
+    rgba(131, 174, 255, 0.64) 100%
+  );
+  box-shadow: inset 0px 0px 1px 1px rgba(114, 255, 213, 0.5);
+  border-radius: 2px;
+}

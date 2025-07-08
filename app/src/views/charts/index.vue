@@ -113,6 +113,10 @@
             <BEcharts :option="lineOpt1"></BEcharts>
         </div>
 
+                <div class="chart-box-multiple">
+            <BEcharts :option="multipleOption"></BEcharts>
+        </div>
+
     </div>
 </template>
 
@@ -122,6 +126,7 @@ import WaterMonitoringChart from "./components/WaterMonitoringChart";
 import { getWarnEventOption } from "./barChart1";
 import BEcharts from "@/components/chart/BEcharts";
 import PieChart from "@/components/chart/PieChart";
+import XFTEcharts from '@/components/xft-echarts/XFTEcharts.vue'
 import XlChart from "./components/XlChart";
 import PieChart3D from "./components/PieChart3D";
 import YsplitChart from "./components/YsplitChart";
@@ -145,7 +150,8 @@ import {
     lineChart2,
     bar3D,
     barInterse,
-    lineOpt1
+    lineOpt1,
+    multipleOption
 } from "./chart";
 
 const rainXiaoyu = require("@/assets/img/water-disasters-defense/rain-xiaoyu.png"); // 监测-小雨
@@ -163,7 +169,7 @@ export default {
         PieChart1,
         ChartMap,
         PieChartDemo1,
-
+        XFTEcharts
     },
     data() {
         return {
@@ -180,7 +186,8 @@ export default {
             radarChartOption: {},
             barDiejia,
             lineChart2: lineChart2,
-            lineOpt1
+            lineOpt1,
+            multipleOption
         };
     },
     created() {
@@ -502,5 +509,10 @@ export default {
 .map {
     width: 460px;
     background-color: rgba(0, 0, 0, 0.6);
+}
+
+.chart-box-multiple {
+    width: 800px;
+    height: 400px;
 }
 </style>

@@ -1,0 +1,169 @@
+.panel-container-left,
+.panel-container-right {
+  width: 800px;
+  height: calc(100vh - 144px);
+  position: absolute;
+  top: 130px;
+  pointer-events: all;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: linear-gradient( 270deg, rgba(11,31,61,0.616) 0%, rgba(39,72,138,0.376) 100%);
+}
+.panel-container-left {
+  left: 20px;
+}
+.panel-container-right {
+  right: 20px;
+}
+
+.panel-common-title {
+  padding-left: 32px;
+  height: 64px;
+  line-height: 60px;
+  background-image: url('@/assets/images/bkg-title.png');
+  background-position: bottom;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 40px;
+  font-family: YouSheBiaoTiHei, YouSheBiaoTiHei;
+  font-weight: normal;
+  text-shadow: 0 0 2px #383838;
+  &::before {
+    display: inline-block;
+    content: '';
+    width: 30px;
+    height: 32px;
+    margin-right: 4px;
+    background-image: url('@/assets/images/icon-arrow-right.png');
+    background-size: 100%;
+  }
+}
+
+.panel-common-sub-title {
+  color: #ddf8ff;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 20px;
+  text-shadow: 0px 0px 8px rgba(114, 182, 255, 0.7);
+  margin-top: 8px;
+  &::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    background-image: url('@/assets/images/icon-arrow-right.png');
+    background-size: 100%;
+  }
+}
+
+.panel-common-section {
+  // background: rgba(25, 47, 82, 0.4);
+  background: linear-gradient(
+      rgba(3, 19, 33, 0.2) 0%,
+      rgba(30, 70, 147, 0.48) 100%
+    ),
+    radial-gradient(rgba(114, 170, 254, 0.6) 0%, rgba(14, 85, 227, 0) 100%);
+  // backdrop-filter: blur(4px);
+}
+
+.wr-common-title {
+  height: 24px;
+  background-image: url('@/assets/images/bg-sub-title.png');
+  background-size: auto 100%;
+  background-position: left;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 24px;
+  text-shadow: 2px 0px 4px rgba(0, 82, 206, 0.6);
+  margin-bottom: 12px;
+  padding-left: 28px;
+}
+
+.top-button-wrap {
+  position: fixed;
+  top: 102px;
+  left: 430px;
+  &.toggle {
+    left: 40px;
+  }
+}
+
+.map-toolbar-wrap {
+  position: fixed;
+  bottom: 43px;
+  left: 430px;
+
+  &.toggle {
+    left: 40px;
+  }
+}
+
+.common-input {
+  input.ant-input {
+    border: none;
+    background: transparent;
+    color: #ddf8ff;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 8px 4px 6px 16px;
+  }
+  .ant-input-group-addon {
+    background: none;
+  }
+  .ant-input-affix-wrapper {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  .ant-input-search-button {
+    background: none;
+    border: none;
+    color: #fff !important;
+  }
+  .anticon-search {
+    font-size: 20px;
+  }
+  .ant-input-clear-icon {
+    color: #fff;
+    font-size: 16px;
+  }
+  .ant-picker-panel-container {
+    background: rgba(25, 47, 82, 0.4);
+  }
+}
+
+.common-date-picker {
+  background: url('@/assets/images/bg-datepicker.png');
+  background-size: 100% 100%;
+  border: none;
+  .ant-picker-input > input {
+    color: #ddf8ff;
+  }
+}
+
+.ant-picker-panel-container {
+  background: rgba(55, 74, 111, 0.9);
+}
+.ant-picker-cell {
+  color: #afbabd;
+}
+.ant-picker-dropdown,
+.ant-picker-header,
+.ant-picker-header button,
+.ant-picker-content th,
+.ant-picker-cell-in-view {
+  color: #fff;
+}
+.ant-picker-cell-in-view.ant-picker-cell-in-range::before,
+.ant-picker-cell-in-view.ant-picker-cell-range-start:not(
+    .ant-picker-cell-range-start-single
+  )::before,
+.ant-picker-cell-in-view.ant-picker-cell-range-end:not(
+    .ant-picker-cell-range-end-single
+  )::before {
+  background: #b0badc;
+}
