@@ -1,0 +1,185 @@
+.common-title-v1 {
+  max-width: 560px;
+  height: 41px;
+  background-image: url(~@assets/images/common/title/title-bg-1.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  line-height: 41px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 26px;
+    font-weight: 400;
+    font-size: 26px;
+    height: 41px;
+    line-height: 44px;
+    letter-spacing: 3px;
+    font-family: YouSheBiaoTiHei, YouSheBiaoTiHei;
+    color: #ffffff;
+    text-shadow: 0px 0px 11px rgba(0, 149, 255, 0.5),
+      0px 4px 4px rgba(0, 0, 0, 0.55);
+    content: attr(titleText);
+    z-index: 1;
+  }
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 26px;
+    font-weight: 400;
+    font-size: 26px;
+    height: 41px;
+    line-height: 44px;
+    letter-spacing: 3px;
+    font-family: YouSheBiaoTiHei, YouSheBiaoTiHei;
+    // color: #ffffff;
+    background: linear-gradient(180deg, #ffffff 53%, #5cb7f7 76%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    content: attr(titleText);
+    z-index: 2;
+  }
+}
+
+.common-title-v2 {
+  width: 268px;
+  height: 23px;
+  background-image: url(~@assets/images/common/title/title-bg-2.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 18px;
+    line-height: 21px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 400;
+    font-family: YouSheBiaoTiHei, YouSheBiaoTiHei;
+    content: attr(titleText);
+    z-index: 2;
+  }
+}
+
+.common-title-v3 {
+  width: 556px;
+  height: 25px;
+  background-image: url(~@assets/images/common/title/title-bg-3.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 18px;
+    line-height: 21px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 400;
+    font-family: YouSheBiaoTiHei, YouSheBiaoTiHei;
+    content: attr(titleText);
+    z-index: 2;
+  }
+}
+
+.common-title-v4 {
+  width: 556px;
+  height: 25px;
+  background-image: url(~@assets/images/common/title/title-bg-4.png);
+  background-size: 451px 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-right: 316px;
+    font-size: 18px;
+    line-height: 21px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 400;
+    font-family: YouSheBiaoTiHei, YouSheBiaoTiHei;
+    content: attr(titleText);
+    z-index: 2;
+  }
+}
+
+.common-title-v5 {
+  width: 200px;
+  height: 24px;
+  background-image: url(~@assets/images/common/title/title-bg-5.png);
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 32px;
+    font-weight: 400;
+    font-size: 18px;
+    color: #ffffff;
+    font-family: YouSheBiaoTiHei, YouSheBiaoTiHei;
+    content: attr(titleText);
+    z-index: 2;
+  }
+}
+
+.common-title-v6 {
+  width: 100%;
+  height: 64px;
+  background-image: url("~@/assets/images/common/title/title-bg-6.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: YouSheBiaoTiHei, YouSheBiaoTiHei;
+    font-weight: 400;
+    font-size: 24px;
+    color: #ffffff;
+    line-height: 40px;
+    content: attr(titleText);
+  }
+}
+
+.common-detail-btn {
+  position: absolute;
+  width: 64px;
+  height: 24px;
+  background-image: url("~@/assets/images/common/detail-bg.png");
+  background-size: 100% 100%;
+  font-weight: 600;
+  font-size: 12px;
+  color: #00ffff;
+  text-align: center;
+  line-height: 24px;
+  cursor: pointer;
+  z-index: 99;
+}

@@ -1,0 +1,1526 @@
+{
+  "list": [
+    {
+      "i": 3,
+      "regionName": "万州区",
+      "totalInvest": {
+        "zyysntz": 20494,
+        "zyslfzzj": 14007.49,
+        "gz2023": 37167,
+        "sljz": 2005,
+        "gbznt": 1866,
+        "dzxskym": 23983.04,
+        "sxhx": 479544.95,
+        "qtzfgz": 18515,
+        "qt": 306.47,
+        "shengji": 21157,
+        "xjjyx": 20110.7927,
+        "ybzq": 34915,
+        "zxzq": 67880.5,
+        "shzb": 4744.63
+      },
+      "lastInvest": {
+        "zyysntz": 20148.2,
+        "zyslfzzj": 9422,
+        "sljz": 290,
+        "gbznt": 1613.2,
+        "dzxskym": 10692,
+        "sxhx": 421921.94,
+        "shengji": 28994.9827,
+        "shiji": 17034.66,
+        "ybzq": 11960.3227,
+        "zxzq": 34915,
+        "yhdk": 58399
+      },
+      "completeInvest": {
+        "zyysntz": 133711.61,
+        "zyslfzzj": 345.8,
+        "gz2023": 4585.49,
+        "ccqtbgz": 37167,
+        "gbznt": 1715,
+        "dzxskym": 252.8,
+        "sxhx": 13291.04,
+        "qtzfgz": 57623.01,
+        "qt": 18515,
+        "shengji": 21754.31,
+        "shiji": 12272.81,
+        "xjjyx": 4122.34,
+        "zxzq": 8150.47,
+        "shzb": 9481.5
+      }
+    },
+    {
+      "i": 46,
+      "regionName": "涪陵区",
+      "totalInvest": {
+        "zyysntz": 20000,
+        "zyslfzzj": 1978,
+        "gz2023": 18170,
+        "sljz": 290,
+        "gbznt": 6164,
+        "dzxskym": 7895,
+        "sxhx": 44877.2,
+        "qt": 3180,
+        "shengji": 26641.5,
+        "ybzq": 758,
+        "zxzq": 1010.2,
+        "shzb": 86158.9
+      },
+      "lastInvest": {
+        "zyysntz": 20000,
+        "sljz": 70,
+        "sxhx": 7281,
+        "shengji": 25337,
+        "shiji": 25337,
+        "yhdk": 488
+      },
+      "completeInvest": {
+        "zyysntz": 73153.2,
+        "gz2023": 1978,
+        "ccqtbgz": 18170,
+        "gbznt": 220,
+        "dzxskym": 6164,
+        "sxhx": 7895,
+        "qtzfgz": 37596.2,
+        "shengji": 2584.7,
+        "shiji": 1304.5,
+        "xjjyx": 1304.5,
+        "yhdk": 758,
+        "shzb": 522.2
+      }
+    },
+    {
+      "i": 86,
+      "regionName": "渝中区",
+      "totalInvest": {
+        "zyslfzzj": 2,
+        "sljz": 41.6,
+        "shengji": 60
+      },
+      "lastInvest": {},
+      "completeInvest": {
+        "zyysntz": 43.6,
+        "gz2023": 2,
+        "gbznt": 41.6,
+        "shengji": 60,
+        "shiji": 60,
+        "xjjyx": 60
+      }
+    },
+    {
+      "i": 90,
+      "regionName": "大渡口区",
+      "totalInvest": {
+        "zyslfzzj": 40.4,
+        "sxhx": 4609.05
+      },
+      "lastInvest": {
+        "zyslfzzj": 7.08,
+        "sxhx": 398.68
+      },
+      "completeInvest": {
+        "zyysntz": 4243.69,
+        "gz2023": 33.32,
+        "qtzfgz": 4210.37
+      }
+    },
+    {
+      "i": 103,
+      "regionName": "江北区",
+      "totalInvest": {
+        "zyslfzzj": 70,
+        "dzxskym": 98,
+        "sxhx": 2000,
+        "shengji": 3
+      },
+      "lastInvest": {},
+      "completeInvest": {
+        "zyysntz": 2168,
+        "gz2023": 70,
+        "sxhx": 98,
+        "qtzfgz": 2000,
+        "shengji": 3,
+        "shiji": 3,
+        "xjjyx": 3
+      }
+    },
+    {
+      "i": 111,
+      "regionName": "沙坪坝区",
+      "totalInvest": {
+        "zyysntz": 3163,
+        "zyslfzzj": 2575,
+        "gz2023": 1730,
+        "sljz": 270,
+        "sxhx": 16000,
+        "qt": 3000,
+        "shengji": 301.02,
+        "xjjyx": 57,
+        "zxzq": 4660
+      },
+      "lastInvest": {
+        "zyslfzzj": 200,
+        "sljz": 70,
+        "sxhx": 12500,
+        "yhdk": 700
+      },
+      "completeInvest": {
+        "zyysntz": 13968,
+        "zyslfzzj": 3163,
+        "gz2023": 2375,
+        "ccqtbgz": 1730,
+        "gbznt": 200,
+        "qtzfgz": 3500,
+        "shengji": 4318.02,
+        "shiji": 358.02,
+        "xjjyx": 301.02,
+        "zxzq": 57,
+        "shzb": 3960
+      }
+    },
+    {
+      "i": 133,
+      "regionName": "九龙坡区",
+      "totalInvest": {
+        "zyysntz": 82,
+        "zyslfzzj": 264,
+        "dzxskym": 31,
+        "sxhx": 176,
+        "qt": 2867,
+        "shengji": 439.5,
+        "xjjyx": 9800,
+        "zxzq": 9659,
+        "yhdk": 4080,
+        "shzb": 9614
+      },
+      "lastInvest": {
+        "zyysntz": 82,
+        "shengji": 9790,
+        "shiji": 23,
+        "ybzq": 9767,
+        "yhdk": 3300,
+        "shzb": 3080
+      },
+      "completeInvest": {
+        "zyysntz": 3338,
+        "gz2023": 264,
+        "sxhx": 31,
+        "qtzfgz": 176,
+        "shengji": 6808.5,
+        "shiji": 449.5,
+        "xjjyx": 416.5,
+        "zxzq": 33,
+        "shzb": 6359
+      }
+    },
+    {
+      "i": 161,
+      "regionName": "南岸区",
+      "totalInvest": {
+        "zyysntz": 20544,
+        "zyslfzzj": 120,
+        "dzxskym": 1516.97,
+        "sxhx": 2700,
+        "shengji": 30,
+        "zxzq": 33176,
+        "yhdk": 27405.74,
+        "shzb": 7233.1
+      },
+      "lastInvest": {
+        "zyysntz": 20544,
+        "dzxskym": 1026.65,
+        "sxhx": 2100,
+        "yhdk": 33176,
+        "shzb": 19905.74
+      },
+      "completeInvest": {
+        "zyysntz": 1210.32,
+        "gz2023": 120,
+        "sxhx": 490.32,
+        "qtzfgz": 600,
+        "shengji": 30,
+        "shiji": 30,
+        "xjjyx": 30
+      }
+    },
+    {
+      "i": 173,
+      "regionName": "重庆北碚区",
+      "totalInvest": {
+        "zyslfzzj": 1588,
+        "sljz": 441,
+        "dzxskym": 2808,
+        "sxhx": 4870,
+        "qt": 1400,
+        "shengji": 837,
+        "xjjyx": 534.7,
+        "ybzq": 94.11,
+        "zxzq": 550,
+        "shzb": 197
+      },
+      "lastInvest": {
+        "sljz": 39,
+        "dzxskym": 815,
+        "sxhx": 1150,
+        "yhdk": 550
+      },
+      "completeInvest": {
+        "zyysntz": 9103,
+        "gz2023": 1588,
+        "gbznt": 402,
+        "sxhx": 1993,
+        "qtzfgz": 3720,
+        "shengji": 1465.81,
+        "shiji": 1371.7,
+        "xjjyx": 837,
+        "zxzq": 534.7,
+        "yhdk": 94.11
+      }
+    },
+    {
+      "i": 198,
+      "regionName": "綦江区",
+      "totalInvest": {
+        "zyysntz": 237842.93,
+        "zyslfzzj": 2076,
+        "gz2023": 281310,
+        "dzxskym": 484.54,
+        "qt": 1990,
+        "shengji": 53590,
+        "xjjyx": 124,
+        "yhdk": 32989.4,
+        "shzb": 60820
+      },
+      "lastInvest": {
+        "zyysntz": 218936.93,
+        "zyslfzzj": 130,
+        "shengji": 34949.6,
+        "shiji": 34949.6,
+        "shzb": 32989.4
+      },
+      "completeInvest": {
+        "zyysntz": 304636.54,
+        "zyslfzzj": 18906,
+        "gz2023": 1946,
+        "ccqtbgz": 281310,
+        "sxhx": 484.54,
+        "shengji": 18764.4,
+        "shiji": 18764.4,
+        "xjjyx": 18640.4,
+        "zxzq": 124
+      }
+    },
+    {
+      "i": 230,
+      "regionName": "大足区",
+      "totalInvest": {
+        "zyslfzzj": 4462,
+        "gz2023": 27570,
+        "sljz": 80,
+        "gbznt": 7977,
+        "dzxskym": 5364.5,
+        "qtzfgz": 7446,
+        "qt": 3817,
+        "shengji": 2799,
+        "shzb": 21082.5
+      },
+      "lastInvest": {
+        "gbznt": 5660
+      },
+      "completeInvest": {
+        "zyysntz": 51056.5,
+        "gz2023": 4462,
+        "ccqtbgz": 27570,
+        "gbznt": 80,
+        "dzxskym": 2317,
+        "sxhx": 5364.5,
+        "qt": 7446,
+        "shengji": 2799,
+        "shiji": 2799,
+        "xjjyx": 2799
+      }
+    },
+    {
+      "i": 252,
+      "regionName": "渝北区",
+      "totalInvest": {
+        "zyysntz": 20000,
+        "zyslfzzj": 1855.8581,
+        "sljz": 150,
+        "dzxskym": 7150.38,
+        "sxhx": 27127.25,
+        "shengji": 34220,
+        "xjjyx": 6058.47,
+        "yhdk": 50963
+      },
+      "lastInvest": {
+        "zyysntz": 20000,
+        "zyslfzzj": 1279,
+        "sljz": 18,
+        "dzxskym": 5251,
+        "shengji": 31234,
+        "shiji": 30342,
+        "ybzq": 892,
+        "shzb": 20363
+      },
+      "completeInvest": {
+        "zyysntz": 29735.4881,
+        "gz2023": 576.8581,
+        "gbznt": 132,
+        "sxhx": 1899.38,
+        "qtzfgz": 27127.25,
+        "shengji": 9044.47,
+        "shiji": 9044.47,
+        "xjjyx": 3878,
+        "zxzq": 5166.47
+      }
+    },
+    {
+      "i": 277,
+      "regionName": "巴南区",
+      "totalInvest": {
+        "zyysntz": 20000,
+        "zyslfzzj": 670,
+        "gz2023": 1970,
+        "sljz": 110,
+        "dzxskym": 10502,
+        "sxhx": 50550,
+        "qt": 788,
+        "shengji": 24372.5,
+        "xjjyx": 35646.12,
+        "yhdk": 86396,
+        "shzb": 294894.29
+      },
+      "lastInvest": {
+        "zyysntz": 20000,
+        "dzxskym": 4177,
+        "sxhx": 31100,
+        "shengji": 49394.12,
+        "shiji": 22153,
+        "ybzq": 27241.12,
+        "shzb": 71366
+      },
+      "completeInvest": {
+        "zyysntz": 29313,
+        "gz2023": 670,
+        "ccqtbgz": 1970,
+        "gbznt": 110,
+        "sxhx": 6325,
+        "qtzfgz": 19450,
+        "shengji": 10624.5,
+        "shiji": 10624.5,
+        "xjjyx": 2219.5,
+        "zxzq": 8405
+      }
+    },
+    {
+      "i": 300,
+      "regionName": "黔江区",
+      "totalInvest": {
+        "zyysntz": 20000,
+        "zyslfzzj": 19762,
+        "gz2023": 39720,
+        "sljz": 485,
+        "gbznt": 2067.12,
+        "dzxskym": 4957.56,
+        "qt": 281,
+        "shengji": 47947,
+        "xjjyx": 38597.63,
+        "zxzq": 12510,
+        "yhdk": 33411.79,
+        "shzb": 13812
+      },
+      "lastInvest": {
+        "zyysntz": 20000,
+        "zyslfzzj": 13051,
+        "sljz": 350,
+        "dzxskym": 700,
+        "shengji": 75638.6,
+        "shiji": 45952,
+        "ybzq": 29686.6,
+        "yhdk": 12430,
+        "shzb": 25532.18
+      },
+      "completeInvest": {
+        "zyysntz": 53171.68,
+        "gz2023": 6711,
+        "ccqtbgz": 39720,
+        "gbznt": 135,
+        "dzxskym": 2067.12,
+        "sxhx": 4257.56,
+        "shengji": 10986.03,
+        "shiji": 10906.03,
+        "xjjyx": 1995,
+        "zxzq": 8911.03,
+        "shzb": 80
+      }
+    },
+    {
+      "i": 338,
+      "regionName": "长寿区",
+      "totalInvest": {
+        "zyslfzzj": 4078,
+        "gz2023": 14961,
+        "sljz": 285,
+        "gbznt": 2986,
+        "dzxskym": 13770.75,
+        "sxhx": 86608,
+        "qt": 1680,
+        "shengji": 2882,
+        "xjjyx": 10757,
+        "ybzq": 44190,
+        "yhdk": 53400,
+        "shzb": 15210
+      },
+      "lastInvest": {
+        "zyslfzzj": 0,
+        "gz2023": 0,
+        "sljz": 60,
+        "dzxskym": 6784.11,
+        "sxhx": 67565,
+        "shengji": 1713,
+        "shiji": 1600,
+        "ybzq": 113,
+        "zxzq": 34177,
+        "shzb": 17500
+      },
+      "completeInvest": {
+        "zyysntz": 49859.64,
+        "gz2023": 4078,
+        "ccqtbgz": 14961,
+        "gbznt": 225,
+        "dzxskym": 2986,
+        "sxhx": 6986.64,
+        "qtzfgz": 19043,
+        "shengji": 21939,
+        "shiji": 11926,
+        "xjjyx": 1282,
+        "zxzq": 10644,
+        "yhdk": 10013
+      }
+    },
+    {
+      "i": 370,
+      "regionName": "江津区",
+      "totalInvest": {
+        "zyysntz": 22460,
+        "zyslfzzj": 1820,
+        "gz2023": 11120,
+        "sljz": 473,
+        "gbznt": 14436.8,
+        "dzxskym": 1227,
+        "sxhx": 23419,
+        "qt": 1984,
+        "shengji": 42315.69,
+        "xjjyx": 2939,
+        "zxzq": 20000,
+        "shzb": 26097.5
+      },
+      "lastInvest": {
+        "zyysntz": 20000,
+        "zyslfzzj": 560,
+        "sljz": 173,
+        "sxhx": 16178,
+        "shengji": 41101,
+        "shiji": 39162,
+        "ybzq": 1939,
+        "yhdk": 20000
+      },
+      "completeInvest": {
+        "zyysntz": 40028.8,
+        "zyslfzzj": 2460,
+        "gz2023": 1260,
+        "ccqtbgz": 11120,
+        "gbznt": 300,
+        "dzxskym": 14436.8,
+        "sxhx": 1227,
+        "qtzfgz": 7241,
+        "shengji": 4153.69,
+        "shiji": 4153.69,
+        "xjjyx": 3153.69,
+        "zxzq": 1000
+      }
+    },
+    {
+      "i": 397,
+      "regionName": "合川区",
+      "totalInvest": {
+        "zyysntz": 7791,
+        "zyslfzzj": 8817,
+        "gz2023": 16057,
+        "sljz": 140,
+        "gbznt": 8807,
+        "dzxskym": 5375,
+        "sxhx": 2000,
+        "qtzfgz": 15876,
+        "qt": 462,
+        "shengji": 1944,
+        "xjjyx": 600,
+        "ybzq": 11070,
+        "zxzq": 6700,
+        "yhdk": 42800,
+        "shzb": 26347
+      },
+      "lastInvest": {
+        "zyysntz": 1155,
+        "zyslfzzj": 1176,
+        "shengji": 844,
+        "shiji": 324,
+        "ybzq": 520,
+        "zxzq": 11070,
+        "yhdk": 1500,
+        "shzb": 34800
+      },
+      "completeInvest": {
+        "zyysntz": 62889,
+        "zyslfzzj": 6636,
+        "gz2023": 7641,
+        "ccqtbgz": 16057,
+        "gbznt": 140,
+        "dzxskym": 8807,
+        "sxhx": 5375,
+        "qtzfgz": 2000,
+        "qt": 15876,
+        "shengji": 6900,
+        "shiji": 1700,
+        "xjjyx": 1620,
+        "zxzq": 80,
+        "shzb": 5200
+      }
+    },
+    {
+      "i": 427,
+      "regionName": "永川区",
+      "totalInvest": {
+        "zyslfzzj": 19503,
+        "gz2023": 3110,
+        "sljz": 140,
+        "dzxskym": 9430.64,
+        "sxhx": 3985,
+        "qt": 3371,
+        "shengji": 6302,
+        "zxzq": 13894,
+        "yhdk": 13567,
+        "shzb": 7157
+      },
+      "lastInvest": {
+        "zyslfzzj": 5932,
+        "dzxskym": 5606.64,
+        "sxhx": 1872,
+        "shengji": 2166,
+        "shiji": 2166,
+        "yhdk": 7337,
+        "shzb": 4500
+      },
+      "completeInvest": {
+        "zyysntz": 26129,
+        "gz2023": 13571,
+        "ccqtbgz": 3110,
+        "gbznt": 140,
+        "sxhx": 3824,
+        "qtzfgz": 2113,
+        "shengji": 10693,
+        "shiji": 4136,
+        "xjjyx": 4136,
+        "shzb": 6557
+      }
+    },
+    {
+      "i": 459,
+      "regionName": "南川区",
+      "totalInvest": {
+        "zyysntz": 100500,
+        "zyslfzzj": 8895,
+        "gz2023": 54620,
+        "sljz": 294,
+        "gbznt": 8474,
+        "dzxskym": 6037.66,
+        "qt": 328,
+        "shengji": 40970.42,
+        "xjjyx": 28661.66,
+        "zxzq": 39672,
+        "yhdk": 104447,
+        "shzb": 88974.8
+      },
+      "lastInvest": {
+        "zyysntz": 100500,
+        "zyslfzzj": 4509,
+        "sljz": 98,
+        "gbznt": 2486,
+        "shengji": 67569.82,
+        "shiji": 39328.32,
+        "ybzq": 28241.5,
+        "yhdk": 36400,
+        "shzb": 102997
+      },
+      "completeInvest": {
+        "zyysntz": 71555.66,
+        "gz2023": 4386,
+        "ccqtbgz": 54620,
+        "gbznt": 196,
+        "dzxskym": 5988,
+        "sxhx": 6037.66,
+        "shengji": 5334.26,
+        "shiji": 2062.26,
+        "xjjyx": 1642.1,
+        "zxzq": 420.16,
+        "shzb": 3272
+      }
+    },
+    {
+      "i": 501,
+      "regionName": "万盛经开区",
+      "totalInvest": {
+        "zyslfzzj": 295,
+        "gz2023": 33400,
+        "sljz": 60,
+        "dzxskym": 485,
+        "shengji": 3102.24,
+        "yhdk": 17321,
+        "shzb": 20
+      },
+      "lastInvest": {
+        "shengji": 96,
+        "shiji": 96,
+        "shzb": 9211
+      },
+      "completeInvest": {
+        "zyysntz": 34240,
+        "gz2023": 295,
+        "ccqtbgz": 33400,
+        "gbznt": 60,
+        "sxhx": 485,
+        "shengji": 3006.24,
+        "shiji": 3006.24,
+        "xjjyx": 3006.24
+      }
+    },
+    {
+      "i": 523,
+      "regionName": "潼南县",
+      "totalInvest": {
+        "zyysntz": 11296,
+        "zyslfzzj": 3895,
+        "gz2023": 86560,
+        "sljz": 525,
+        "dzxskym": 4019,
+        "qt": 350,
+        "shengji": 21190.698,
+        "zxzq": 35000,
+        "yhdk": 161838,
+        "shzb": 51085.3
+      },
+      "lastInvest": {
+        "zyysntz": 8713,
+        "zyslfzzj": 1854,
+        "gz2023": 42117,
+        "sljz": 132,
+        "shengji": 19294.748,
+        "shiji": 19294.748,
+        "yhdk": 35000,
+        "shzb": 47552
+      },
+      "completeInvest": {
+        "zyysntz": 53829,
+        "zyslfzzj": 2583,
+        "gz2023": 2041,
+        "ccqtbgz": 44443,
+        "gbznt": 393,
+        "sxhx": 4019,
+        "shengji": 1895.95,
+        "shiji": 1895.95,
+        "xjjyx": 1895.95
+      }
+    },
+    {
+      "i": 561,
+      "regionName": "铜梁县",
+      "totalInvest": {
+        "zyslfzzj": 3935,
+        "gz2023": 9458,
+        "sljz": 220,
+        "gbznt": 8494,
+        "dzxskym": 2013,
+        "sxhx": 1827.2,
+        "qt": 110,
+        "shengji": 1468,
+        "zxzq": 23000,
+        "yhdk": 1952.35,
+        "shzb": 22622.1
+      },
+      "lastInvest": {
+        "zyslfzzj": 2155,
+        "sljz": 100,
+        "gbznt": 3270,
+        "dzxskym": 498,
+        "shengji": 44,
+        "shiji": 44,
+        "yhdk": 22301
+      },
+      "completeInvest": {
+        "zyysntz": 19994.2,
+        "gz2023": 1780,
+        "ccqtbgz": 9458,
+        "gbznt": 120,
+        "dzxskym": 5224,
+        "sxhx": 1515,
+        "qtzfgz": 1827.2,
+        "shengji": 2123,
+        "shiji": 1424,
+        "xjjyx": 1424,
+        "shzb": 699
+      }
+    },
+    {
+      "i": 591,
+      "regionName": "荣昌县",
+      "totalInvest": {
+        "zyslfzzj": 11367.12,
+        "gz2023": 6811,
+        "sljz": 144,
+        "gbznt": 9151.31,
+        "dzxskym": 984,
+        "qt": 914,
+        "shengji": 2716.92,
+        "xjjyx": 90,
+        "shzb": 2073.25
+      },
+      "lastInvest": {
+        "zyslfzzj": 2145,
+        "shengji": 950.92,
+        "shiji": 950.92
+      },
+      "completeInvest": {
+        "zyysntz": 27226.43,
+        "gz2023": 9222.12,
+        "ccqtbgz": 6811,
+        "gbznt": 144,
+        "dzxskym": 9151.31,
+        "sxhx": 984,
+        "shengji": 1856,
+        "shiji": 1856,
+        "xjjyx": 1766,
+        "zxzq": 90
+      }
+    },
+    {
+      "i": 629,
+      "regionName": "璧山县",
+      "totalInvest": {
+        "zyysntz": 20000,
+        "zyslfzzj": 4015,
+        "gz2023": 3000,
+        "sljz": 50,
+        "gbznt": 2620,
+        "dzxskym": 892.25,
+        "sxhx": 2600,
+        "shengji": 13791.64,
+        "xjjyx": 7196.36,
+        "ybzq": 4200,
+        "zxzq": 4000,
+        "shzb": 28713
+      },
+      "lastInvest": {
+        "zyysntz": 20000,
+        "sxhx": 800,
+        "shengji": 15966,
+        "shiji": 12469.64,
+        "ybzq": 3496.36,
+        "zxzq": 4200,
+        "yhdk": 4000
+      },
+      "completeInvest": {
+        "zyysntz": 12377.25,
+        "gz2023": 4015,
+        "ccqtbgz": 3000,
+        "gbznt": 50,
+        "dzxskym": 2620,
+        "sxhx": 892.25,
+        "qtzfgz": 1800,
+        "shengji": 5022,
+        "shiji": 5022,
+        "xjjyx": 1322,
+        "zxzq": 3700
+      }
+    },
+    {
+      "i": 659,
+      "regionName": "梁平县",
+      "totalInvest": {
+        "zyysntz": 20000,
+        "zyslfzzj": 6521,
+        "gz2023": 68940,
+        "sljz": 140,
+        "dzxskym": 8643,
+        "sxhx": 4000,
+        "shengji": 61153,
+        "xjjyx": 20651,
+        "ybzq": 300,
+        "zxzq": 17265,
+        "shzb": 49012
+      },
+      "lastInvest": {
+        "zyysntz": 14086,
+        "zyslfzzj": 5720,
+        "dzxskym": 5794,
+        "sxhx": 1950,
+        "shengji": 66224,
+        "shiji": 45573,
+        "ybzq": 20651,
+        "yhdk": 10485
+      },
+      "completeInvest": {
+        "zyysntz": 80694,
+        "zyslfzzj": 5914,
+        "gz2023": 801,
+        "ccqtbgz": 68940,
+        "gbznt": 140,
+        "sxhx": 2849,
+        "qtzfgz": 2050,
+        "shengji": 22660,
+        "shiji": 15580,
+        "xjjyx": 15580,
+        "yhdk": 300,
+        "shzb": 6780
+      }
+    },
+    {
+      "i": 689,
+      "regionName": "城口县",
+      "totalInvest": {
+        "zyslfzzj": 12574.2,
+        "gz2023": 11520,
+        "sljz": 60,
+        "dzxskym": 1900,
+        "shengji": 17347,
+        "zxzq": 16435.2
+      },
+      "lastInvest": {
+        "zyslfzzj": 5932,
+        "shengji": 2486,
+        "shiji": 2486,
+        "yhdk": 12693.76
+      },
+      "completeInvest": {
+        "zyysntz": 20122.2,
+        "gz2023": 6642.2,
+        "ccqtbgz": 11520,
+        "gbznt": 60,
+        "sxhx": 1900,
+        "shengji": 18602.44,
+        "shiji": 14861,
+        "xjjyx": 14861,
+        "shzb": 3741.44
+      }
+    },
+    {
+      "i": 718,
+      "regionName": "丰都县",
+      "totalInvest": {
+        "zyslfzzj": 2884,
+        "gz2023": 29100,
+        "ccqtbgz": 0,
+        "dzxskym": 4703,
+        "sxhx": 36382,
+        "qt": 2032,
+        "shengji": 1021,
+        "yhdk": 13940,
+        "shzb": 215481
+      },
+      "lastInvest": {},
+      "completeInvest": {
+        "zyysntz": 75101,
+        "gz2023": 2884,
+        "ccqtbgz": 29100,
+        "sxhx": 4703,
+        "qtzfgz": 36382,
+        "shengji": 1021,
+        "shiji": 1021,
+        "xjjyx": 1021
+      }
+    },
+    {
+      "i": 746,
+      "regionName": "垫江县",
+      "totalInvest": {
+        "zyysntz": 3354,
+        "zyslfzzj": 2064,
+        "gz2023": 32050,
+        "sljz": 350,
+        "dzxskym": 4109.5,
+        "sxhx": 5688,
+        "qt": 30145,
+        "shengji": 1559,
+        "yhdk": 3500,
+        "shzb": 18626.81
+      },
+      "lastInvest": {
+        "sljz": 107,
+        "sxhx": 3409,
+        "shengji": 320,
+        "shiji": 320,
+        "shzb": 2980
+      },
+      "completeInvest": {
+        "zyysntz": 72856.5,
+        "zyslfzzj": 3354,
+        "gz2023": 2064,
+        "ccqtbgz": 32050,
+        "gbznt": 243,
+        "sxhx": 4109.5,
+        "qtzfgz": 2279,
+        "shengji": 1239,
+        "shiji": 1239,
+        "xjjyx": 1239
+      }
+    },
+    {
+      "i": 786,
+      "regionName": "武隆县",
+      "totalInvest": {
+        "zyslfzzj": 15760.68,
+        "gz2023": 17300,
+        "sljz": 160,
+        "dzxskym": 1811.5,
+        "sxhx": 27953,
+        "qt": 35,
+        "shengji": 2087.84,
+        "xjjyx": 400,
+        "ybzq": 5000,
+        "zxzq": 14994,
+        "yhdk": 5474,
+        "shzb": 44186
+      },
+      "lastInvest": {
+        "zyslfzzj": 8866.08,
+        "sxhx": 22213,
+        "shengji": 511.92,
+        "shiji": 201.92,
+        "ybzq": 310,
+        "zxzq": 5000,
+        "yhdk": 9335,
+        "shzb": 5474
+      },
+      "completeInvest": {
+        "zyysntz": 31941.1,
+        "gz2023": 6894.6,
+        "ccqtbgz": 17300,
+        "gbznt": 160,
+        "sxhx": 1811.5,
+        "qtzfgz": 5740,
+        "shengji": 7634.92,
+        "shiji": 1975.92,
+        "xjjyx": 1885.92,
+        "zxzq": 90,
+        "shzb": 5659
+      }
+    },
+    {
+      "i": 821,
+      "regionName": "忠县",
+      "totalInvest": {
+        "zyysntz": 8000,
+        "zyslfzzj": 2799,
+        "gz2023": 23970,
+        "ccqtbgz": 12000,
+        "sljz": 440,
+        "gbznt": 1365.8,
+        "dzxskym": 8598,
+        "sxhx": 177859,
+        "shengji": 10009,
+        "xjjyx": 5106,
+        "yhdk": 8500,
+        "shzb": 144225
+      },
+      "lastInvest": {
+        "zyysntz": 8000,
+        "ccqtbgz": 12000,
+        "sljz": 115,
+        "dzxskym": 530,
+        "sxhx": 126797.5,
+        "shengji": 7165,
+        "shiji": 7165,
+        "shzb": 8500
+      },
+      "completeInvest": {
+        "zyysntz": 87589.3,
+        "gz2023": 2799,
+        "ccqtbgz": 23970,
+        "gbznt": 325,
+        "dzxskym": 1365.8,
+        "sxhx": 8068,
+        "qtzfgz": 51061.5,
+        "shengji": 7950,
+        "shiji": 7950,
+        "xjjyx": 2844,
+        "zxzq": 5106
+      }
+    },
+    {
+      "i": 862,
+      "regionName": "开州区",
+      "totalInvest": {
+        "zyysntz": 1400,
+        "zyslfzzj": 1389,
+        "gz2023": 215980,
+        "sljz": 625,
+        "dzxskym": 14844,
+        "sxhx": 141296.01,
+        "qt": 19647,
+        "shengji": 22225.89,
+        "xjjyx": 7599.8,
+        "ybzq": 5000,
+        "zxzq": 4915.55,
+        "yhdk": 64001,
+        "shzb": 4100
+      },
+      "lastInvest": {
+        "gz2023": 0,
+        "sljz": 243,
+        "dzxskym": 6539,
+        "sxhx": 106882,
+        "shengji": 27119,
+        "shiji": 20529,
+        "ybzq": 6590,
+        "zxzq": 5000,
+        "yhdk": 3312.55,
+        "shzb": 62401
+      },
+      "completeInvest": {
+        "zyysntz": 261870.01,
+        "zyslfzzj": 1400,
+        "gz2023": 1389,
+        "ccqtbgz": 215980,
+        "gbznt": 382,
+        "sxhx": 8305,
+        "qtzfgz": 34414.01,
+        "shengji": 4309.69,
+        "shiji": 2706.69,
+        "xjjyx": 1696.89,
+        "zxzq": 1009.8,
+        "shzb": 1603
+      }
+    },
+    {
+      "i": 908,
+      "regionName": "云阳县",
+      "totalInvest": {
+        "zyysntz": 26290,
+        "zyslfzzj": 3778,
+        "gz2023": 240203,
+        "sljz": 290,
+        "dzxskym": 8960.6809,
+        "sxhx": 183106,
+        "qt": 1789,
+        "shengji": 30070.33,
+        "xjjyx": 1500,
+        "zxzq": 55203.71,
+        "yhdk": 19341.29,
+        "shzb": 41151.3
+      },
+      "lastInvest": {
+        "zyysntz": 26290,
+        "zyslfzzj": 1000,
+        "dzxskym": 3300.2099,
+        "sxhx": 127166,
+        "shengji": 29285,
+        "shiji": 27785,
+        "ybzq": 1500,
+        "yhdk": 55203.71,
+        "shzb": 19341.29
+      },
+      "completeInvest": {
+        "zyysntz": 306060.471,
+        "gz2023": 2778,
+        "ccqtbgz": 240203,
+        "gbznt": 290,
+        "sxhx": 5660.471,
+        "qtzfgz": 55940,
+        "shengji": 2285.33,
+        "shiji": 2285.33,
+        "xjjyx": 2285.33
+      }
+    },
+    {
+      "i": 949,
+      "regionName": "奉节县",
+      "totalInvest": {
+        "zyslfzzj": 6826.5,
+        "gz2023": 35529,
+        "dzxskym": 13833,
+        "sxhx": 151663,
+        "shengji": 4829,
+        "xjjyx": 7244.4,
+        "ybzq": 6700,
+        "zxzq": 12955,
+        "yhdk": 37796,
+        "shzb": 45964
+      },
+      "lastInvest": {
+        "zyslfzzj": 1448,
+        "dzxskym": 6500,
+        "sxhx": 94463,
+        "shengji": 9481,
+        "shiji": 4481,
+        "ybzq": 5000,
+        "zxzq": 6700,
+        "shzb": 37796
+      },
+      "completeInvest": {
+        "zyysntz": 105440.5,
+        "gz2023": 5378.5,
+        "ccqtbgz": 35529,
+        "sxhx": 7333,
+        "qtzfgz": 57200,
+        "shengji": 15547.4,
+        "shiji": 2592.4,
+        "xjjyx": 348,
+        "zxzq": 2244.4,
+        "shzb": 12955
+      }
+    },
+    {
+      "i": 992,
+      "regionName": "巫山县",
+      "totalInvest": {
+        "zyysntz": 20000,
+        "zyslfzzj": 3288,
+        "sljz": 500,
+        "dzxskym": 10069,
+        "sxhx": 79043,
+        "qt": 9899,
+        "shengji": 68466,
+        "zxzq": 7000,
+        "yhdk": 12380,
+        "shzb": 110047
+      },
+      "lastInvest": {
+        "zyysntz": 20000,
+        "zyslfzzj": 2888,
+        "dzxskym": 1600,
+        "sxhx": 26140,
+        "shengji": 66680,
+        "shiji": 66680,
+        "yhdk": 7000,
+        "shzb": 7800
+      },
+      "completeInvest": {
+        "zyysntz": 62272,
+        "gz2023": 400,
+        "gbznt": 500,
+        "sxhx": 8469,
+        "qtzfgz": 52903,
+        "shengji": 1786,
+        "shiji": 1786,
+        "xjjyx": 1786
+      }
+    },
+    {
+      "i": 1022,
+      "regionName": "巫溪县",
+      "totalInvest": {
+        "zyslfzzj": 3363,
+        "gz2023": 47720,
+        "sljz": 160,
+        "dzxskym": 2149.25,
+        "sxhx": 3891,
+        "qt": 17331,
+        "shengji": 5227.39,
+        "shiji": 300,
+        "xjjyx": 1915.18,
+        "zxzq": 5000,
+        "yhdk": 2683.26,
+        "shzb": 49352.31
+      },
+      "lastInvest": {
+        "zyslfzzj": 1632,
+        "gz2023": 1940,
+        "sxhx": 1042,
+        "shengji": 5300,
+        "shiji": 4000,
+        "xjjyx": 300,
+        "ybzq": 1000,
+        "yhdk": 5000,
+        "shzb": 2683.26
+      },
+      "completeInvest": {
+        "zyysntz": 54831.25,
+        "gz2023": 1731,
+        "ccqtbgz": 45780,
+        "gbznt": 160,
+        "sxhx": 2149.25,
+        "qtzfgz": 2849,
+        "shengji": 2142.57,
+        "shiji": 2142.57,
+        "xjjyx": 1227.39,
+        "zxzq": 915.18
+      }
+    },
+    {
+      "i": 1046,
+      "regionName": "石柱土家族自治县",
+      "totalInvest": {
+        "zyysntz": 5500,
+        "zyslfzzj": 15371,
+        "gz2023": 8790,
+        "sljz": 275,
+        "dzxskym": 5604.96,
+        "sxhx": 4816,
+        "qt": 11076,
+        "shengji": 18006,
+        "xjjyx": 575.84,
+        "zxzq": 43960,
+        "yhdk": 24826,
+        "shzb": 26902.86
+      },
+      "lastInvest": {
+        "zyysntz": 3000,
+        "zyslfzzj": 8770,
+        "sljz": 58,
+        "shengji": 7150,
+        "shiji": 7150,
+        "yhdk": 35668,
+        "shzb": 20217
+      },
+      "completeInvest": {
+        "zyysntz": 30601.96,
+        "zyslfzzj": 2500,
+        "gz2023": 6601,
+        "ccqtbgz": 8790,
+        "gbznt": 217,
+        "sxhx": 5604.96,
+        "qtzfgz": 4816,
+        "shengji": 19723.84,
+        "shiji": 11431.84,
+        "xjjyx": 10856,
+        "zxzq": 575.84,
+        "shzb": 8292
+      }
+    },
+    {
+      "i": 1080,
+      "regionName": "秀山土家族苗族自治县",
+      "totalInvest": {
+        "zyysntz": 28000,
+        "zyslfzzj": 9399,
+        "gz2023": 9800,
+        "dzxskym": 6299,
+        "shengji": 38268,
+        "xjjyx": 3274.9,
+        "zxzq": 15000,
+        "shzb": 191024.66
+      },
+      "lastInvest": {
+        "zyysntz": 23000,
+        "zyslfzzj": 2502,
+        "shengji": 26410,
+        "shiji": 26410,
+        "yhdk": 10813
+      },
+      "completeInvest": {
+        "zyysntz": 27996,
+        "zyslfzzj": 5000,
+        "gz2023": 6897,
+        "ccqtbgz": 9800,
+        "sxhx": 6299,
+        "shengji": 19319.9,
+        "shiji": 15132.9,
+        "xjjyx": 11858,
+        "zxzq": 3274.9,
+        "shzb": 4187
+      }
+    },
+    {
+      "i": 1134,
+      "regionName": "酉阳土家族苗族自治县",
+      "totalInvest": {
+        "zyysntz": 24934,
+        "zyslfzzj": 18118,
+        "gz2023": 59050,
+        "dzxskym": 4137.28,
+        "sxhx": 160,
+        "qt": 9425,
+        "shengji": 52249.72,
+        "xjjyx": 21107,
+        "zxzq": 3969,
+        "yhdk": 29119,
+        "shzb": 7308
+      },
+      "lastInvest": {
+        "zyysntz": 24934,
+        "zyslfzzj": 16108,
+        "dzxskym": 2000,
+        "sxhx": 160,
+        "shengji": 69929,
+        "shiji": 50356,
+        "ybzq": 19573,
+        "yhdk": 3969,
+        "shzb": 16439
+      },
+      "completeInvest": {
+        "zyysntz": 63717.28,
+        "gz2023": 2010,
+        "ccqtbgz": 59050,
+        "sxhx": 2137.28,
+        "shengji": 3427.72,
+        "shiji": 3427.72,
+        "xjjyx": 1893.72,
+        "zxzq": 1534
+      }
+    },
+    {
+      "i": 1172,
+      "regionName": "彭水苗族土家族自治县",
+      "totalInvest": {
+        "zyysntz": 53226,
+        "zyslfzzj": 10382,
+        "gz2023": 12900,
+        "sljz": 170,
+        "gbznt": 4120,
+        "dzxskym": 906.25,
+        "qt": 800,
+        "shengji": 58639.74,
+        "xjjyx": 63775.26,
+        "ybzq": 9500,
+        "zxzq": 12950,
+        "yhdk": 24544,
+        "shzb": 89055
+      },
+      "lastInvest": {
+        "zyysntz": 53226,
+        "zyslfzzj": 9738,
+        "shengji": 116369,
+        "shiji": 53143.74,
+        "ybzq": 63225.26,
+        "zxzq": 9500,
+        "yhdk": 6040,
+        "shzb": 24544
+      },
+      "completeInvest": {
+        "zyysntz": 19540.25,
+        "gz2023": 644,
+        "ccqtbgz": 12900,
+        "gbznt": 170,
+        "dzxskym": 4120,
+        "sxhx": 906.25,
+        "shengji": 12956,
+        "shiji": 6046,
+        "xjjyx": 5496,
+        "zxzq": 550,
+        "shzb": 6910
+      }
+    },
+    {
+      "i": 1203,
+      "regionName": "重庆市属",
+      "totalInvest": {
+        "zyysntz": 438852,
+        "zyslfzzj": 3144.1,
+        "gz2023": 43535,
+        "dzxskym": 400,
+        "sxhx": 118313,
+        "shengji": 764216.78,
+        "xjjyx": 1000,
+        "yhdk": 1046
+      },
+      "lastInvest": {
+        "zyysntz": 398852,
+        "zyslfzzj": 160,
+        "dzxskym": 150,
+        "sxhx": 68317,
+        "shengji": 605355,
+        "shiji": 605355
+      },
+      "completeInvest": {
+        "zyysntz": 136765.1,
+        "zyslfzzj": 40000,
+        "gz2023": 2984.1,
+        "ccqtbgz": 43535,
+        "sxhx": 250,
+        "qtzfgz": 49996,
+        "shengji": 159861.78,
+        "shiji": 159861.78,
+        "xjjyx": 158861.78,
+        "zxzq": 1000
+      }
+    },
+    {
+      "i": 1204,
+      "regionName": "市水投集团",
+      "totalInvest": {
+        "zyysntz": 438199,
+        "shengji": 756276
+      },
+      "lastInvest": {
+        "zyysntz": 398199,
+        "shengji": 598268,
+        "shiji": 598268
+      },
+      "completeInvest": {
+        "zyysntz": 40000,
+        "zyslfzzj": 40000,
+        "shengji": 158008,
+        "shiji": 158008,
+        "xjjyx": 158008
+      }
+    },
+    {
+      "i": 1206,
+      "regionName": "市水文局",
+      "totalInvest": {
+        "zyysntz": 653,
+        "gz2023": 6494,
+        "shengji": 7940.78
+      },
+      "lastInvest": {
+        "zyysntz": 653,
+        "shengji": 7087,
+        "shiji": 7087
+      },
+      "completeInvest": {
+        "zyysntz": 6494,
+        "ccqtbgz": 6494,
+        "shengji": 853.78,
+        "shiji": 853.78,
+        "xjjyx": 853.78
+      }
+    },
+    {
+      "i": 1214,
+      "regionName": "重庆市级项目",
+      "totalInvest": {
+        "zyslfzzj": 3144.1,
+        "dzxskym": 400,
+        "sxhx": 118313
+      },
+      "lastInvest": {
+        "zyslfzzj": 160,
+        "dzxskym": 150,
+        "sxhx": 68317
+      },
+      "completeInvest": {
+        "zyysntz": 53230.1,
+        "gz2023": 2984.1,
+        "sxhx": 250,
+        "qtzfgz": 49996
+      }
+    },
+    {
+      "i": 1225,
+      "regionName": "运管处",
+      "totalInvest": {
+        "gz2023": 37041,
+        "xjjyx": 1000,
+        "yhdk": 1046
+      },
+      "lastInvest": {},
+      "completeInvest": {
+        "zyysntz": 37041,
+        "ccqtbgz": 37041,
+        "shengji": 1000,
+        "shiji": 1000,
+        "zxzq": 1000
+      }
+    }
+  ]
+}

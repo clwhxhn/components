@@ -1,0 +1,34 @@
+.primary-text {
+  // 主题色文本 可通过在父容器中定义主题色变量修改颜色
+  color: var(--primary-color, #00ffff);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.arrow-icon {
+  width: 4px;
+  height: 10px;
+  background-size: 100% 100%;
+  &.arrow-up {
+    background-image: url(~@/assets/images-new/common/arrow-up.png);
+  }
+  &.arrow-down {
+    background-image: url(~@/assets/images-new/common/arrow-down.png);
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable-arrow {
+  vertical-align: middle;
+  display: inline-block;
+  width: 16px;
+  height: 14px;
+  margin-left: 4px;
+  background-image: url(~@/assets/images-new/common/arrow.png);
+  background-size: 100% 100%;
+}
