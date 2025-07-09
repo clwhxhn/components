@@ -1,8 +1,17 @@
 <template>
   <div class="header-wrapper">
-    <div class="header-text" @click="titleClick">标题</div>
+    <div class="header-text" @click="titleClick">水利工程规划建设管理</div>
     <div class="time-text">
       {{ time }}
+
+      <span class="person-text">
+        当前在线用户数<span class="primary-text"
+          >{{ personInfo.currOnline }}个</span
+        >
+        月度活跃用户数<span class="primary-text"
+          >{{ personInfo.monthActive }}个</span
+        >
+      </span>
     </div>
     <div class="weather-text"></div>
     <DivisionSelect></DivisionSelect>
@@ -21,6 +30,11 @@ export default {
     return {
       time: "",
       timer: null,
+      // todo: 对接接口
+      personInfo: {
+        currOnline: 1,
+        monthActive: 20,
+      },
     };
   },
   mounted() {

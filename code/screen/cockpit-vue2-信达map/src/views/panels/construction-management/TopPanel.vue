@@ -1,7 +1,126 @@
 <template>
   <transition name="translate">
     <div v-show="!collapseTop" class="top-panel-content">
-      <span style="color: #fff">top</span>
+      <div class="kpi-section">
+        <SectionHeader>KPI(2027年目标)</SectionHeader>
+        <div class="section-content">
+          <div
+            @click="openWaterSupplyModal"
+            class="content-item pl-40 clickable"
+          >
+            <div class="item-row item-title">供水安全系数</div>
+            <div class="item-row">
+              <span class="value-pair">
+                <span>现状：</span>
+                <span class="primary-text">1.12</span>
+                <span class="clickable-arrow"></span>
+              </span>
+              <span class="value-pair ml-15">
+                <span>目标：</span>
+                <span class="primary-text">1.14</span>
+                <span class="clickable-arrow"></span>
+              </span>
+            </div>
+          </div>
+          <div
+            @click="openWaterUtilizeModal"
+            class="content-item pl-60 clickable"
+          >
+            <div class="item-row item-title">水资源开发利用率</div>
+            <div class="item-row">
+              <span class="value-pair">
+                <span>现状：</span>
+                <span class="primary-text">41%</span>
+                <span class="clickable-arrow"></span>
+              </span>
+              <span class="value-pair ml-15">
+                <span>目标：</span>
+                <span class="primary-text">54%</span>
+                <span class="clickable-arrow"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="kpi-section">
+        <div class="section-header">
+          <SectionHeader>基础数据</SectionHeader>
+        </div>
+        <div class="section-content">
+          <div class="content-item flex">
+            <div
+              class="data-pair-ver clickable ml-10"
+              @click="handleProjectLayer(1)"
+            >
+              <div class="item-title">在建水源工程</div>
+              <span class="value-pair">
+                <item-value
+                  :value="bottomDataSource.wrEngTotalNum"
+                  unit="个"
+                  show-arrow
+                ></item-value>
+              </span>
+            </div>
+            <div class="divider ml-10"></div>
+            <div
+              class="data-pair-ver clickable ml-12"
+              @click="handleProjectLayer(2)"
+            >
+              <div class="item-title">大型</div>
+              <item-value
+                :value="bottomDataSource.wrEngBigNum"
+                unit="个"
+              ></item-value>
+            </div>
+            <div
+              class="data-pair-ver clickable ml-18"
+              @click="handleProjectLayer(3)"
+            >
+              <div class="item-title">中型</div>
+              <item-value
+                :value="bottomDataSource.wrEngMiddleNum"
+                unit="个"
+              ></item-value>
+            </div>
+            <div
+              class="data-pair-ver clickable ml-18"
+              @click="handleProjectLayer(4)"
+            >
+              <div class="item-title">小型</div>
+              <item-value
+                :value="bottomDataSource.wrEngSmallNum"
+                unit="个"
+              ></item-value>
+            </div>
+          </div>
+          <div class="content-item flex">
+            <div class="data-pair-ver ml-10">
+              <div class="item-title">在建江河治理</div>
+              <span class="value-pair">
+                <item-value
+                  :value="58"
+                  unit="个"
+                ></item-value>
+              </span>
+            </div>
+            <div class="divider ml-10"></div>
+            <div class="data-pair-ver ml-12">
+              <div class="item-title">大江大河</div>
+              <item-value
+                :value="6"
+                unit="个"
+              ></item-value>
+            </div>
+            <div class="data-pair-ver ml-20">
+              <div class="item-title">中小河流</div>
+              <item-value
+                :value="52"
+                unit="个"
+              ></item-value>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </transition>
 </template>
@@ -18,7 +137,9 @@ import { getAction } from "@/utils";
 export default {
   name: "TopPanel",
   mixins: [SchintaMapHelp()],
-  components: {},
+  components: {
+    SectionHeader,
+  },
   computed: paramsGetters(["regionId", "collapseTop"]),
   data() {
     return {

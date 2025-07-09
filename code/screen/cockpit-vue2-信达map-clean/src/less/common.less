@@ -1,0 +1,422 @@
+@font-face {
+  font-family: "YouSheBiaoTiHei";
+  src: url("./fonts/YouSheBiaoTiHei.ttf");
+}
+
+@font-face {
+  font-family: "D-DIN-DIN";
+  src: url("./fonts/D-DIN-Bold.otf");
+}
+
+@import "./title.less";
+
+@import "./abbreviation.less";
+
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+
+p {
+  margin: 0;
+}
+
+.common-flex-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.common-kpi-card-v1 {
+  position: relative;
+  background-size: 42px 100%;
+  background-image: url("~@/assets/images/construction-management/kpi-bg-3.png");
+  padding-left: 41px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 41px;
+    height: 100%;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    content: attr(titleText);
+    writing-mode: vertical-rl;
+    letter-spacing: 0.2em;
+    text-align: center;
+    line-height: 41px;
+  }
+}
+
+.common-kpi-card-v4 {
+  position: relative;
+  background-size: 48px 100%;
+  background-image: url("~@/assets/images/construction-management/kpi-bg-3.png");
+  padding-left: 48px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 100%;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    content: attr(titleText);
+    // writing-mode: vertical-rl;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.common-kpi-card-v2 {
+  position: relative;
+  background-size: 100% 100%;
+  background-image: url("~@/assets/images/construction-management/kpi-bg-2.png");
+  padding-left: 40px;
+  overflow: hidden;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 100%;
+    font-weight: 500;
+    font-size: 18px;
+    color: #ffffff;
+    text-shadow: 0px 4px 4px #0056ff;
+    content: attr(titleText);
+    writing-mode: vertical-rl;
+    letter-spacing: 0.2em;
+    text-align: center;
+    line-height: 40px;
+  }
+}
+.common-kpi-card-v3 {
+  position: relative;
+  background-size: 100% 100%;
+  background-image: url("~@/assets/images/construction-management/kpi-bg-14.png");
+  padding-left: 32px;
+  overflow: hidden;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 100%;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ffffff;
+    text-shadow: 0px 4px 4px #0056ff;
+    content: attr(titleText);
+    writing-mode: vertical-rl;
+    letter-spacing: 0.2em;
+    text-align: center;
+    line-height: 32px;
+  }
+}
+
+.common-search-content {
+  display: flex;
+  justify-content: space-between;
+  .common-search-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .common-search-btns {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    .common-search-btn {
+      margin-right: 10px;
+      width: 80px;
+      height: 32px;
+      text-align: center;
+      line-height: 32px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #ddf8ff;
+      background-size: 100% 100%;
+      background-image: url("~@/assets/images/common/search-btn.png");
+      cursor: pointer;
+      &:hover {
+        color: #00ffff;
+      }
+      &.primary {
+        background-image: url("~@/assets/images/common/search-btn-primary.png");
+        &:hover {
+          color: #f5e74f;
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .common-search-label {
+    font-weight: 400;
+    font-size: 16px;
+    color: #ffffff;
+  }
+
+  .ant-input {
+    border-radius: 2px 2px 2px 2px;
+    border: 1px solid #0783fa;
+    background: rgba(0, 36, 73, 0.6);
+    box-shadow: inset 0px 0px 4px 0px #2296f0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: #72daff;
+    &::placeholder {
+      color: #72daff;
+    }
+  }
+
+  .ant-select {
+    color: #72daff;
+    &::placeholder {
+      color: #72daff;
+    }
+    .ant-select-selection {
+      border-radius: 2px 2px 2px 2px;
+      border: 1px solid #0783fa;
+      background: rgba(0, 36, 73, 0.6);
+      box-shadow: inset 0px 0px 4px 0px #2296f0;
+      .ant-select-arrow {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.common-dark-table {
+  flex: 1;
+  font-weight: 600;
+  font-size: 14px;
+  .ant-table {
+    color: #ffffff !important;
+  }
+  .ant-table-small {
+    border: none;
+  }
+  .ant-table-small > .ant-table-content > .ant-table-body {
+    margin: 0;
+  }
+  .ant-table-thead {
+    background: #00679b;
+    background-image: url("~@/assets/images/common/table/th-bg.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .ant-table-hide-scrollbar,
+  .ant-table-body {
+    &::-webkit-scrollbar {
+      display: none !important;
+    }
+  }
+
+  .ant-table-fixed-header .ant-table-scroll .ant-table-header {
+    // padding-bottom: 8px !important;
+  }
+  .ant-table-header {
+    background: none;
+    padding-bottom: 20px !important;
+  }
+  .ant-table-header-column {
+    color: #7dc9ff;
+  }
+  .ant-table-thead > tr > th {
+    background: none;
+    color: #ffffff;
+    border-bottom: none;
+  }
+  .ant-table-placeholder {
+    background: none;
+    color: #ffffff;
+    border: none !important;
+  }
+
+  .ant-empty-description {
+    color: #ffffff;
+  }
+
+  .ant-table-body {
+    background: none !important;
+  }
+  .ant-table-tbody
+    > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)
+    > td {
+    background: rgba(64, 137, 226, 0.5);
+  }
+
+  .ant-table-tbody > tr {
+    margin: 3px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    background-image: url("~@/assets/images/common/table/tr-bg.png");
+    background-size: 100% calc(100% - 2px);
+    background-repeat: no-repeat;
+    background-position: 0 1px;
+    &.active {
+      box-shadow: inset 0px -4px 4px 0px rgba(8, 206, 249, 0.5);
+      color: #00ffff;
+    }
+  }
+
+  .ant-table-tbody > tr > td {
+    border-top: 1px solid rgba(0, 0, 0, 0) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0) !important;
+  }
+  .ant-table-tbody > tr > td:first-child {
+    // border-left: 1px solid #0079c2;
+    border-left: none;
+    border-radius: 4px 0 0 4px;
+  }
+  .ant-table-tbody > tr > td:last-child {
+    border-right: 1px solid rgba(0, 0, 0, 0) !important;
+    border-radius: 0 4px 4px 0;
+  }
+  .ant-table-tbody > tr > td {
+    padding: 6px 3px !important;
+  }
+  .ant-table-pagination.ant-pagination {
+    margin: 10px 0 5px 0;
+  }
+
+  .ant-pagination-item {
+    background: rgba(30, 56, 101, 0.4);
+    box-shadow: inset 0px -2px 3px 0px rgba(0, 123, 230, 0.51);
+    border-radius: 4px 4px 4px 4px;
+    opacity: 1;
+    border: 1px solid #0047a5;
+    margin-left: 8px;
+    a {
+      color: #3ebcee;
+    }
+  }
+  .ant-pagination-item-active {
+    background: rgba(30, 56, 101, 0.4);
+    box-shadow: inset 0px -2px 3px 0px rgba(0, 123, 230, 0.51);
+    border-radius: 4px 4px 4px 4px;
+    opacity: 1;
+    border: 1px solid #3ebcee;
+    a {
+      color: #3ebcee;
+    }
+  }
+  .ant-pagination-item-ellipsis {
+    color: #3ebcee;
+  }
+  .ant-pagination-prev {
+    margin-right: 3px !important;
+
+    .ant-pagination-item-link {
+      transition: all 0ms !important;
+      color: rgba(0, 0, 0, 0);
+      transform: rotate(180deg);
+      background-size: 24px 24px !important;
+      background-image: url("~@/assets/images/common/table/next.png") !important;
+    }
+    &:hover {
+      .ant-pagination-item-link {
+        transform: rotate(0deg);
+        background-size: 24px 30px !important;
+        background-position: 0 -3px !important;
+        background-image: url("~@/assets/images/common/table/pre.png") !important;
+      }
+    }
+  }
+  .ant-pagination-next {
+    margin-left: 3px !important;
+    .ant-pagination-item-link {
+      transition: all 0ms !important;
+      color: rgba(0, 0, 0, 0);
+      background-size: 24px 24px !important;
+      background-image: url("~@/assets/images/common/table/next.png") !important;
+    }
+    &:hover {
+      .ant-pagination-item-link {
+        transform: rotate(180deg);
+        background-size: 24px 30px !important;
+        background-position: 0 -3px !important;
+        background-image: url("~@/assets/images/common/table/pre.png") !important;
+      }
+    }
+  }
+  .ant-empty-description {
+    color: #fff;
+  }
+  .ant-table-placeholder {
+    background: transparent !important;
+    border: none;
+  }
+}
+
+.common-card-dark {
+  background: rgba(0, 41, 89, 0.64);
+  border: 1px solid;
+  border-image: linear-gradient(
+      277deg,
+      rgba(55, 155, 255, 1),
+      rgba(36, 95, 209, 0),
+      rgba(80, 137, 248, 0.76)
+    )
+    1 1;
+  position: relative;
+  transition: all 1s;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+    pointer-events: none;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+    pointer-events: none;
+  }
+  &:hover {
+    background: rgba(0, 41, 89, 0);
+    &::before {
+      background: rgba(0, 71, 155, 0.64);
+      z-index: 0;
+    }
+    &::after {
+      border: 1px solid;
+      box-shadow: 2px 3px 5px 2px rgba(0, 143, 195, 0.4);
+      border-image: linear-gradient(
+          181deg,
+          rgba(114, 218, 255, 0.08),
+          rgba(0, 255, 255, 1)
+        )
+        2 2;
+      z-index: 2;
+    }
+  }
+}

@@ -1,19 +1,22 @@
 <template>
   <transition name="translate">
     <div class="bottom-panel" v-show="!collapseBottom">
-        <span style="color: #fff;">底部</span>
+      <!-- 风险管控仓 -->
+      <RiskControlWarehouse></RiskControlWarehouse>
     </div>
   </transition>
 </template>
 
 <script>
 import { SchintaMapHelp } from "schinta-map";
+import RiskControlWarehouse from "./components/RiskControlWarehouse.vue";
 import { paramsGetters } from "@/utils/map-helper";
 export default {
   name: "BottomPanel",
   mixins: [SchintaMapHelp()],
 
   components: {
+    RiskControlWarehouse,
   },
   data() {
     return {};

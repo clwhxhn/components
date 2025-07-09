@@ -21,7 +21,7 @@
         </template>
       </div>
     </div>
-    <!-- <div @click.stop="handleJumpBiz" class="arrow-tag">进入业务系统</div> -->
+    <div @click.stop="handleJumpBiz" class="arrow-tag">进入业务系统</div>
   </div>
 </template>
 

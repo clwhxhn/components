@@ -1,0 +1,113 @@
+<template>
+  <div>
+    <ProjectLayerX
+      :list="showData"
+      :params="params"
+      @refresh="getData"
+      :minZoom="minZoom"
+      :cluster="cluster"
+      @clusterClick="clusterClick"
+    ></ProjectLayerX>
+  </div>
+</template>
+
+<script>
+import { SchintaMapHelp } from "schinta-map";
+import ProjectLayerX from "./ProjectLayerX.vue";
+import { getAction } from "@/utils";
+import { getProjectList } from "@/views/panels/construction-management/mock/mock";
+import { CQ_REGION_ID, paramsGetters } from "@/utils/map-helper";
+import { compareShallow } from "../../../utils/object";
+export default {
+  name: "ProjectLayer",
+  mixins: [SchintaMapHelp()],
+  components: {
+    ProjectLayerX,
+  },
+  data() {
+    return {
+      dataSource: [],
+      params: {},
+      oldQueryParams: null,
+    };
+  },
+  computed: {
+    cluster() {
+      return this.mapParamsValue$.regionId !== CQ_REGION_ID ? 40 : 0;
+    },
+    minZoom() {
+      return this.mapParamsValue$.regionId !== CQ_REGION_ID
+        ? 0
+        : this.mapParamsValue$.visibleZoom;
+    },
+    currentMenu() {
+      return this.mapParamsValue$.currentMenu;
+    },
+    regionId() {
+      return this.mapParamsValue$.regionId;
+    },
+    reservoirMap() {
+      return this.mapParamsValue$.reservoirMap || {};
+    },
+    showData() {
+      return (this.dataSource || []).filter((i) => {
+        return (
+          this.regionId === CQ_REGION_ID ||
+          i.properties.regionId === this.regionId ||
+          i.properties.addvcd === this.regionId
+        );
+      });
+    },
+    ...paramsGetters(["projectLayerQueryParams"]),
+  },
+  watch: {
+    projectLayerQueryParams: {
+      handler() {
+        if (compareShallow(this.oldQueryParams, this.projectLayerQueryParams))
+          return;
+        this.oldQueryParams = JSON.parse(
+          JSON.stringify(this.projectLayerQueryParams)
+        );
+        this.getData();
+      },
+      immediate: true,
+    },
+  },
+
+  methods: {
+    clusterClick(val) {
+      if (val.features.length > 1) {
+        const coordinate = val.event.coordinate;
+        const zoom = this.getMapInstance$().getView().getZoom();
+        this.flyTo$(coordinate, {
+          maxZoom: zoom + 2,
+        });
+        this.getOverlayController$().clearOverlayGroup();
+      }
+    },
+    getData() {
+      this.dataSource = [];
+      getAction("/pcm/pcm.map/queryBasicWrEngMap", {
+        ...this.projectLayerQueryParams,
+      }).then((res) => {
+        res.result.forEach((it) => {
+          it.engList.forEach((it) => {
+            if (!it.lon || !it.lat) return;
+            this.dataSource.push({
+              geometry: {
+                type: "Point",
+                coordinates: [+it.lon, +it.lat],
+              },
+              properties: {
+                ...it,
+              },
+            });
+          });
+        });
+      });
+    },
+  },
+};
+</script>
+
+<style scoped></style>
