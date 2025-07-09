@@ -214,19 +214,83 @@ export default {
       });
     },
     queryTableData() {
-      this.tableLoading = true;
-      getAction("/pcm/pcm.map/pagePlan", {
-        planLevel: this.activeTab == "city" ? "20" : "10",
-        pageSize: 9999,
-        planStatus: this.activeStatus,
-        regionId: this.regionId,
-      })
-        .then((res) => {
-          this.tableData = res.result.records;
-        })
-        .finally(() => {
-          this.tableLoading = false;
-        });
+      //   this.tableLoading = true;
+      //   getAction("/pcm/pcm.map/pagePlan", {
+      //     planLevel: this.activeTab == "city" ? "20" : "10",
+      //     pageSize: 9999,
+      //     planStatus: this.activeStatus,
+      //     regionId: this.regionId,
+      //   })
+      //     .then((res) => {
+      //       this.tableData = res.result.records;
+      //     })
+      //     .finally(() => {
+      //       this.tableLoading = false;
+      //     });
+      this.tableData = [
+        {
+          id: "864401650142584832",
+          createBy: "fe76f76c40a04a509fe17a563243fff9",
+          createTime: "2025-07-01 15:04:55",
+          updateBy: null,
+          updateTime: null,
+          name: "20250701",
+          code: "20250701",
+          pid: null,
+          category: "20",
+          category_dictText: "专业规划",
+          planNature: "10",
+          planNature_dictText: "新编规划",
+          planRange: "20",
+          planRange_dictText: "流域规划",
+          planFunction: "20",
+          planFunction_dictText: "发展规划",
+          planLimitStartYear: 2023,
+          planLimitEndYear: 2027,
+          baseYear: 2023,
+          standardYear: 2024,
+          planLevel: "20",
+          planLevel_dictText: "市级",
+          regionId: "534996",
+          regionId_dictText: "重庆市",
+          regionName: null,
+          dutyDeptId: "100",
+          dutyDeptId_dictText: "重庆市水利局",
+          dutyDeptName: "重庆市水利局",
+          izMiddleEvaluate: "1",
+          izMiddleEvaluate_dictText: "是",
+          izYearEvaluate: "1",
+          izYearEvaluate_dictText: "是",
+          izEndEvaluate: "1",
+          izEndEvaluate_dictText: "是",
+          planBasis:
+            "规划依据规划依据规划依据规划依据规划依据规划依据规划依据规划依据规划依据规划依据规划依据规划依据规划依据规划依据规划依据规划依据规划依据",
+          planStartDate: "2025-07-08",
+          planEndDate: "2025-07-24",
+          leaderDeptId: null,
+          planProgress: "20",
+          planProgress_dictText: "正在编制",
+          registerDate: "2025-07-01",
+          status: "10",
+          status_dictText: "正在编制",
+          targetYear: "2028",
+          izDel: 0,
+          approveDept: null,
+          approveDocCode: null,
+          approveDate: null,
+          targetList: null,
+          availableDays: null,
+          num: null,
+          sonTaskNum: null,
+          unDoTaskNum: null,
+          doingTaskNum: null,
+          doneTaskNum: null,
+          collectNoticeId: null,
+          investAmount: null,
+          validatePublish: null,
+          planEngineeringDataList: null,
+        },
+      ];
     },
   },
 };

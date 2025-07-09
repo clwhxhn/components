@@ -142,23 +142,86 @@ export default {
         regionId: this.regionId,
         typ: this.typ,
       }).then((res) => {
-        this.kpiList.forEach((it) => {
-        });
+        this.kpiList.forEach((it) => {});
       });
     },
     queryTableData() {
-      this.tableLoading = true;
-      getAction("/pcm/pcm.map/queryWrEngineeringList", {
-        regionId: this.regionId,
-        typ: this.typ,
-        status: this.status,
-      })
-        .then((res) => {
-          this.tableData = res.result;
-        })
-        .finally(() => {
-          this.tableLoading = false;
-        });
+      //   this.tableLoading = true;
+      //   getAction("/pcm/pcm.map/queryWrEngineeringList", {
+      //     regionId: this.regionId,
+      //     typ: this.typ,
+      //     status: this.status,
+      //   })
+      //     .then((res) => {
+      //       this.tableData = res.result;
+      //     })
+      //     .finally(() => {
+      //       this.tableLoading = false;
+      //     });
+      this.tableData = [
+        {
+          id: "6",
+          createBy: "fe76f76c40a04a509fe17a563243fff15",
+          createTime: "2025-01-24 00:00:00",
+          updateBy: "fe76f76c40a04a509fe17a563243fff9",
+          updateTime: "2025-07-02 19:02:34",
+          typ: "2041",
+          typ_dictText: "水库",
+          code: "2023-500101-WS-72625-X",
+          name: "石笋沟水库",
+          simpleName: "",
+          registerNum: null,
+          registerDate: null,
+          wrLevel: null,
+          location: "重庆市万州区",
+          waterPartName: null,
+          locateRiver: "",
+          addvcd: "534997",
+          addvcd_dictText: "重庆市万州区",
+          manageDeptCode: "万州区水利局",
+          manageDeptCode_dictText: "",
+          legalDeptCode: "重庆长江水务集团有限公司",
+          legalDeptCode_dictText: "",
+          maintainDeptCode: null,
+          establishedDate: null,
+          izOver: null,
+          description: "",
+          engScal: "4",
+          engScal_dictText: "小(1)型",
+          status: "20",
+          status_dictText: "已开工",
+          izFloodWarn: "0",
+          izFloodWarn_dictText: "否",
+          lon: 108.455619,
+          lat: 30.818098,
+          locatedBasinRiver: "",
+          designDeptName: "",
+          supervisionDeptName: "",
+          constructionDeptName: "",
+          plannedComDate: null,
+          actualComDate: null,
+          plannedCompletionDate: null,
+          actualCompletionDate: null,
+          acceptanceDate: null,
+          totalInvestment: 16398.66,
+          izDel: 0,
+          validateFields: null,
+          mergerName: null,
+          planAmount: null,
+          actualAmount: null,
+          actualRate: null,
+          maintainCount: null,
+          resFeature: null,
+          wagaFeature: null,
+          pustFeature: null,
+          irrFeature: null,
+          wvstFeature: null,
+          relList: null,
+          num: null,
+          column: null,
+          order: null,
+        },
+      ];
     },
     handleClickItem(it) {
       const status = it.status.join(",");

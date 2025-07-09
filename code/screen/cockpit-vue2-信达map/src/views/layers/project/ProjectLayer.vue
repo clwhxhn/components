@@ -18,6 +18,8 @@ import { getAction } from "@/utils";
 import { getProjectList } from "@/views/panels/construction-management/mock/mock";
 import { CQ_REGION_ID, paramsGetters } from "@/utils/map-helper";
 import { compareShallow } from "../../../utils/object";
+import { getQueryBasicWrEngMap } from '@/views/panels/construction-management/mock'
+
 export default {
   name: "ProjectLayer",
   mixins: [SchintaMapHelp()],
@@ -87,10 +89,7 @@ export default {
     },
     getData() {
       this.dataSource = [];
-      getAction("/pcm/pcm.map/queryBasicWrEngMap", {
-        ...this.projectLayerQueryParams,
-      }).then((res) => {
-        res.result.forEach((it) => {
+         getQueryBasicWrEngMap().forEach((it) => {
           it.engList.forEach((it) => {
             if (!it.lon || !it.lat) return;
             this.dataSource.push({
@@ -104,7 +103,6 @@ export default {
             });
           });
         });
-      });
     },
   },
 };

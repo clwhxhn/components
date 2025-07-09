@@ -11,6 +11,9 @@ import waterSupplyDetails from "./waterSupplyDetails.json";
 import evaluativeDimensionWaterSupply from "./evaluativeDimensionWaterSupply.json";
 import waterUtilizeDetails from "./waterUtilizeDetails.json";
 import evaluativeDimensionWaterUtilize from "./evaluativeDimensionWaterUtilize.json";
+import queryBasicWrEngMap from './queryBasicWrEngMap.json'
+import queryPlanMapEng from './queryPlanMapEng.json'
+import queryWrEngineeringMap from './queryWrEngineeringMap.json'
 
 const projectList = require("./projectList.json");
 
@@ -125,4 +128,17 @@ export function getWaterUtilizeDetails() {
 
 export function getEvaluativeDimensionWaterUtilize() {
   return Promise.resolve(evaluativeDimensionWaterUtilize);
+}
+
+
+export function getQueryBasicWrEngMap() {
+  return Promise.resolve(queryBasicWrEngMap);
+}
+
+export function getQueryPlanMapEng() {
+  return Promise.resolve(queryPlanMapEng);
+}
+
+export function getQueryWrEngineeringMap() {
+  return Promise.resolve(queryWrEngineeringMap);
 }

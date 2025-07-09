@@ -21,6 +21,8 @@ import division from "@/assets/json/division.json";
 import { getProjectStatisticByRegion } from "@/views/panels/construction-management/mock/mock";
 import { CQ_REGION_ID, paramsGetters } from "@/utils/map-helper";
 import { compareShallow } from "../../../utils/object";
+import { getQueryBasicWrEngMap } from '@/views/panels/construction-management/mock'
+
 export default {
   name: "CountLayer",
   mixins: [SchintaMapHelp()],
@@ -95,10 +97,8 @@ export default {
   mounted() {},
   methods: {
     getData() {
-      getAction("/pcm/pcm.map/queryBasicWrEngMap", {
-        ...this.projectLayerQueryParams,
-      }).then((res) => {
-        this.list = res.result
+         getQueryBasicWrEngMap().then(res => {
+        this.list = res
           .map((item) => {
             if (item.engList.length == 0) return null;
             const region = division[item.regionId];
@@ -116,7 +116,8 @@ export default {
             };
           })
           .filter(Boolean);
-      });
+         })
+
     },
     isRegionMatch(prop, resolution) {
       return (

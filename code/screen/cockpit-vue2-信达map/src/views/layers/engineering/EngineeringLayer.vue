@@ -24,6 +24,7 @@ import { SchintaMapLayerGeo } from "schinta-map";
 import { SchintaMapHelp } from "schinta-map";
 import { getAction } from "@/utils";
 import EngineeringOverlay from "./EngineeringOverlay.vue";
+import { getQueryPlanMapEng } from "@/views/panels/construction-management/mock";
 
 export default {
   name: "EngineeringLayer",
@@ -86,24 +87,22 @@ export default {
   methods: {
     getData() {
       this.list = [];
-      getAction("/pcm/pcm.map/queryPlanMapEng", {
-        planId: this.planId,
-      }).then((res) => {
-        res.result.forEach((it) => {
-          it.engList.forEach((it) => {
-            if (!it.longitude || !it.latitude) return;
-            this.list.push({
-              geometry: {
-                type: "Point",
-                coordinates: [+it.longitude, +it.latitude],
-              },
-              properties: {
-                ...it,
-              },
-            });
+      getQueryPlanMapEng().then(res => {
+        res.forEach((it) => {
+        it.engList.forEach((it) => {
+          if (!it.longitude || !it.latitude) return;
+          this.list.push({
+            geometry: {
+              type: "Point",
+              coordinates: [+it.longitude, +it.latitude],
+            },
+            properties: {
+              ...it,
+            },
           });
         });
       });
+      })
     },
     /**
      * @description: 更新图层

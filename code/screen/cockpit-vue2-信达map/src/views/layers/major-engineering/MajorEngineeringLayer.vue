@@ -15,7 +15,7 @@
 import { SchintaMapHelp } from "schinta-map";
 import MajorEngineeringLayerX from "./MajorEngineeringLayerX.vue";
 import { getAction } from "@/utils";
-import { getProjectList } from "@/views/panels/construction-management/mock/mock";
+import { getProjectList, getQueryWrEngineeringMap } from "@/views/panels/construction-management/mock/mock";
 import { CQ_REGION_ID, paramsGetters } from "@/utils/map-helper";
 import { requestWithCache } from "@/utils/pre-request/pre-request";
 export default {
@@ -72,10 +72,8 @@ export default {
     },
     getData() {
       this.dataSource = [];
-      requestWithCache({
-        url: "/pcm/pcm.map/queryWrEngineeringMap",
-      }).then((res) => {
-        res.result.forEach((it) => {
+       getQueryWrEngineeringMap().then(res => {
+        res.forEach((it) => {
           it.engList.forEach((it) => {
             if (!it.lon || !it.lat) return;
             this.dataSource.push({
@@ -89,7 +87,7 @@ export default {
             });
           });
         });
-      });
+       })
     },
   },
 };
