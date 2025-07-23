@@ -125,6 +125,8 @@
     <div class="chart-box-multiple">
       <BEcharts :option="multipleOption2"></BEcharts>
     </div>
+
+    <demo />
   </div>
 </template>
 
@@ -143,6 +145,7 @@ import PieChart1 from "./components/PieChart1";
 import ChartMap from "./components/ChartMap";
 import PieChartDemo1 from "@/components/chart/PieChartDemo1.vue";
 import { lineChartOpt } from "./chart.js";
+import demo from './demo.vue'
 
 import {
   rainChart,
@@ -179,6 +182,7 @@ export default {
     ChartMap,
     PieChartDemo1,
     XFTEcharts,
+    demo
   },
   data() {
     return {
