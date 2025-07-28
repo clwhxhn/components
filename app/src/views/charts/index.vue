@@ -127,6 +127,9 @@
     </div>
 
     <demo />
+     <div class="chart-box-multiple">
+      <BEcharts :option="multipleOption3"></BEcharts>
+    </div>
   </div>
 </template>
 
@@ -164,6 +167,7 @@ import {
   lineOpt1,
   multipleOption,
   multipleOption2,
+  multipleOption3
 } from "./chart";
 
 const rainXiaoyu = require("@/assets/img/water-disasters-defense/rain-xiaoyu.png"); // 监测-小雨
@@ -202,6 +206,7 @@ export default {
       lineOpt1,
       multipleOption,
       multipleOption2,
+      multipleOption3
     };
   },
   created() {
