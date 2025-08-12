@@ -1,0 +1,38 @@
+{
+  "name": "high-time-player",
+  "version": "1.0.0",
+  "description": "一个功能强大的时间播放器组件，基于 ant-design-vue 的 Slider 组件开发",
+  "main": "index.js",
+  "keywords": [
+    "vue",
+    "vue2",
+    "time-player",
+    "timeline",
+    "slider",
+    "ant-design-vue",
+    "cache",
+    "player"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.0",
+    "ant-design-vue": "^1.7.0 || ^3.0.0",
+    "dayjs": "^1.11.0"
+  },
+  "files": [
+    "index.vue",
+    "index.js",
+    "demo.vue",
+    "example.vue",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "your-repository-url"
+  },
+  "bugs": {
+    "url": "your-repository-url/issues"
+  },
+  "homepage": "your-repository-url#readme"
+}
