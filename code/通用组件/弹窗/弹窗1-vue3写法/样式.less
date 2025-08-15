@@ -1,0 +1,61 @@
+div.dialog-wrap {
+    .ant-modal-content {
+        background: url('@/assets/images/common/modal-bg.png') no-repeat no-repeat;
+        background-size: 100% 100%;
+        padding: 0 10px;
+
+        .ant-modal-header {
+            background: url('@/assets/images/common/header-bg.png') no-repeat no-repeat;
+            background-size: auto 55%;
+            background-position-x: calc(100% - 44px);
+            border-bottom: 1px solid #5884B0;
+            position: relative;
+            padding: 20px 14px 16px;
+
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 6.8%;
+                height: 2px;
+                background-color: rgba(74, 147, 255, 1);
+                position: absolute;
+                left: 36%;
+                bottom: -1px;
+            }
+        }
+
+        .ant-modal-body {
+            padding: 16px;
+        }
+
+        .ant-modal-title {
+            font-family: YouSheBiaoTiHei, YouSheBiaoTiHei;
+            font-weight: 400;
+            font-size: 22px;
+            color: #ffffff;
+        }
+
+        .ant-modal-footer {
+            border: none;
+        }
+    }
+
+    .ant-modal-close-icon {
+        width: 36px;
+        height: 36px;
+        background: url('@/assets/images/common/icon-modal-close.png') no-repeat no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        top: 4px;
+        right: -8px;
+
+        svg {
+            display: none;
+        }
+    }
+}
+
+
+.ant-modal-mask {
+    background-color: rgba(0, 0, 0, 0.25);
+}
